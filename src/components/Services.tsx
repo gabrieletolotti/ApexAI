@@ -1,0 +1,80 @@
+
+import { Brain, Cog, Database, MessageSquare, BarChart3, Shield } from 'lucide-react';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+
+const Services = () => {
+  const services = [
+    {
+      icon: Brain,
+      title: "Intelligenza Artificiale Personalizzata",
+      description: "Sviluppiamo modelli AI su misura per le esigenze specifiche della tua azienda, ottimizzando processi e decisioni strategiche.",
+      color: "text-blue-600"
+    },
+    {
+      icon: Cog,
+      title: "Automazione Processi Aziendali",
+      description: "Trasformiamo i tuoi processi manuali in sistemi automatizzati intelligenti che lavorano 24/7 senza errori.",
+      color: "text-purple-600"
+    },
+    {
+      icon: Database,
+      title: "Analisi Dati Avanzata",
+      description: "Estraiamo insights preziosi dai tuoi dati utilizzando algoritmi di machine learning e analisi predittiva.",
+      color: "text-green-600"
+    },
+    {
+      icon: MessageSquare,
+      title: "Chatbot e Assistenti Virtuali",
+      description: "Implementiamo chatbot intelligenti per migliorare il customer service e automatizzare le interazioni con i clienti.",
+      color: "text-orange-600"
+    },
+    {
+      icon: BarChart3,
+      title: "Business Intelligence AI",
+      description: "Dashboard intelligenti e report automatici che ti aiutano a prendere decisioni basate su dati in tempo reale.",
+      color: "text-indigo-600"
+    },
+    {
+      icon: Shield,
+      title: "Sicurezza e Compliance",
+      description: "Soluzioni AI per la cybersecurity e il rispetto delle normative, proteggendo la tua azienda dalle minacce.",
+      color: "text-red-600"
+    }
+  ];
+
+  return (
+    <section id="services" className="py-20 bg-gradient-to-br from-background to-slate-50/50">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold mb-4">
+            I Nostri <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Servizi</span>
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            Offriamo soluzioni complete di automazione AI per trasformare il modo in cui la tua azienda opera, 
+            aumentando l'efficienza e riducendo i costi.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => (
+            <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:scale-105 border-0 bg-white/50 backdrop-blur-sm">
+              <CardHeader>
+                <div className={`w-12 h-12 rounded-lg bg-gradient-to-r from-blue-100 to-purple-100 flex items-center justify-center mb-4`}>
+                  <service.icon className={`${service.color}`} size={24} />
+                </div>
+                <CardTitle className="text-xl">{service.title}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-base leading-relaxed">
+                  {service.description}
+                </CardDescription>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Services;
