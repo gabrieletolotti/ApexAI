@@ -1,13 +1,25 @@
 import { Users, MapPin, Award, Clock } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
-
 const About = () => {
-  const { ref: contentRef, isIntersecting: isContentVisible } = useIntersectionObserver({ threshold: 0.2 });
-  const { ref: statsRef, isIntersecting: areStatsVisible } = useIntersectionObserver({ threshold: 0.3 });
-  const { ref: featuresRef, isIntersecting: areFeaturesVisible } = useIntersectionObserver({ threshold: 0.2 });
-
-  return (
-    <section id="about" className="py-20 bg-gradient-to-br from-background via-white/70 to-purple-100/30 dark:from-background dark:via-slate-900/70 dark:to-purple-700/10 relative">
+  const {
+    ref: contentRef,
+    isIntersecting: isContentVisible
+  } = useIntersectionObserver({
+    threshold: 0.2
+  });
+  const {
+    ref: statsRef,
+    isIntersecting: areStatsVisible
+  } = useIntersectionObserver({
+    threshold: 0.3
+  });
+  const {
+    ref: featuresRef,
+    isIntersecting: areFeaturesVisible
+  } = useIntersectionObserver({
+    threshold: 0.2
+  });
+  return <section id="about" className="py-20 bg-gradient-to-br from-background via-white/70 to-purple-100/30 dark:from-background dark:via-slate-900/70 dark:to-purple-700/10 relative">
       {/* Glass blobs for extra flair */}
       <div className="absolute right-16 top-32 w-96 h-60 rounded-full bg-purple-200/15 blur-2xl opacity-30 dark:bg-purple-800/10 z-0 hidden md:block" />
       <div className="absolute left-10 bottom-8 w-80 h-28 bg-blue-200/20 rounded-full blur-2xl opacity-25 dark:bg-blue-800/20 z-0 hidden md:block" />
@@ -31,11 +43,11 @@ const About = () => {
             </div>
 
             <div ref={statsRef} className="grid grid-cols-2 gap-6">
-              <div className={`text-center p-6 bg-gradient-to-br from-blue-50/50 to-purple-50/80 rounded-2xl animate-on-scroll scale-in stagger-4 ${areStatsVisible ? 'visible' : ''} hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer shadow-blue-200/10 dark:shadow-slate-800/30`}>
+              <div className="">
                 <div className="text-3xl font-bold text-blue-600 mb-2 dark:text-blue-400">50+</div>
                 <div className="text-sm text-muted-foreground">Progetti Completati</div>
               </div>
-              <div className={`text-center p-6 bg-gradient-to-br from-purple-50/80 to-pink-50/80 rounded-2xl animate-on-scroll scale-in stagger-5 ${areStatsVisible ? 'visible' : ''} hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer shadow-purple-200/10 dark:shadow-slate-900/30`}>
+              <div className="">
                 <div className="text-3xl font-bold text-purple-600 mb-2 dark:text-purple-400">98%</div>
                 <div className="text-sm text-muted-foreground">Soddisfazione Clienti</div>
               </div>
@@ -91,8 +103,6 @@ const About = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default About;
