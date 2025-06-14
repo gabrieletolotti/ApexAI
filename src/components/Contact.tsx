@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -65,7 +66,7 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="bg-white/50 hover:bg-white/70 focus:bg-white transition-colors duration-300"
+                      className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 transition-colors duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400"
                     />
                   </div>
                   <div>
@@ -76,7 +77,7 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="bg-white/50 hover:bg-white/70 focus:bg-white transition-colors duration-300"
+                      className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 transition-colors duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400"
                     />
                   </div>
                 </div>
@@ -86,7 +87,7 @@ const Contact = () => {
                     placeholder="Azienda"
                     value={formData.company}
                     onChange={handleChange}
-                    className="bg-white/50 hover:bg-white/70 focus:bg-white transition-colors duration-300"
+                    className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 transition-colors duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400"
                   />
                 </div>
                 <div>
@@ -97,7 +98,7 @@ const Contact = () => {
                     onChange={handleChange}
                     rows={6}
                     required
-                    className="bg-white/50 hover:bg-white/70 focus:bg-white transition-colors duration-300"
+                    className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 transition-colors duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400"
                   />
                 </div>
                 <Button 
