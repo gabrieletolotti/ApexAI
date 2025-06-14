@@ -104,6 +104,7 @@ const Services = () => {
                 className={`
                   animate-on-scroll ${animationClass} stagger-${Math.min(6, index + 1)}
                   ${isCardVisible ? "visible" : ""}
+                  h-full
                 `}
                 style={{
                   transitionDelay: isCardVisible ? `${0.08 * index + 0.12}s` : '0s'
@@ -111,6 +112,7 @@ const Services = () => {
               >
                 <Card
                   className={`
+                    h-full flex flex-col
                     ring-1 ring-white/70 dark:ring-slate-500/50 hover:shadow-2xl transition-all duration-500 hover:scale-105
                     border-0 bg-white/60 dark:bg-slate-900/50 backdrop-blur-xl hover:bg-white/80 hover:dark:bg-slate-900/80 group
                   `}
@@ -121,7 +123,7 @@ const Services = () => {
                     </div>
                     <CardTitle className="text-xl font-semibold group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors duration-300">{service.title}</CardTitle>
                   </CardHeader>
-                  <CardContent>
+                  <CardContent className="flex-grow">
                     <CardDescription className="text-base leading-relaxed">
                       {service.description}
                     </CardDescription>
