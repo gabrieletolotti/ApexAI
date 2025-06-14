@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -152,119 +153,119 @@
   }
 }
 
-/* Improved wandering animations - smoother transitions with random starts */
+/* Improved wandering animations with smooth opacity transitions */
 @keyframes wander-1 {
   0% {
-    transform: translate(-10vw, 5vh) scale(0.9);
+    transform: translate(-15vw, -10vh) scale(0.8);
     opacity: 0.5;
   }
   25% {
-    transform: translate(15vw, 10vh) scale(1.1);
+    transform: translate(20vw, 15vh) scale(1.1);
     opacity: 0.7;
   }
   50% {
-    transform: translate(30vw, 20vh) scale(1.2);
-    opacity: 0.8;
-  }
-  75% {
-    transform: translate(10vw, -15vh) scale(1.0);
+    transform: translate(35vw, 25vh) scale(1.2);
     opacity: 0.6;
   }
+  75% {
+    transform: translate(5vw, -20vh) scale(1.0);
+    opacity: 0.7;
+  }
   100% {
-    transform: translate(-20vw, -30vh) scale(0.8);
-    opacity: 0.4;
+    transform: translate(-25vw, -15vh) scale(0.9);
+    opacity: 0.5;
   }
 }
 
 @keyframes wander-2 {
   0% {
-    transform: translate(25vw, -10vh) scale(1.1);
-    opacity: 0.4;
-  }
-  30% {
-    transform: translate(-20vw, 15vh) scale(1.1);
+    transform: translate(30vw, 10vh) scale(1.0);
     opacity: 0.6;
   }
-  60% {
-    transform: translate(-40vw, 30vh) scale(1.2);
+  30% {
+    transform: translate(-15vw, 20vh) scale(1.1);
     opacity: 0.7;
   }
-  80% {
-    transform: translate(-10vw, 10vh) scale(0.9);
+  60% {
+    transform: translate(-35vw, 35vh) scale(1.2);
     opacity: 0.5;
   }
+  80% {
+    transform: translate(-5vw, 5vh) scale(0.9);
+    opacity: 0.6;
+  }
   100% {
-    transform: translate(25vw, -20vh) scale(0.8);
-    opacity: 0.3;
+    transform: translate(25vw, -10vh) scale(0.8);
+    opacity: 0.7;
   }
 }
 
 @keyframes wander-3 {
   0% {
-    transform: translate(-15vw, -20vh) scale(0.8);
-    opacity: 0.3;
+    transform: translate(-20vw, 25vh) scale(0.9);
+    opacity: 0.6;
   }
   40% {
-    transform: translate(10vw, -15vh) scale(1.2);
+    transform: translate(15vw, -10vh) scale(1.2);
     opacity: 0.5;
   }
   70% {
-    transform: translate(15vw, -25vh) scale(1.3);
-    opacity: 0.6;
+    transform: translate(20vw, -30vh) scale(1.3);
+    opacity: 0.7;
   }
   90% {
-    transform: translate(-15vw, -10vh) scale(1.0);
-    opacity: 0.4;
+    transform: translate(-10vw, -5vh) scale(1.0);
+    opacity: 0.6;
   }
   100% {
-    transform: translate(-35vw, 15vh) scale(0.7);
-    opacity: 0.2;
+    transform: translate(-30vw, 20vh) scale(0.8);
+    opacity: 0.5;
   }
 }
 
 @keyframes wander-4 {
   0% {
-    transform: translate(20vw, 25vh) scale(1.0);
-    opacity: 0.4;
-  }
-  35% {
-    transform: translate(-10vw, 5vh) scale(1.1);
-    opacity: 0.6;
-  }
-  65% {
-    transform: translate(-25vw, -15vh) scale(1.2);
-    opacity: 0.7;
-  }
-  85% {
-    transform: translate(5vw, -30vh) scale(0.9);
+    transform: translate(25vw, 30vh) scale(1.1);
     opacity: 0.5;
   }
+  35% {
+    transform: translate(-5vw, 10vh) scale(1.1);
+    opacity: 0.7;
+  }
+  65% {
+    transform: translate(-20vw, -10vh) scale(1.2);
+    opacity: 0.6;
+  }
+  85% {
+    transform: translate(10vw, -25vh) scale(0.9);
+    opacity: 0.6;
+  }
   100% {
-    transform: translate(30vw, 10vh) scale(0.8);
-    opacity: 0.3;
+    transform: translate(35vw, 15vh) scale(0.8);
+    opacity: 0.7;
   }
 }
 
 @keyframes wander-5 {
   0% {
-    transform: translate(-30vw, 15vh) scale(0.9);
-    opacity: 0.3;
+    transform: translate(-25vw, 20vh) scale(0.8);
+    opacity: 0.6;
   }
   45% {
-    transform: translate(0vw, -5vh) scale(1.2);
+    transform: translate(5vw, 0vh) scale(1.2);
     opacity: 0.5;
   }
   75% {
-    transform: translate(20vw, -20vh) scale(1.1);
-    opacity: 0.6;
+    transform: translate(25vw, -15vh) scale(1.1);
+    opacity: 0.7;
   }
   95% {
-    transform: translate(-5vw, 20vh) scale(1.0);
-    opacity: 0.4;
+    transform: translate(0vw, 25vh) scale(1.0);
+    opacity: 0.6;
   }
   100% {
-    transform: translate(-25vw, 5vh) scale(0.8);
-    opacity: 0.2;
+    transform: translate(-20vw, 10vh) scale(0.9);
+    opacity: 0.5;
   }
 }
 
@@ -317,7 +318,7 @@
   }
 }
 
-/* Improved animation classes - removed conflicts */
+/* Improved animation classes with smooth transitions */
 .animate-on-scroll {
   opacity: 0;
   will-change: transform, opacity;
@@ -384,25 +385,25 @@
   animation: pulse-slow 4s ease-in-out infinite;
 }
 
-/* Improved wandering animations with smoother easing and random delays */
+/* Smooth wandering animations with consistent opacity ranges */
 .animate-wander-1 {
-  animation: wander-1 25s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation: wander-1 28s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 .animate-wander-2 {
-  animation: wander-2 35s cubic-bezier(0.4, 0, 0.6, 1) infinite 8s;
+  animation: wander-2 32s cubic-bezier(0.4, 0, 0.6, 1) infinite 6s;
 }
 
 .animate-wander-3 {
-  animation: wander-3 18s cubic-bezier(0.4, 0, 0.6, 1) infinite 12s;
+  animation: wander-3 24s cubic-bezier(0.4, 0, 0.6, 1) infinite 12s;
 }
 
 .animate-wander-4 {
-  animation: wander-4 28s cubic-bezier(0.4, 0, 0.6, 1) infinite 3s;
+  animation: wander-4 30s cubic-bezier(0.4, 0, 0.6, 1) infinite 3s;
 }
 
 .animate-wander-5 {
-  animation: wander-5 22s cubic-bezier(0.4, 0, 0.6, 1) infinite 15s;
+  animation: wander-5 26s cubic-bezier(0.4, 0, 0.6, 1) infinite 15s;
 }
 
 /* Staggered animations */
