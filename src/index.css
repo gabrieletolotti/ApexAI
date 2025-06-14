@@ -343,11 +343,11 @@
 }
 
 .animate-wander-2 {
-  animation: wander-2 30s ease-in-out infinite 5s;
+  animation: wander-2 35s ease-in-out infinite 8s;
 }
 
 .animate-wander-3 {
-  animation: wander-3 20s ease-in-out infinite 10s;
+  animation: wander-3 18s ease-in-out infinite 12s;
 }
 
 /* Staggered animations */
