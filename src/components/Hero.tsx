@@ -1,4 +1,3 @@
-
 import { ArrowRight, Bot, Zap, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
@@ -35,7 +34,7 @@ const Hero = () => {
                 Inizia Ora
                 <ArrowRight className="ml-2" size={20} />
               </Button>
-              <Button variant="outline" size="lg" className="hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 dark:hover:bg-slate-800/70 text-base font-semibold rounded-xl border-2 border-blue-600/20 dark:border-blue-300/20 backdrop-blur-sm">
+              <Button variant="outline" size="lg" className="hover:bg-blue-50 hover:text-blue-700 dark:hover:bg-slate-800/70 dark:hover:text-blue-300 text-base font-semibold rounded-xl border-2 border-blue-600/20 dark:border-blue-300/20 backdrop-blur-sm">
                 Scopri di Più
               </Button>
             </div>
