@@ -1,12 +1,13 @@
-
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
-
 const Footer = () => {
-  const { ref, isIntersecting } = useIntersectionObserver({ threshold: 0.2 });
-
-  return (
-    <footer ref={ref} className="bg-slate-900 text-white py-16">
+  const {
+    ref,
+    isIntersecting
+  } = useIntersectionObserver({
+    threshold: 0.2
+  });
+  return <footer ref={ref} className="bg-slate-900 text-white py-16">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-8">
           <div className={`space-y-4 animate-on-scroll fade-in-up ${isIntersecting ? 'visible' : ''}`}>
@@ -48,7 +49,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-2 hover:text-white hover:translate-x-1 transition-all duration-300">
                 <Phone size={16} />
-                <span>+39 02 1234 5678</span>
+                <span>+39 339 507 6268</span>
               </div>
               <div className="flex items-center space-x-2 hover:text-white hover:translate-x-1 transition-all duration-300">
                 <MapPin size={16} />
@@ -62,8 +63,6 @@ const Footer = () => {
           <p>&copy; 2024 ApexAI. Tutti i diritti riservati. Made with ❤️ in Italy.</p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
