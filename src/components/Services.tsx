@@ -62,19 +62,22 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-gradient-to-br from-background to-slate-50/50">
-      <div className="container mx-auto px-4">
+    <section id="services" className="py-20 bg-gradient-to-br from-background via-white/60 to-blue-100/30 dark:from-background dark:via-slate-900/70 dark:to-blue-500/10 relative">
+      {/* Glassy backdrop shapes for modern look */}
+      <div className="absolute left-8 top-32 w-96 h-60 rounded-full bg-blue-200/25 blur-2xl opacity-30 dark:bg-blue-800/10 z-0 hidden md:block" />
+      <div className="absolute right-6 bottom-0 w-64 h-40 bg-purple-200/20 rounded-full blur-2xl opacity-40 dark:bg-purple-900/20 z-0 hidden md:block" />
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <h2
             ref={titleRef}
             className={`
-              text-4xl font-bold mb-4 
+              text-4xl font-bold mb-4 font-sans
               animate-on-scroll fade-in-up 
               ${isTitleVisible ? 'visible' : ''}
             `}
           >
             I Nostri{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Servizi</span>
+            <span className="bg-gradient-to-r from-blue-700 via-blue-500 to-purple-600 bg-clip-text text-transparent">Servizi</span>
           </h2>
 
           <p
@@ -93,8 +96,6 @@ const Services = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => {
             const { ref: cardRef, isIntersecting: isCardVisible } = useIntersectionObserver({ threshold: 0.13 });
-            // For future: here you can differentiate for desktop and mobile using isMobile
-            // For now, always animating "slide-in-up"
             const animationClass = "slide-in-up";
             return (
               <div
@@ -110,14 +111,15 @@ const Services = () => {
               >
                 <Card
                   className={`
-                    hover:shadow-2xl transition-all duration-500 hover:scale-105 border-0 bg-white/50 backdrop-blur-sm hover:bg-white/70 group
+                    ring-1 ring-white/70 dark:ring-slate-500/50 hover:shadow-2xl transition-all duration-500 hover:scale-105
+                    border-0 bg-white/60 dark:bg-slate-900/50 backdrop-blur-xl hover:bg-white/80 hover:dark:bg-slate-900/80 group
                   `}
                 >
                   <CardHeader>
-                    <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-blue-100 to-purple-100 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                      <service.icon className={`${service.color} group-hover:scale-110 transition-transform duration-300`} size={24} />
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-blue-100/80 to-purple-100/80 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 dark:from-blue-900/20 dark:to-purple-900/10 shadow-md shadow-blue-100/10">
+                      <service.icon className={`${service.color} group-hover:scale-110 transition-transform duration-300`} size={28} />
                     </div>
-                    <CardTitle className="text-xl group-hover:text-blue-600 transition-colors duration-300">{service.title}</CardTitle>
+                    <CardTitle className="text-xl font-semibold group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors duration-300">{service.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <CardDescription className="text-base leading-relaxed">
@@ -135,4 +137,3 @@ const Services = () => {
 };
 
 export default Services;
-

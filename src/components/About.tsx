@@ -1,4 +1,3 @@
-
 import { Users, MapPin, Award, Clock } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
@@ -8,13 +7,16 @@ const About = () => {
   const { ref: featuresRef, isIntersecting: areFeaturesVisible } = useIntersectionObserver({ threshold: 0.2 });
 
   return (
-    <section id="about" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+    <section id="about" className="py-20 bg-gradient-to-br from-background via-white/70 to-purple-100/30 dark:from-background dark:via-slate-900/70 dark:to-purple-700/10 relative">
+      {/* Glass blobs for extra flair */}
+      <div className="absolute right-16 top-32 w-96 h-60 rounded-full bg-purple-200/15 blur-2xl opacity-30 dark:bg-purple-800/10 z-0 hidden md:block" />
+      <div className="absolute left-10 bottom-8 w-80 h-28 bg-blue-200/20 rounded-full blur-2xl opacity-25 dark:bg-blue-800/20 z-0 hidden md:block" />
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div ref={contentRef} className="space-y-8">
             <div>
-              <h2 className={`text-4xl font-bold mb-6 animate-on-scroll fade-in-left ${isContentVisible ? 'visible' : ''}`}>
-                Chi Siamo <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">ApexAI</span>
+              <h2 className={`text-4xl font-bold mb-6 animate-on-scroll fade-in-left ${isContentVisible ? 'visible' : ''} font-sans`}>
+                Chi Siamo <span className="bg-gradient-to-r from-blue-600 via-blue-400 to-purple-600 bg-clip-text text-transparent">ApexAI</span>
               </h2>
               <p className={`text-lg text-muted-foreground leading-relaxed mb-6 animate-on-scroll fade-in-left stagger-2 ${isContentVisible ? 'visible' : ''}`}>
                 ApexAI è un'agenzia italiana specializzata in automazione e intelligenza artificiale. 
@@ -29,19 +31,19 @@ const About = () => {
             </div>
 
             <div ref={statsRef} className="grid grid-cols-2 gap-6">
-              <div className={`text-center p-6 bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl animate-on-scroll scale-in stagger-4 ${areStatsVisible ? 'visible' : ''} hover:scale-105 hover:shadow-lg transition-all duration-300 cursor-pointer`}>
-                <div className="text-3xl font-bold text-blue-600 mb-2">50+</div>
+              <div className={`text-center p-6 bg-gradient-to-br from-blue-50/50 to-purple-50/80 rounded-2xl animate-on-scroll scale-in stagger-4 ${areStatsVisible ? 'visible' : ''} hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer shadow-blue-200/10 dark:shadow-slate-800/30`}>
+                <div className="text-3xl font-bold text-blue-600 mb-2 dark:text-blue-400">50+</div>
                 <div className="text-sm text-muted-foreground">Progetti Completati</div>
               </div>
-              <div className={`text-center p-6 bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl animate-on-scroll scale-in stagger-5 ${areStatsVisible ? 'visible' : ''} hover:scale-105 hover:shadow-lg transition-all duration-300 cursor-pointer`}>
-                <div className="text-3xl font-bold text-purple-600 mb-2">98%</div>
+              <div className={`text-center p-6 bg-gradient-to-br from-purple-50/80 to-pink-50/80 rounded-2xl animate-on-scroll scale-in stagger-5 ${areStatsVisible ? 'visible' : ''} hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer shadow-purple-200/10 dark:shadow-slate-900/30`}>
+                <div className="text-3xl font-bold text-purple-600 mb-2 dark:text-purple-400">98%</div>
                 <div className="text-sm text-muted-foreground">Soddisfazione Clienti</div>
               </div>
             </div>
           </div>
 
           <div ref={featuresRef} className="space-y-6">
-            <div className={`bg-gradient-to-br from-white to-blue-50 p-8 rounded-3xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-500 animate-on-scroll fade-in-right ${areFeaturesVisible ? 'visible' : ''}`}>
+            <div className={`bg-gradient-to-br from-white/70 to-blue-50/70 dark:from-slate-800/60 dark:to-blue-900/60 p-8 rounded-3xl shadow-2xl hover:shadow-2xl hover:scale-105 transition-all duration-500 animate-on-scroll fade-in-right ${areFeaturesVisible ? 'visible' : ''} border border-white/60 dark:border-slate-700`}>
               <h3 className="text-2xl font-bold mb-6 text-center">Perché Scegliere ApexAI</h3>
               
               <div className="space-y-6">

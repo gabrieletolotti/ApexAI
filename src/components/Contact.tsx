@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -37,10 +36,12 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-slate-50 to-blue-50/50">
-      <div className="container mx-auto px-4">
+    <section id="contact" className="py-20 bg-gradient-to-br from-slate-50 via-white/50 to-blue-50/50 dark:from-background dark:via-slate-900/70 dark:to-blue-900/20 relative">
+      <div className="absolute left-0 top-60 w-96 h-36 bg-blue-200/15 rounded-full blur-2xl opacity-30 dark:bg-blue-700/10 z-0 hidden md:block"/>
+      <div className="absolute right-0 bottom-0 w-64 h-32 bg-purple-200/10 rounded-full blur-2xl opacity-20 dark:bg-purple-700/10 z-0 hidden md:block"/>
+      <div className="container mx-auto px-4 relative z-10">
         <div ref={titleRef} className="text-center mb-16">
-          <h2 className={`text-4xl font-bold mb-4 animate-on-scroll fade-in-up ${isTitleVisible ? 'visible' : ''}`}>
+          <h2 className={`text-4xl font-bold mb-4 animate-on-scroll fade-in-up ${isTitleVisible ? 'visible' : ''} font-sans`}>
             Inizia il Tuo <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Progetto AI</span>
           </h2>
           <p className={`text-xl text-muted-foreground max-w-3xl mx-auto animate-on-scroll fade-in-up stagger-2 ${isTitleVisible ? 'visible' : ''}`}>
@@ -50,7 +51,7 @@ const Contact = () => {
         </div>
 
         <div ref={contentRef} className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          <Card className={`border-0 shadow-xl bg-white/70 backdrop-blur-sm hover:shadow-2xl hover:scale-105 transition-all duration-500 animate-on-scroll fade-in-left ${isContentVisible ? 'visible' : ''}`}>
+          <Card className={`border-0 ring-1 ring-white/80 dark:ring-slate-700 shadow-xl bg-white/70 dark:bg-slate-900/50 backdrop-blur-xl hover:shadow-2xl hover:scale-105 transition-all duration-500 animate-on-scroll fade-in-left ${isContentVisible ? 'visible' : ''}`}>
             <CardHeader>
               <CardTitle className="text-2xl">Parlaci del Tuo Progetto</CardTitle>
             </CardHeader>
@@ -112,7 +113,7 @@ const Contact = () => {
           </Card>
 
           <div className="space-y-8">
-            <Card className={`border-0 shadow-lg bg-white/70 backdrop-blur-sm hover:shadow-xl hover:scale-105 transition-all duration-500 animate-on-scroll fade-in-right ${isContentVisible ? 'visible' : ''}`}>
+            <Card className={`border-0 ring-1 ring-white/70 dark:ring-slate-700 shadow-lg bg-white/70 dark:bg-slate-900/60 backdrop-blur-xl hover:shadow-xl hover:scale-105 transition-all duration-500 animate-on-scroll fade-in-right ${isContentVisible ? 'visible' : ''}`}>
               <CardContent className="p-8">
                 <div className="flex items-center space-x-4 mb-6 hover:transform hover:translate-x-2 transition-transform duration-300">
                   <div className="bg-blue-100 p-3 rounded-lg hover:bg-blue-200 transition-colors duration-300">
@@ -146,13 +147,13 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            <Card className={`border-0 shadow-lg bg-gradient-to-br from-blue-600 to-purple-600 text-white hover:shadow-xl hover:scale-105 transition-all duration-500 animate-on-scroll fade-in-right stagger-2 ${isContentVisible ? 'visible' : ''}`}>
+            <Card className={`border-0 shadow-lg bg-gradient-to-br from-blue-600 to-purple-600 text-white hover:shadow-2xl hover:scale-105 transition-all duration-500 animate-on-scroll fade-in-right stagger-2 ${isContentVisible ? 'visible' : ''} ring-1 ring-blue-400/40 dark:ring-blue-300/30`}>
               <CardContent className="p-8">
                 <h3 className="text-xl font-bold mb-4">Consulenza Gratuita</h3>
                 <p className="mb-6 opacity-90">
                   Prenota una chiamata di 30 minuti per discutere come l'AI può migliorare i tuoi processi aziendali.
                 </p>
-                <Button variant="secondary" className="bg-white text-blue-600 hover:bg-gray-100 transform hover:scale-105 transition-all duration-300">
+                <Button variant="secondary" className="bg-white text-blue-700 dark:text-blue-400 hover:bg-gray-100 dark:hover:bg-slate-800 transform hover:scale-105 rounded-xl transition-all duration-300 font-semibold">
                   Prenota Ora
                 </Button>
               </CardContent>
