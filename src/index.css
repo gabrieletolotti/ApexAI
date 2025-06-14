@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -83,11 +84,6 @@
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
-
-  /* Set dark as default */
-  html {
-    @apply dark;
-  }
 }
 
 @layer base {
@@ -98,7 +94,15 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  }
+
+  /* Transizione fluida solo per il cambio di tema */
+  html {
+    transition: background-color 0.15s ease-out, color 0.15s ease-out;
+  }
+  
+  html * {
+    transition: background-color 0.15s ease-out, color 0.15s ease-out, border-color 0.15s ease-out;
   }
 }
 
