@@ -62,7 +62,7 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-gradient-to-br from-background via-white/60 to-blue-100/30 dark:from-background dark:via-slate-900/70 dark:to-blue-500/10 relative">
+    <section id="services" className="py-20 bg-gradient-to-br from-slate-50 via-slate-100 to-blue-50 dark:from-background dark:via-slate-900/70 dark:to-blue-500/10 relative">
       {/* Glassy backdrop shapes for modern look */}
       <div className="absolute left-8 top-32 w-96 h-60 rounded-full bg-blue-200/25 blur-2xl opacity-30 dark:bg-blue-800/10 z-0 hidden md:block" />
       <div className="absolute right-6 bottom-0 w-64 h-40 bg-purple-200/20 rounded-full blur-2xl opacity-40 dark:bg-purple-900/20 z-0 hidden md:block" />

@@ -34,7 +34,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-slate-50 via-white/50 to-blue-50/50 dark:from-background dark:via-slate-900/70 dark:to-blue-900/20 relative">
+    <section id="contact" className="py-20 bg-gradient-to-br from-slate-100 via-slate-50 to-blue-50 dark:from-background dark:via-slate-900/70 dark:to-blue-900/20 relative">
       <div className="absolute left-0 top-60 w-96 h-36 bg-blue-200/15 rounded-full blur-2xl opacity-30 dark:bg-blue-700/10 z-0 hidden md:block" />
       <div className="absolute right-0 bottom-0 w-64 h-32 bg-purple-200/10 rounded-full blur-2xl opacity-20 dark:bg-purple-700/10 z-0 hidden md:block" />
       <div className="container mx-auto px-4 relative z-10">

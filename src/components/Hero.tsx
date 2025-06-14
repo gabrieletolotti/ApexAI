@@ -38,7 +38,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center relative z-0 pt-20 bg-gradient-to-br from-background via-white/80 to-blue-100/40 dark:from-background dark:via-slate-900/60 dark:to-blue-500/5">
+    <section id="home" className="min-h-screen flex items-center relative z-0 pt-20 bg-gradient-to-br from-slate-100 via-slate-50 to-blue-50 dark:from-background dark:via-slate-900/60 dark:to-blue-500/5">
       {/* Faint glass blob effects */}
       <div className="absolute inset-0 pointer-events-none -z-10">
         <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[60vw] h-[50vh] rounded-full bg-blue-200/30 blur-2xl opacity-60 dark:bg-blue-800/40" />
