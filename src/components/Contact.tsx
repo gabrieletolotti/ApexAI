@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -15,6 +16,8 @@ const Contact = () => {
     message: ''
   });
   const { toast } = useToast();
+  const { ref: titleRef, isIntersecting: isTitleVisible } = useIntersectionObserver({ threshold: 0.3 });
+  const { ref: contentRef, isIntersecting: isContentVisible } = useIntersectionObserver({ threshold: 0.2 });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,25 +39,25 @@ const Contact = () => {
   return (
     <section id="contact" className="py-20 bg-gradient-to-br from-slate-50 to-blue-50/50">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl font-bold mb-4 animate-[fade-in_0.8s_ease-out_0.2s_both]">
+        <div ref={titleRef} className="text-center mb-16">
+          <h2 className={`text-4xl font-bold mb-4 animate-on-scroll fade-in-up ${isTitleVisible ? 'visible' : ''}`}>
             Inizia il Tuo <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Progetto AI</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-[fade-in_0.8s_ease-out_0.4s_both]">
+          <p className={`text-xl text-muted-foreground max-w-3xl mx-auto animate-on-scroll fade-in-up stagger-2 ${isTitleVisible ? 'visible' : ''}`}>
             Hai un'idea o un processo che vorresti automatizzare? Contattaci per una consulenza gratuita 
             e scopri come l'AI può trasformare la tua azienda.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          <Card className="border-0 shadow-xl bg-white/70 backdrop-blur-sm hover:shadow-2xl hover:scale-105 transition-all duration-500 animate-[fade-in_0.8s_ease-out_0.6s_both]">
+        <div ref={contentRef} className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          <Card className={`border-0 shadow-xl bg-white/70 backdrop-blur-sm hover:shadow-2xl hover:scale-105 transition-all duration-500 animate-on-scroll fade-in-left ${isContentVisible ? 'visible' : ''}`}>
             <CardHeader>
               <CardTitle className="text-2xl">Parlaci del Tuo Progetto</CardTitle>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="animate-[fade-in_0.6s_ease-out_0.8s_both]">
+                  <div>
                     <Input
                       name="name"
                       placeholder="Nome e Cognome"
@@ -64,7 +67,7 @@ const Contact = () => {
                       className="bg-white/50 hover:bg-white/70 focus:bg-white transition-colors duration-300"
                     />
                   </div>
-                  <div className="animate-[fade-in_0.6s_ease-out_1s_both]">
+                  <div>
                     <Input
                       name="email"
                       type="email"
@@ -76,7 +79,7 @@ const Contact = () => {
                     />
                   </div>
                 </div>
-                <div className="animate-[fade-in_0.6s_ease-out_1.2s_both]">
+                <div>
                   <Input
                     name="company"
                     placeholder="Azienda"
@@ -85,7 +88,7 @@ const Contact = () => {
                     className="bg-white/50 hover:bg-white/70 focus:bg-white transition-colors duration-300"
                   />
                 </div>
-                <div className="animate-[fade-in_0.6s_ease-out_1.4s_both]">
+                <div>
                   <Textarea
                     name="message"
                     placeholder="Descrivi il tuo progetto o le tue esigenze di automazione..."
@@ -99,7 +102,7 @@ const Contact = () => {
                 <Button 
                   type="submit" 
                   size="lg" 
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 animate-[fade-in_0.6s_ease-out_1.6s_both]"
+                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300"
                 >
                   Invia Messaggio
                   <Send className="ml-2" size={20} />
@@ -109,7 +112,7 @@ const Contact = () => {
           </Card>
 
           <div className="space-y-8">
-            <Card className="border-0 shadow-lg bg-white/70 backdrop-blur-sm hover:shadow-xl hover:scale-105 transition-all duration-500 animate-[fade-in_0.8s_ease-out_0.8s_both]">
+            <Card className={`border-0 shadow-lg bg-white/70 backdrop-blur-sm hover:shadow-xl hover:scale-105 transition-all duration-500 animate-on-scroll fade-in-right ${isContentVisible ? 'visible' : ''}`}>
               <CardContent className="p-8">
                 <div className="flex items-center space-x-4 mb-6 hover:transform hover:translate-x-2 transition-transform duration-300">
                   <div className="bg-blue-100 p-3 rounded-lg hover:bg-blue-200 transition-colors duration-300">
@@ -143,7 +146,7 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-0 shadow-lg bg-gradient-to-br from-blue-600 to-purple-600 text-white hover:shadow-xl hover:scale-105 transition-all duration-500 animate-[fade-in_0.8s_ease-out_1s_both]">
+            <Card className={`border-0 shadow-lg bg-gradient-to-br from-blue-600 to-purple-600 text-white hover:shadow-xl hover:scale-105 transition-all duration-500 animate-on-scroll fade-in-right stagger-2 ${isContentVisible ? 'visible' : ''}`}>
               <CardContent className="p-8">
                 <h3 className="text-xl font-bold mb-4">Consulenza Gratuita</h3>
                 <p className="mb-6 opacity-90">

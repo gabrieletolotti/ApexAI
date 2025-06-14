@@ -1,12 +1,14 @@
 
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { ref, isIntersecting } = useIntersectionObserver({ threshold: 1, triggerOnce: false });
 
   return (
-    <header className="fixed top-0 w-full bg-background/80 backdrop-blur-md z-50 border-b border-border/50 animate-[fade-in_0.5s_ease-out]">
+    <header ref={ref} className={`fixed top-0 w-full bg-background/80 backdrop-blur-md z-50 border-b border-border/50 transition-all duration-500 ${isIntersecting ? 'translate-y-0 opacity-100' : 'translate-y-0 opacity-100'}`}>
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <button 
@@ -35,7 +37,7 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="md:hidden mt-4 pb-4 border-t border-border/50 animate-[fade-in_0.3s_ease-out]">
+          <nav className="md:hidden mt-4 pb-4 border-t border-border/50 animate-on-scroll fade-in-up visible">
             <div className="flex flex-col space-y-4 pt-4">
               <a href="#home" className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300">Home</a>
               <a href="#services" className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300">Servizi</a>
