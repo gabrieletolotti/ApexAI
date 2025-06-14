@@ -120,7 +120,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg">Sede</h3>
-                    <p className="text-muted-foreground">Milano, Italia</p>
+                    <p className="text-muted-foreground">Bergamo, Italia</p>
                   </div>
                 </div>
               </CardContent>
