@@ -53,7 +53,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-2 hover:text-white hover:translate-x-1 transition-all duration-300">
                 <MapPin size={16} />
-                <span>Milano, Italia</span>
+                <span>Bergamo, Italia</span>
               </div>
             </div>
           </div>
