@@ -1,4 +1,3 @@
-
 import { ArrowRight, Bot, Zap, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
@@ -6,14 +5,22 @@ import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 const Hero = () => {
   const { ref, isIntersecting } = useIntersectionObserver({ threshold: 0.2 });
 
+  // Aggiorniamo anche scrollToContact per usare offset header
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact');
+    const header = document.querySelector('header');
     if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
+      let offset = 0;
+      if (header instanceof HTMLElement) {
+        offset = header.offsetHeight;
+      }
+      const sectionRect = contactSection.getBoundingClientRect();
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const top = sectionRect.top + scrollTop - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
     }
   };
 
-  // Aggiorniamo la funzione per usare un offset che considera l'altezza della navbar
   const scrollToServices = () => {
     const servicesSection = document.getElementById('services');
     const header = document.querySelector('header');
