@@ -2,11 +2,11 @@
 import { Brain, Cog, Database, MessageSquare, BarChart3, Shield } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import React from 'react';
 
 const Services = () => {
   const { ref: titleRef, isIntersecting: isTitleVisible } = useIntersectionObserver({ threshold: 0.25 });
   const { ref: subtitleRef, isIntersecting: isSubtitleVisible } = useIntersectionObserver({ threshold: 0.22 });
-  const { ref: cardsGridRef, isIntersecting: isGridVisible } = useIntersectionObserver({ threshold: 0.15 });
 
   const services = [
     {
@@ -51,7 +51,6 @@ const Services = () => {
     <section id="services" className="py-20 bg-gradient-to-br from-background to-slate-50/50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-
           <h2
             ref={titleRef}
             className={`
@@ -78,38 +77,42 @@ const Services = () => {
         </div>
 
         <div
-          ref={cardsGridRef}
-          className={`
-            grid md:grid-cols-2 lg:grid-cols-3 gap-8
-            animate-on-scroll fade-in-up stagger-3
-            ${isGridVisible ? 'visible' : ''}
-          `}
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {services.map((service, index) => (
-            <Card 
-              key={index} 
-              className={`
-                hover:shadow-2xl transition-all duration-500 hover:scale-105 border-0 bg-white/50 backdrop-blur-sm hover:bg-white/70 group
-                animate-on-scroll slide-in-up stagger-${Math.min(6, index + 1)}
-                ${isGridVisible ? 'visible' : ''}
-              `}
-              style={{
-                transitionDelay: isGridVisible ? `${0.08 * index + 0.12}s` : '0s'
-              }}
-            >
-              <CardHeader>
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-blue-100 to-purple-100 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <service.icon className={`${service.color} group-hover:scale-110 transition-transform duration-300`} size={24} />
-                </div>
-                <CardTitle className="text-xl group-hover:text-blue-600 transition-colors duration-300">{service.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-base leading-relaxed">
-                  {service.description}
-                </CardDescription>
-              </CardContent>
-            </Card>
-          ))}
+          {services.map((service, index) => {
+            const { ref: cardRef, isIntersecting: isCardVisible } = useIntersectionObserver({ threshold: 0.13 });
+            return (
+              <div
+                ref={cardRef}
+                key={index}
+                className={`
+                  animate-on-scroll slide-in-up stagger-${Math.min(6, index + 1)}
+                  ${isCardVisible ? "visible" : ""}
+                `}
+                style={{
+                  transitionDelay: isCardVisible ? `${0.08 * index + 0.12}s` : '0s'
+                }}
+              >
+                <Card
+                  className={`
+                    hover:shadow-2xl transition-all duration-500 hover:scale-105 border-0 bg-white/50 backdrop-blur-sm hover:bg-white/70 group
+                  `}
+                >
+                  <CardHeader>
+                    <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-blue-100 to-purple-100 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                      <service.icon className={`${service.color} group-hover:scale-110 transition-transform duration-300`} size={24} />
+                    </div>
+                    <CardTitle className="text-xl group-hover:text-blue-600 transition-colors duration-300">{service.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription className="text-base leading-relaxed">
+                      {service.description}
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
