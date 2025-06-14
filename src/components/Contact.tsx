@@ -1,5 +1,3 @@
-
-
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -117,7 +115,7 @@ const Contact = () => {
           <div className="space-y-8">
             <Card className={`border-0 ring-1 ring-white/70 dark:ring-slate-700 shadow-lg bg-white/70 dark:bg-slate-900/60 backdrop-blur-xl hover:shadow-xl hover:scale-105 transition-all duration-500 animate-on-scroll fade-in-right ${isContentVisible ? 'visible' : ''}`}>
               <CardContent className="p-8">
-                <div className="flex items-center space-x-4 mb-6 hover:transform hover:translate-x-2 transition-transform duration-300">
+                <div className="flex items-center space-x-4 mb-6 transition-transform duration-300">
                   <div className="bg-blue-100 p-3 rounded-lg hover:bg-blue-200 transition-colors duration-300">
                     <Mail className="text-blue-600" size={24} />
                   </div>
@@ -127,7 +125,7 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-4 mb-6 hover:transform hover:translate-x-2 transition-transform duration-300">
+                <div className="flex items-center space-x-4 mb-6 transition-transform duration-300">
                   <div className="bg-purple-100 p-3 rounded-lg hover:bg-purple-200 transition-colors duration-300">
                     <Phone className="text-purple-600" size={24} />
                   </div>
@@ -137,7 +135,7 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-4 hover:transform hover:translate-x-2 transition-transform duration-300">
+                <div className="flex items-center space-x-4 transition-transform duration-300">
                   <div className="bg-green-100 p-3 rounded-lg hover:bg-green-200 transition-colors duration-300">
                     <MapPin className="text-green-600" size={24} />
                   </div>
@@ -168,4 +166,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
