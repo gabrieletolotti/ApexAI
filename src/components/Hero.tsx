@@ -1,9 +1,17 @@
+
 import { ArrowRight, Bot, Zap, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
 const Hero = () => {
   const { ref, isIntersecting } = useIntersectionObserver({ threshold: 0.2 });
+
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <section id="home" className="min-h-screen flex items-center relative z-0 pt-20 bg-gradient-to-br from-background via-white/80 to-blue-100/40 dark:from-background dark:via-slate-900/60 dark:to-blue-500/5">
@@ -30,7 +38,11 @@ const Hero = () => {
             </div>
             
             <div className={`flex flex-col sm:flex-row gap-4 animate-on-scroll fade-in-up stagger-3 ${isIntersecting ? 'visible' : ''}`}>
-              <Button size="lg" className="bg-gradient-to-r from-blue-700 via-blue-500 to-purple-700 hover:from-blue-800 hover:to-purple-800 shadow-xl shadow-blue-200/30 dark:shadow-none text-base font-semibold rounded-xl backdrop-blur-sm">
+              <Button 
+                size="lg" 
+                onClick={scrollToContact}
+                className="bg-gradient-to-r from-blue-700 via-blue-500 to-purple-700 hover:from-blue-800 hover:to-purple-800 shadow-xl shadow-blue-200/30 dark:shadow-none text-base font-semibold rounded-xl backdrop-blur-sm"
+              >
                 Inizia Ora
                 <ArrowRight className="ml-2" size={20} />
               </Button>
