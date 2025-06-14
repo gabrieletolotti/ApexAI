@@ -4,9 +4,23 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import React from 'react';
 
+// Responsive utility: restituisce true se mobile
+function useIsMobile(breakpoint = 768) {
+  const [isMobile, setIsMobile] = React.useState(window.innerWidth < breakpoint);
+  React.useEffect(() => {
+    function handleResize() {
+      setIsMobile(window.innerWidth < breakpoint);
+    }
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [breakpoint]);
+  return isMobile;
+}
+
 const Services = () => {
   const { ref: titleRef, isIntersecting: isTitleVisible } = useIntersectionObserver({ threshold: 0.25 });
   const { ref: subtitleRef, isIntersecting: isSubtitleVisible } = useIntersectionObserver({ threshold: 0.22 });
+  const isMobile = useIsMobile();
 
   const services = [
     {
@@ -76,17 +90,18 @@ const Services = () => {
           </p>
         </div>
 
-        <div
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => {
             const { ref: cardRef, isIntersecting: isCardVisible } = useIntersectionObserver({ threshold: 0.13 });
+            // For future: here you can differentiate for desktop and mobile using isMobile
+            // For now, always animating "slide-in-up"
+            const animationClass = "slide-in-up";
             return (
               <div
                 ref={cardRef}
                 key={index}
                 className={`
-                  animate-on-scroll slide-in-up stagger-${Math.min(6, index + 1)}
+                  animate-on-scroll ${animationClass} stagger-${Math.min(6, index + 1)}
                   ${isCardVisible ? "visible" : ""}
                 `}
                 style={{
@@ -120,3 +135,4 @@ const Services = () => {
 };
 
 export default Services;
+
