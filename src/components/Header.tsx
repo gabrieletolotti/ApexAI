@@ -40,7 +40,7 @@ const Header = () => {
   };
 
   return (
-    <header ref={ref} className={`fixed top-0 w-full bg-background/80 backdrop-blur-md z-50 border-b border-border/50 transition-all duration-500 ${isIntersecting ? 'translate-y-0 opacity-100' : 'translate-y-0 opacity-100'}`}>
+    <header ref={ref} className={`fixed top-0 w-full bg-background/60 backdrop-blur-md z-50 border-b border-border/30 transition-all duration-500 ${isIntersecting ? 'translate-y-0 opacity-100' : 'translate-y-0 opacity-100'}`}>
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <button 
