@@ -38,13 +38,13 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center relative z-0 pt-20 bg-gradient-to-br from-slate-100 via-slate-50 to-blue-50 dark:from-background dark:via-slate-900/60 dark:to-blue-500/5">
-      {/* Dynamic wandering blob effects */}
+      {/* Dynamic wandering blob effects with random starting positions */}
       <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[45vh] rounded-full bg-blue-200/40 blur-3xl animate-wander-1 dark:bg-blue-800/50" />
         <div className="absolute right-1/4 bottom-1/3 w-[55vw] h-[40vh] bg-purple-200/35 rounded-full blur-3xl animate-wander-2 dark:bg-purple-800/45" />
         <div className="absolute left-1/3 top-1/4 w-[50vw] h-[35vh] bg-blue-100/30 rounded-full blur-2xl animate-wander-3 dark:bg-blue-900/40" />
-        <div className="absolute right-1/3 top-2/3 w-[45vw] h-[30vh] bg-purple-100/25 rounded-full blur-2xl animate-wander-1 dark:bg-purple-900/35" />
-        <div className="absolute left-2/3 bottom-1/4 w-[40vw] h-[25vh] bg-blue-50/20 rounded-full blur-xl animate-wander-2 dark:bg-blue-950/30" />
+        <div className="absolute right-1/3 top-2/3 w-[45vw] h-[30vh] bg-purple-100/25 rounded-full blur-2xl animate-wander-4 dark:bg-purple-900/35" />
+        <div className="absolute left-2/3 bottom-1/4 w-[40vw] h-[25vh] bg-blue-50/20 rounded-full blur-xl animate-wander-5 dark:bg-blue-950/30" />
       </div>
       <div className="container mx-auto px-4">
         <div ref={ref} className="grid lg:grid-cols-2 gap-12 items-center">
