@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -152,55 +153,60 @@
   }
 }
 
-/* New dynamic background animations */
+/* Improved wandering animations - smoother transitions */
 @keyframes wander-1 {
   0% {
     transform: translate(0, 0) scale(1);
-    opacity: 0;
+    opacity: 0.4;
   }
-  10% {
+  25% {
+    transform: translate(15vw, 10vh) scale(1.1);
     opacity: 0.6;
   }
   50% {
     transform: translate(30vw, 20vh) scale(1.2);
     opacity: 0.8;
   }
-  90% {
-    opacity: 0.4;
+  75% {
+    transform: translate(10vw, -15vh) scale(1.0);
+    opacity: 0.5;
   }
   100% {
     transform: translate(-20vw, -30vh) scale(0.8);
-    opacity: 0;
+    opacity: 0.3;
   }
 }
 
 @keyframes wander-2 {
   0% {
     transform: translate(0, 0) scale(1);
-    opacity: 0;
+    opacity: 0.3;
   }
-  15% {
+  30% {
+    transform: translate(-20vw, 15vh) scale(1.1);
     opacity: 0.5;
   }
   60% {
-    transform: translate(-40vw, 30vh) scale(1.1);
+    transform: translate(-40vw, 30vh) scale(1.2);
     opacity: 0.7;
   }
-  85% {
-    opacity: 0.3;
+  80% {
+    transform: translate(-10vw, 10vh) scale(0.9);
+    opacity: 0.4;
   }
   100% {
-    transform: translate(25vw, -20vh) scale(0.9);
-    opacity: 0;
+    transform: translate(25vw, -20vh) scale(0.8);
+    opacity: 0.2;
   }
 }
 
 @keyframes wander-3 {
   0% {
     transform: translate(0, 0) scale(1);
-    opacity: 0;
+    opacity: 0.2;
   }
-  20% {
+  40% {
+    transform: translate(10vw, -15vh) scale(1.2);
     opacity: 0.4;
   }
   70% {
@@ -208,11 +214,12 @@
     opacity: 0.6;
   }
   90% {
-    opacity: 0.2;
+    transform: translate(-15vw, -10vh) scale(1.0);
+    opacity: 0.3;
   }
   100% {
     transform: translate(-35vw, 15vh) scale(0.7);
-    opacity: 0;
+    opacity: 0.1;
   }
 }
 
@@ -265,10 +272,10 @@
   }
 }
 
-/* Animation classes that activate on scroll */
+/* Improved animation classes - removed conflicts */
 .animate-on-scroll {
   opacity: 0;
-  transition: all 0.6s ease-out;
+  will-change: transform, opacity;
 }
 
 .animate-on-scroll.visible {
@@ -280,8 +287,7 @@
 }
 
 .fade-in-up.visible {
-  transform: translateY(0);
-  animation: fade-in-up 0.8s ease-out forwards;
+  animation: fade-in-up 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
 .fade-in-left {
@@ -289,8 +295,7 @@
 }
 
 .fade-in-left.visible {
-  transform: translateX(0);
-  animation: fade-in-left 0.8s ease-out forwards;
+  animation: fade-in-left 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
 .fade-in-right {
@@ -298,8 +303,7 @@
 }
 
 .fade-in-right.visible {
-  transform: translateX(0);
-  animation: fade-in-right 0.8s ease-out forwards;
+  animation: fade-in-right 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
 .scale-in {
@@ -307,8 +311,7 @@
 }
 
 .scale-in.visible {
-  transform: scale(1);
-  animation: scale-in 0.6s ease-out forwards;
+  animation: scale-in 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
 .slide-in-up {
@@ -316,8 +319,7 @@
 }
 
 .slide-in-up.visible {
-  transform: translateY(0);
-  animation: slide-in-up 0.8s ease-out forwards;
+  animation: slide-in-up 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
 /* Background animation classes */
@@ -337,17 +339,17 @@
   animation: pulse-slow 4s ease-in-out infinite;
 }
 
-/* New wandering animations */
+/* Improved wandering animations with smoother easing */
 .animate-wander-1 {
-  animation: wander-1 25s ease-in-out infinite;
+  animation: wander-1 25s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 .animate-wander-2 {
-  animation: wander-2 35s ease-in-out infinite 8s;
+  animation: wander-2 35s cubic-bezier(0.4, 0, 0.6, 1) infinite 8s;
 }
 
 .animate-wander-3 {
-  animation: wander-3 18s ease-in-out infinite 12s;
+  animation: wander-3 18s cubic-bezier(0.4, 0, 0.6, 1) infinite 12s;
 }
 
 /* Staggered animations */
