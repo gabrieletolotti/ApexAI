@@ -6,7 +6,6 @@ import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
-
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -14,31 +13,44 @@ const Contact = () => {
     company: '',
     message: ''
   });
-  const { toast } = useToast();
-  const { ref: titleRef, isIntersecting: isTitleVisible } = useIntersectionObserver({ threshold: 0.3 });
-  const { ref: contentRef, isIntersecting: isContentVisible } = useIntersectionObserver({ threshold: 0.2 });
-
+  const {
+    toast
+  } = useToast();
+  const {
+    ref: titleRef,
+    isIntersecting: isTitleVisible
+  } = useIntersectionObserver({
+    threshold: 0.3
+  });
+  const {
+    ref: contentRef,
+    isIntersecting: isContentVisible
+  } = useIntersectionObserver({
+    threshold: 0.2
+  });
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
     toast({
       title: "Messaggio Inviato!",
-      description: "Ti contatteremo presto per discutere del tuo progetto AI.",
+      description: "Ti contatteremo presto per discutere del tuo progetto AI."
     });
-    setFormData({ name: '', email: '', company: '', message: '' });
+    setFormData({
+      name: '',
+      email: '',
+      company: '',
+      message: ''
+    });
   };
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
-
-  return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-slate-50 via-white/50 to-blue-50/50 dark:from-background dark:via-slate-900/70 dark:to-blue-900/20 relative">
-      <div className="absolute left-0 top-60 w-96 h-36 bg-blue-200/15 rounded-full blur-2xl opacity-30 dark:bg-blue-700/10 z-0 hidden md:block"/>
-      <div className="absolute right-0 bottom-0 w-64 h-32 bg-purple-200/10 rounded-full blur-2xl opacity-20 dark:bg-purple-700/10 z-0 hidden md:block"/>
+  return <section id="contact" className="py-20 bg-gradient-to-br from-slate-50 via-white/50 to-blue-50/50 dark:from-background dark:via-slate-900/70 dark:to-blue-900/20 relative">
+      <div className="absolute left-0 top-60 w-96 h-36 bg-blue-200/15 rounded-full blur-2xl opacity-30 dark:bg-blue-700/10 z-0 hidden md:block" />
+      <div className="absolute right-0 bottom-0 w-64 h-32 bg-purple-200/10 rounded-full blur-2xl opacity-20 dark:bg-purple-700/10 z-0 hidden md:block" />
       <div className="container mx-auto px-4 relative z-10">
         <div ref={titleRef} className="text-center mb-16">
           <h2 className={`text-4xl font-bold mb-4 animate-on-scroll fade-in-up ${isTitleVisible ? 'visible' : ''} font-sans`}>
@@ -59,52 +71,19 @@ const Contact = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <Input
-                      name="name"
-                      placeholder="Nome e Cognome"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 transition-colors duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400"
-                    />
+                    <Input name="name" placeholder="Nome e Cognome" value={formData.name} onChange={handleChange} required className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 transition-colors duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400" />
                   </div>
                   <div>
-                    <Input
-                      name="email"
-                      type="email"
-                      placeholder="Email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 transition-colors duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400"
-                    />
+                    <Input name="email" type="email" placeholder="Email" value={formData.email} onChange={handleChange} required className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 transition-colors duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400" />
                   </div>
                 </div>
                 <div>
-                  <Input
-                    name="company"
-                    placeholder="Azienda"
-                    value={formData.company}
-                    onChange={handleChange}
-                    className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 transition-colors duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400"
-                  />
+                  <Input name="company" placeholder="Azienda" value={formData.company} onChange={handleChange} className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 transition-colors duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400" />
                 </div>
                 <div>
-                  <Textarea
-                    name="message"
-                    placeholder="Descrivi il tuo progetto o le tue esigenze di automazione..."
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows={6}
-                    required
-                    className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 transition-colors duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400"
-                  />
+                  <Textarea name="message" placeholder="Descrivi il tuo progetto o le tue esigenze di automazione..." value={formData.message} onChange={handleChange} rows={6} required className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 transition-colors duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400" />
                 </div>
-                <Button 
-                  type="submit" 
-                  size="lg" 
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300"
-                >
+                <Button type="submit" size="lg" className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300">
                   Invia Messaggio
                   <Send className="ml-2" size={20} />
                 </Button>
@@ -131,7 +110,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg">Telefono</h3>
-                    <p className="text-muted-foreground">+39 02 1234 5678</p>
+                    <p className="text-muted-foreground">+39 3395076268</p>
                   </div>
                 </div>
 
@@ -161,8 +140,6 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Contact;
