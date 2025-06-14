@@ -159,84 +159,84 @@
     opacity: 0.5;
   }
   25% {
-    transform: translate(20vw, 15vh) scale(1.8);
+    transform: translate(20vw, 15vh) scale(1.6);
     opacity: 0.7;
   }
   50% {
-    transform: translate(35vw, 25vh) scale(2.1);
+    transform: translate(35vw, 25vh) scale(1.9);
     opacity: 0.6;
   }
   75% {
-    transform: translate(5vw, -20vh) scale(1.5);
+    transform: translate(5vw, -20vh) scale(1.3);
     opacity: 0.7;
   }
   100% {
-    transform: translate(-25vw, -15vh) scale(1.3);
+    transform: translate(-25vw, -15vh) scale(1.1);
     opacity: 0.5;
   }
 }
 
 @keyframes wander-2 {
   0% {
-    transform: translate(30vw, 10vh) scale(1.4);
+    transform: translate(30vw, 10vh) scale(1.3);
     opacity: 0.6;
   }
   30% {
-    transform: translate(-15vw, 20vh) scale(1.9);
+    transform: translate(-15vw, 20vh) scale(1.7);
     opacity: 0.7;
   }
   60% {
-    transform: translate(-35vw, 35vh) scale(2.3);
+    transform: translate(-35vw, 35vh) scale(2.0);
     opacity: 0.5;
   }
   80% {
-    transform: translate(-5vw, 5vh) scale(1.6);
+    transform: translate(-5vw, 5vh) scale(1.4);
     opacity: 0.6;
   }
   100% {
-    transform: translate(25vw, -10vh) scale(1.1);
+    transform: translate(25vw, -10vh) scale(1.2);
     opacity: 0.7;
   }
 }
 
 @keyframes wander-3 {
   0% {
-    transform: translate(-20vw, 25vh) scale(1.3);
+    transform: translate(-20vw, 25vh) scale(1.1);
     opacity: 0.6;
   }
   40% {
-    transform: translate(15vw, -10vh) scale(2.0);
+    transform: translate(15vw, -10vh) scale(1.8);
     opacity: 0.5;
   }
   70% {
-    transform: translate(20vw, -30vh) scale(2.4);
+    transform: translate(20vw, -30vh) scale(2.1);
     opacity: 0.7;
   }
   90% {
-    transform: translate(-10vw, -5vh) scale(1.7);
+    transform: translate(-10vw, -5vh) scale(1.5);
     opacity: 0.6;
   }
   100% {
-    transform: translate(-30vw, 20vh) scale(1.2);
+    transform: translate(-30vw, 20vh) scale(1.3);
     opacity: 0.5;
   }
 }
 
 @keyframes wander-4 {
   0% {
-    transform: translate(25vw, 30vh) scale(1.6);
+    transform: translate(25vw, 30vh) scale(1.4);
     opacity: 0.5;
   }
   35% {
-    transform: translate(-5vw, 10vh) scale(1.8);
+    transform: translate(-5vw, 10vh) scale(1.6);
     opacity: 0.7;
   }
   65% {
-    transform: translate(-20vw, -10vh) scale(2.2);
+    transform: translate(-20vw, -10vh) scale(1.9);
     opacity: 0.6;
   }
   85% {
-    transform: translate(10vw, -25vh) scale(1.4);
+    transform: translate(10vw, -25vh) scale(1.2);
     opacity: 0.6;
   }
   100% {
@@ -251,19 +251,19 @@
     opacity: 0.6;
   }
   45% {
-    transform: translate(5vw, 0vh) scale(2.1);
+    transform: translate(5vw, 0vh) scale(1.8);
     opacity: 0.5;
   }
   75% {
-    transform: translate(25vw, -15vh) scale(1.9);
+    transform: translate(25vw, -15vh) scale(1.7);
     opacity: 0.7;
   }
   95% {
-    transform: translate(0vw, 25vh) scale(1.5);
+    transform: translate(0vw, 25vh) scale(1.3);
     opacity: 0.6;
   }
   100% {
-    transform: translate(-20vw, 10vh) scale(1.3);
+    transform: translate(-20vw, 10vh) scale(1.2);
     opacity: 0.5;
   }
 }
