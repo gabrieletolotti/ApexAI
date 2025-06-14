@@ -4,8 +4,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
 const Services = () => {
-  const { ref: titleRef, isIntersecting: isTitleVisible } = useIntersectionObserver({ threshold: 0.3 });
-  const { ref: cardsRef, isIntersecting: areCardsVisible } = useIntersectionObserver({ threshold: 0.1 });
+  const { ref: titleRef, isIntersecting: isTitleVisible } = useIntersectionObserver({ threshold: 0.25 });
+  const { ref: subtitleRef, isIntersecting: isSubtitleVisible } = useIntersectionObserver({ threshold: 0.22 });
+  const { ref: cardsGridRef, isIntersecting: isGridVisible } = useIntersectionObserver({ threshold: 0.15 });
 
   const services = [
     {
@@ -49,21 +50,52 @@ const Services = () => {
   return (
     <section id="services" className="py-20 bg-gradient-to-br from-background to-slate-50/50">
       <div className="container mx-auto px-4">
-        <div ref={titleRef} className="text-center mb-16">
-          <h2 className={`text-4xl font-bold mb-4 animate-on-scroll fade-in-up ${isTitleVisible ? 'visible' : ''}`}>
-            I Nostri <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Servizi</span>
+        <div className="text-center mb-16">
+
+          <h2
+            ref={titleRef}
+            className={`
+              text-4xl font-bold mb-4 
+              animate-on-scroll fade-in-up 
+              ${isTitleVisible ? 'visible' : ''}
+            `}
+          >
+            I Nostri{" "}
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Servizi</span>
           </h2>
-          <p className={`text-xl text-muted-foreground max-w-3xl mx-auto animate-on-scroll fade-in-up stagger-2 ${isTitleVisible ? 'visible' : ''}`}>
+
+          <p
+            ref={subtitleRef}
+            className={`
+              text-xl text-muted-foreground max-w-3xl mx-auto
+              animate-on-scroll fade-in-up stagger-2
+              ${isSubtitleVisible ? 'visible' : ''}
+            `}
+          >
             Offriamo soluzioni complete di automazione AI per trasformare il modo in cui la tua azienda opera, 
             aumentando l'efficienza e riducendo i costi.
           </p>
         </div>
 
-        <div ref={cardsRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div
+          ref={cardsGridRef}
+          className={`
+            grid md:grid-cols-2 lg:grid-cols-3 gap-8
+            animate-on-scroll fade-in-up stagger-3
+            ${isGridVisible ? 'visible' : ''}
+          `}
+        >
           {services.map((service, index) => (
             <Card 
               key={index} 
-              className={`hover:shadow-2xl transition-all duration-500 hover:scale-105 border-0 bg-white/50 backdrop-blur-sm hover:bg-white/70 group animate-on-scroll slide-in-up stagger-${Math.min(6, index + 1)} ${areCardsVisible ? 'visible' : ''}`}
+              className={`
+                hover:shadow-2xl transition-all duration-500 hover:scale-105 border-0 bg-white/50 backdrop-blur-sm hover:bg-white/70 group
+                animate-on-scroll slide-in-up stagger-${Math.min(6, index + 1)}
+                ${isGridVisible ? 'visible' : ''}
+              `}
+              style={{
+                transitionDelay: isGridVisible ? `${0.08 * index + 0.12}s` : '0s'
+              }}
             >
               <CardHeader>
                 <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-blue-100 to-purple-100 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
