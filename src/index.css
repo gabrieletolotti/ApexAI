@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -152,119 +153,115 @@
   }
 }
 
-/* Improved wandering animations with smooth opacity transitions and random sizes */
+/* Improved wandering animations with smoother transitions and fluid motion */
 @keyframes wander-1 {
   0% {
-    transform: translate(-15vw, -10vh) scale(1.2);
+    transform: translate(-10vw, -5vh) scale(1.3);
     opacity: 0.5;
   }
-  25% {
-    transform: translate(20vw, 15vh) scale(1.6);
-    opacity: 0.7;
-  }
-  50% {
-    transform: translate(35vw, 25vh) scale(1.9);
+  20% {
+    transform: translate(5vw, 8vh) scale(1.5);
     opacity: 0.6;
   }
-  75% {
-    transform: translate(5vw, -20vh) scale(1.3);
+  40% {
+    transform: translate(18vw, 15vh) scale(1.8);
+    opacity: 0.7;
+  }
+  60% {
+    transform: translate(25vw, 20vh) scale(2.0);
+    opacity: 0.6;
+  }
+  80% {
+    transform: translate(8vw, -8vh) scale(1.6);
     opacity: 0.7;
   }
   100% {
-    transform: translate(-25vw, -15vh) scale(1.1);
+    transform: translate(-10vw, -5vh) scale(1.3);
     opacity: 0.5;
   }
 }
 
 @keyframes wander-2 {
   0% {
-    transform: translate(30vw, 10vh) scale(1.3);
+    transform: translate(20vw, 8vh) scale(1.4);
     opacity: 0.6;
   }
-  30% {
-    transform: translate(-15vw, 20vh) scale(1.7);
+  25% {
+    transform: translate(-8vw, 18vh) scale(1.7);
     opacity: 0.7;
   }
-  60% {
-    transform: translate(-35vw, 35vh) scale(2.0);
+  50% {
+    transform: translate(-22vw, 25vh) scale(1.9);
     opacity: 0.5;
   }
-  80% {
-    transform: translate(-5vw, 5vh) scale(1.4);
+  75% {
+    transform: translate(-2vw, 3vh) scale(1.5);
     opacity: 0.6;
   }
   100% {
-    transform: translate(25vw, -10vh) scale(1.2);
-    opacity: 0.7;
+    transform: translate(20vw, 8vh) scale(1.4);
+    opacity: 0.6;
   }
 }
 
 @keyframes wander-3 {
   0% {
-    transform: translate(-20vw, 25vh) scale(1.1);
+    transform: translate(-15vw, 18vh) scale(1.2);
     opacity: 0.6;
   }
-  40% {
-    transform: translate(15vw, -10vh) scale(1.8);
+  30% {
+    transform: translate(10vw, -5vh) scale(1.6);
     opacity: 0.5;
   }
-  70% {
-    transform: translate(20vw, -30vh) scale(2.1);
+  60% {
+    transform: translate(15vw, -18vh) scale(1.8);
     opacity: 0.7;
   }
   90% {
-    transform: translate(-10vw, -5vh) scale(1.5);
+    transform: translate(-5vw, -2vh) scale(1.4);
     opacity: 0.6;
   }
   100% {
-    transform: translate(-30vw, 20vh) scale(1.3);
-    opacity: 0.5;
+    transform: translate(-15vw, 18vh) scale(1.2);
+    opacity: 0.6;
   }
 }
 
 @keyframes wander-4 {
   0% {
-    transform: translate(25vw, 30vh) scale(1.4);
+    transform: translate(18vw, 22vh) scale(1.5);
     opacity: 0.5;
   }
-  35% {
-    transform: translate(-5vw, 10vh) scale(1.6);
+  33% {
+    transform: translate(-3vw, 8vh) scale(1.7);
     opacity: 0.7;
   }
-  65% {
-    transform: translate(-20vw, -10vh) scale(1.9);
-    opacity: 0.6;
-  }
-  85% {
-    transform: translate(10vw, -25vh) scale(1.2);
+  66% {
+    transform: translate(-15vw, -8vh) scale(1.9);
     opacity: 0.6;
   }
   100% {
-    transform: translate(35vw, 15vh) scale(1.1);
-    opacity: 0.7;
+    transform: translate(18vw, 22vh) scale(1.5);
+    opacity: 0.5;
   }
 }
 
 @keyframes wander-5 {
   0% {
-    transform: translate(-25vw, 20vh) scale(1.1);
+    transform: translate(-18vw, 15vh) scale(1.1);
     opacity: 0.6;
   }
-  45% {
-    transform: translate(5vw, 0vh) scale(1.8);
+  40% {
+    transform: translate(3vw, -2vh) scale(1.6);
     opacity: 0.5;
   }
-  75% {
-    transform: translate(25vw, -15vh) scale(1.7);
+  80% {
+    transform: translate(18vw, -12vh) scale(1.8);
     opacity: 0.7;
   }
-  95% {
-    transform: translate(0vw, 25vh) scale(1.3);
-    opacity: 0.6;
-  }
   100% {
-    transform: translate(-20vw, 10vh) scale(1.2);
-    opacity: 0.5;
+    transform: translate(-18vw, 15vh) scale(1.1);
+    opacity: 0.6;
   }
 }
 
@@ -384,25 +381,25 @@
   animation: pulse-slow 4s ease-in-out infinite;
 }
 
-/* Smooth wandering animations with consistent opacity ranges */
+/* Smooth wandering animations with consistent timing and easing */
 .animate-wander-1 {
-  animation: wander-1 28s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation: wander-1 35s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
 }
 
 .animate-wander-2 {
-  animation: wander-2 32s cubic-bezier(0.4, 0, 0.6, 1) infinite 6s;
+  animation: wander-2 40s cubic-bezier(0.25, 0.1, 0.25, 1) infinite 8s;
 }
 
 .animate-wander-3 {
-  animation: wander-3 24s cubic-bezier(0.4, 0, 0.6, 1) infinite 12s;
+  animation: wander-3 30s cubic-bezier(0.25, 0.1, 0.25, 1) infinite 15s;
 }
 
 .animate-wander-4 {
-  animation: wander-4 30s cubic-bezier(0.4, 0, 0.6, 1) infinite 3s;
+  animation: wander-4 38s cubic-bezier(0.25, 0.1, 0.25, 1) infinite 5s;
 }
 
 .animate-wander-5 {
-  animation: wander-5 26s cubic-bezier(0.4, 0, 0.6, 1) infinite 15s;
+  animation: wander-5 33s cubic-bezier(0.25, 0.1, 0.25, 1) infinite 20s;
 }
 
 /* Staggered animations */
