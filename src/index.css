@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -340,15 +339,15 @@
 
 /* New wandering animations */
 .animate-wander-1 {
-  animation: wander-1 15s ease-in-out infinite;
+  animation: wander-1 25s ease-in-out infinite;
 }
 
 .animate-wander-2 {
-  animation: wander-2 18s ease-in-out infinite 3s;
+  animation: wander-2 30s ease-in-out infinite 5s;
 }
 
 .animate-wander-3 {
-  animation: wander-3 12s ease-in-out infinite 6s;
+  animation: wander-3 20s ease-in-out infinite 10s;
 }
 
 /* Staggered animations */
