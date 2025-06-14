@@ -5,34 +5,23 @@ import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 const Hero = () => {
   const { ref, isIntersecting } = useIntersectionObserver({ threshold: 0.2 });
 
-  // Aggiorniamo anche scrollToContact per usare offset header
-  const scrollToContact = () => {
-    const contactSection = document.getElementById('contact');
-    const header = document.querySelector('header');
-    if (contactSection) {
-      let offset = 0;
-      if (header instanceof HTMLElement) {
-        offset = header.offsetHeight;
-      }
-      const sectionRect = contactSection.getBoundingClientRect();
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      const top = sectionRect.top + scrollTop - offset;
-      window.scrollTo({ top, behavior: 'smooth' });
-    }
-  };
-
-  const scrollToServices = () => {
-    const servicesSection = document.getElementById('services');
-    const header = document.querySelector('header');
-    if (servicesSection) {
-      let offset = 0;
-      if (header instanceof HTMLElement) {
-        offset = header.offsetHeight;
-      }
-      const servicesSectionRect = servicesSection.getBoundingClientRect();
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      const top = servicesSectionRect.top + scrollTop - offset;
-      window.scrollTo({ top, behavior: 'smooth' });
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      const header = document.querySelector('header');
+      const headerHeight = header ? header.offsetHeight : 0;
+      const viewportHeight = window.innerHeight;
+      const sectionHeight = section.offsetHeight;
+      
+      // Calcola la posizione per centrare la sezione
+      const sectionTop = section.offsetTop;
+      const centerOffset = (viewportHeight - sectionHeight) / 2;
+      const scrollPosition = sectionTop - headerHeight - centerOffset;
+      
+      window.scrollTo({ 
+        top: Math.max(0, scrollPosition), 
+        behavior: 'smooth' 
+      });
     }
   };
 
@@ -40,11 +29,11 @@ const Hero = () => {
     <section id="home" className="min-h-screen flex items-center relative z-0 pt-20 bg-gradient-to-br from-slate-100 via-slate-50 to-blue-50 dark:from-background dark:via-slate-900/60 dark:to-blue-500/5">
       {/* Dynamic wandering blob effects with random starting positions and larger sizes */}
       <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[60vh] rounded-full bg-blue-200/40 blur-3xl animate-wander-1 dark:bg-blue-800/50" />
-        <div className="absolute right-1/4 bottom-1/3 w-[75vw] h-[55vh] bg-purple-200/35 rounded-full blur-3xl animate-wander-2 dark:bg-purple-800/45" />
-        <div className="absolute left-1/3 top-1/4 w-[70vw] h-[50vh] bg-blue-100/30 rounded-full blur-2xl animate-wander-3 dark:bg-blue-900/40" />
-        <div className="absolute right-1/3 top-2/3 w-[65vw] h-[45vh] bg-purple-100/25 rounded-full blur-2xl animate-wander-4 dark:bg-purple-900/35" />
-        <div className="absolute left-2/3 bottom-1/4 w-[60vw] h-[40vh] bg-blue-50/20 rounded-full blur-xl animate-wander-5 dark:bg-blue-950/30" />
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] h-[70vh] rounded-full bg-blue-200/40 blur-3xl animate-wander-1 dark:bg-blue-800/50" />
+        <div className="absolute right-1/4 bottom-1/3 w-[85vw] h-[65vh] bg-purple-200/35 rounded-full blur-3xl animate-wander-2 dark:bg-purple-800/45" />
+        <div className="absolute left-1/3 top-1/4 w-[80vw] h-[60vh] bg-blue-100/30 rounded-full blur-2xl animate-wander-3 dark:bg-blue-900/40" />
+        <div className="absolute right-1/3 top-2/3 w-[75vw] h-[55vh] bg-purple-100/25 rounded-full blur-2xl animate-wander-4 dark:bg-purple-900/35" />
+        <div className="absolute left-2/3 bottom-1/4 w-[70vw] h-[50vh] bg-blue-50/20 rounded-full blur-xl animate-wander-5 dark:bg-blue-950/30" />
       </div>
       <div className="container mx-auto px-4">
         <div ref={ref} className="grid lg:grid-cols-2 gap-12 items-center">
@@ -66,7 +55,7 @@ const Hero = () => {
             <div className={`flex flex-col sm:flex-row gap-4 animate-on-scroll fade-in-up stagger-3 ${isIntersecting ? 'visible' : ''}`}>
               <Button 
                 size="lg" 
-                onClick={scrollToContact}
+                onClick={() => scrollToSection('contact')}
                 className="bg-gradient-to-r from-blue-700 via-blue-500 to-purple-700 hover:from-blue-800 hover:to-purple-800 shadow-xl shadow-blue-200/30 dark:shadow-none text-base font-semibold rounded-xl backdrop-blur-sm"
               >
                 Inizia Ora
@@ -75,7 +64,7 @@ const Hero = () => {
               <Button 
                 variant="outline" 
                 size="lg" 
-                onClick={scrollToServices}
+                onClick={() => scrollToSection('services')}
                 className="hover:bg-blue-50 dark:hover:bg-slate-800/70 text-base font-semibold rounded-xl border-2 border-blue-600/20 dark:border-blue-300/20 backdrop-blur-sm"
               >
                 Scopri di Più

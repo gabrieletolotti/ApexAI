@@ -18,6 +18,27 @@ const Header = () => {
     }
   }, []);
 
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      const header = document.querySelector('header');
+      const headerHeight = header ? header.offsetHeight : 0;
+      const viewportHeight = window.innerHeight;
+      const sectionHeight = section.offsetHeight;
+      
+      // Calcola la posizione per centrare la sezione
+      const sectionTop = section.offsetTop;
+      const centerOffset = (viewportHeight - sectionHeight) / 2;
+      const scrollPosition = sectionTop - headerHeight - centerOffset;
+      
+      window.scrollTo({ 
+        top: Math.max(0, scrollPosition), 
+        behavior: 'smooth' 
+      });
+    }
+    setIsMenuOpen(false);
+  };
+
   return (
     <header ref={ref} className={`fixed top-0 w-full bg-background/80 backdrop-blur-md z-50 border-b border-border/50 transition-all duration-500 ${isIntersecting ? 'translate-y-0 opacity-100' : 'translate-y-0 opacity-100'}`}>
       <div className="container mx-auto px-4 py-4">
@@ -31,10 +52,10 @@ const Header = () => {
           
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            <a href="#home" className="text-foreground hover:text-primary hover:scale-105 transition-all duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">Home</a>
-            <a href="#services" className="text-foreground hover:text-primary hover:scale-105 transition-all duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">Servizi</a>
-            <a href="#about" className="text-foreground hover:text-primary hover:scale-105 transition-all duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">Chi Siamo</a>
-            <a href="#contact" className="text-foreground hover:text-primary hover:scale-105 transition-all duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">Contatti</a>
+            <button onClick={() => scrollToSection('home')} className="text-foreground hover:text-primary hover:scale-105 transition-all duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">Home</button>
+            <button onClick={() => scrollToSection('services')} className="text-foreground hover:text-primary hover:scale-105 transition-all duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">Servizi</button>
+            <button onClick={() => scrollToSection('about')} className="text-foreground hover:text-primary hover:scale-105 transition-all duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">Chi Siamo</button>
+            <button onClick={() => scrollToSection('contact')} className="text-foreground hover:text-primary hover:scale-105 transition-all duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">Contatti</button>
           </nav>
 
           <div className="flex items-center space-x-4">
@@ -54,10 +75,10 @@ const Header = () => {
         {isMenuOpen && (
           <nav className="md:hidden mt-4 pb-4 border-t border-border/50 animate-on-scroll fade-in-up visible">
             <div className="flex flex-col space-y-4 pt-4">
-              <a href="#home" className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300">Home</a>
-              <a href="#services" className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300">Servizi</a>
-              <a href="#about" className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300">Chi Siamo</a>
-              <a href="#contact" className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300">Contatti</a>
+              <button onClick={() => scrollToSection('home')} className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 text-left">Home</button>
+              <button onClick={() => scrollToSection('services')} className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 text-left">Servizi</button>
+              <button onClick={() => scrollToSection('about')} className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 text-left">Chi Siamo</button>
+              <button onClick={() => scrollToSection('contact')} className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 text-left">Contatti</button>
             </div>
           </nav>
         )}
