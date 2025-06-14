@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { ThemeToggle } from '@/components/theme-toggle';
@@ -7,6 +7,16 @@ import { ThemeToggle } from '@/components/theme-toggle';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { ref, isIntersecting } = useIntersectionObserver({ threshold: 1, triggerOnce: false });
+
+  // Rimuovi l'hash dall'URL al caricamento della pagina per evitare scroll automatico
+  useEffect(() => {
+    if (window.location.hash) {
+      // Rimuovi l'hash dall'URL senza ricaricare la pagina
+      window.history.replaceState(null, '', window.location.pathname + window.location.search);
+      // Scrolla in cima alla pagina
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+  }, []);
 
   return (
     <header ref={ref} className={`fixed top-0 w-full bg-background/80 backdrop-blur-md z-50 border-b border-border/50 transition-all duration-500 ${isIntersecting ? 'translate-y-0 opacity-100' : 'translate-y-0 opacity-100'}`}>
