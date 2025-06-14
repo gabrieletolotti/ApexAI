@@ -1,3 +1,4 @@
+
 import { ArrowRight, Bot, Zap, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
@@ -73,27 +74,27 @@ const Hero = () => {
                 variant="outline" 
                 size="lg" 
                 onClick={scrollToServices}
-                className="hover:bg-blue-50 hover:text-blue-700 dark:hover:bg-slate-800/70 dark:hover:text-blue-300 text-base font-semibold rounded-xl border-2 border-blue-600/20 dark:border-blue-300/20 backdrop-blur-sm"
+                className="hover:bg-blue-50 dark:hover:bg-slate-800/70 text-base font-semibold rounded-xl border-2 border-blue-600/20 dark:border-blue-300/20 backdrop-blur-sm"
               >
                 Scopri di Più
               </Button>
             </div>
 
             <div className="grid grid-cols-3 gap-6 pt-8">
-              <div className={`text-center animate-on-scroll scale-in stagger-4 ${isIntersecting ? 'visible' : ''} hover:scale-110 transition-transform duration-300 cursor-pointer`}>
-                <div className="bg-blue-100 dark:bg-blue-900/30 w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-2 hover:bg-blue-200 transition-colors duration-300 shadow-lg shadow-blue-100/30 dark:shadow-blue-600/10">
+              <div className={`text-center animate-on-scroll scale-in stagger-4 ${isIntersecting ? 'visible' : ''} hover:scale-110 duration-300 cursor-pointer`}>
+                <div className="bg-blue-100 dark:bg-blue-900/30 w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-2 hover:bg-blue-200 duration-300 shadow-lg shadow-blue-100/30 dark:shadow-blue-600/10">
                   <Bot className="text-blue-600 dark:text-blue-300" size={24} />
                 </div>
                 <p className="text-sm font-medium">AI Avanzata</p>
               </div>
-              <div className={`text-center animate-on-scroll scale-in stagger-5 ${isIntersecting ? 'visible' : ''} hover:scale-110 transition-transform duration-300 cursor-pointer`}>
-                <div className="bg-purple-100 dark:bg-purple-900/30 w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-2 hover:bg-purple-200 transition-colors duration-300 shadow-lg shadow-purple-100/30 dark:shadow-purple-700/10">
+              <div className={`text-center animate-on-scroll scale-in stagger-5 ${isIntersecting ? 'visible' : ''} hover:scale-110 duration-300 cursor-pointer`}>
+                <div className="bg-purple-100 dark:bg-purple-900/30 w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-2 hover:bg-purple-200 duration-300 shadow-lg shadow-purple-100/30 dark:shadow-purple-700/10">
                   <Zap className="text-purple-600 dark:text-purple-300" size={24} />
                 </div>
                 <p className="text-sm font-medium">Automazione</p>
               </div>
-              <div className={`text-center animate-on-scroll scale-in stagger-6 ${isIntersecting ? 'visible' : ''} hover:scale-110 transition-transform duration-300 cursor-pointer`}>
-                <div className="bg-green-100 dark:bg-green-900/20 w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-2 hover:bg-green-200 transition-colors duration-300 shadow-lg shadow-green-100/30 dark:shadow-green-700/10">
+              <div className={`text-center animate-on-scroll scale-in stagger-6 ${isIntersecting ? 'visible' : ''} hover:scale-110 duration-300 cursor-pointer`}>
+                <div className="bg-green-100 dark:bg-green-900/20 w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-2 hover:bg-green-200 duration-300 shadow-lg shadow-green-100/30 dark:shadow-green-700/10">
                   <TrendingUp className="text-green-600 dark:text-green-300" size={24} />
                 </div>
                 <p className="text-sm font-medium">Crescita</p>
@@ -102,7 +103,7 @@ const Hero = () => {
           </div>
 
           <div className={`relative animate-on-scroll fade-in-right ${isIntersecting ? 'visible' : ''}`}>
-            <div className="bg-gradient-to-br from-blue-200/40 to-purple-200/30 dark:from-blue-900/60 dark:to-purple-900/30 rounded-3xl p-8 backdrop-blur-2xl border border-white/50 border-opacity-30 dark:border-slate-700 hover:scale-105 transition-transform duration-500 shadow-2xl shadow-blue-300/25 dark:shadow-none">
+            <div className="bg-gradient-to-br from-blue-200/40 to-purple-200/30 dark:from-blue-900/60 dark:to-purple-900/30 rounded-3xl p-8 backdrop-blur-2xl border border-white/50 border-opacity-30 dark:border-slate-700 hover:scale-105 duration-500 shadow-2xl shadow-blue-300/25 dark:shadow-none">
               <div className="bg-white/40 dark:bg-white/10 rounded-2xl p-6 backdrop-blur-lg">
                 <div className="space-y-4">
                   <div className="flex items-center space-x-3">
@@ -110,19 +111,19 @@ const Hero = () => {
                     <span className="text-sm font-medium">Sistema AI Attivo</span>
                   </div>
                   <div className="space-y-3">
-                    <div className="bg-white/40 dark:bg-white/10 rounded-lg p-3 hover:bg-white/60 dark:hover:bg-white/20 transition-colors duration-300">
+                    <div className="bg-white/40 dark:bg-white/10 rounded-lg p-3 hover:bg-white/60 dark:hover:bg-white/20 duration-300">
                       <div className="flex justify-between items-center">
                         <span className="text-sm">Efficienza Processi</span>
                         <span className="text-sm font-bold text-green-400">+89%</span>
                       </div>
                     </div>
-                    <div className="bg-white/40 dark:bg-white/10 rounded-lg p-3 hover:bg-white/60 dark:hover:bg-white/20 transition-colors duration-300">
+                    <div className="bg-white/40 dark:bg-white/10 rounded-lg p-3 hover:bg-white/60 dark:hover:bg-white/20 duration-300">
                       <div className="flex justify-between items-center">
                         <span className="text-sm">Riduzione Costi</span>
                         <span className="text-sm font-bold text-blue-400">-67%</span>
                       </div>
                     </div>
-                    <div className="bg-white/40 dark:bg-white/10 rounded-lg p-3 hover:bg-white/60 dark:hover:bg-white/20 transition-colors duration-300">
+                    <div className="bg-white/40 dark:bg-white/10 rounded-lg p-3 hover:bg-white/60 dark:hover:bg-white/20 duration-300">
                       <div className="flex justify-between items-center">
                         <span className="text-sm">Automazione Completa</span>
                         <span className="text-sm font-bold text-purple-400">24/7</span>
