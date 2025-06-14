@@ -39,11 +39,13 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center relative z-0 pt-20 bg-gradient-to-br from-slate-100 via-slate-50 to-blue-50 dark:from-background dark:via-slate-900/60 dark:to-blue-500/5">
-      {/* Animated glass blob effects */}
-      <div className="absolute inset-0 pointer-events-none -z-10">
-        <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[60vw] h-[50vh] rounded-full bg-blue-200/30 blur-2xl opacity-60 dark:bg-blue-800/40 animate-float" />
-        <div className="absolute right-0 bottom-0 w-1/2 h-1/4 bg-purple-200/30 rounded-full blur-2xl opacity-40 dark:bg-purple-800/40 animate-float-reverse" />
-        <div className="absolute left-1/4 bottom-1/4 w-1/3 h-1/3 bg-blue-100/20 rounded-full blur-xl opacity-30 dark:bg-blue-900/30 animate-drift" />
+      {/* Dynamic wandering blob effects */}
+      <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[40vw] h-[30vh] rounded-full bg-blue-200/40 blur-3xl animate-wander-1 dark:bg-blue-800/50" />
+        <div className="absolute right-1/4 bottom-1/3 w-[35vw] h-[25vh] bg-purple-200/35 rounded-full blur-3xl animate-wander-2 dark:bg-purple-800/45" />
+        <div className="absolute left-1/3 top-1/4 w-[30vw] h-[20vh] bg-blue-100/30 rounded-full blur-2xl animate-wander-3 dark:bg-blue-900/40" />
+        <div className="absolute right-1/3 top-2/3 w-[25vw] h-[20vh] bg-purple-100/25 rounded-full blur-2xl animate-wander-1 dark:bg-purple-900/35" />
+        <div className="absolute left-2/3 bottom-1/4 w-[20vw] h-[15vh] bg-blue-50/20 rounded-full blur-xl animate-wander-2 dark:bg-blue-950/30" />
       </div>
       <div className="container mx-auto px-4">
         <div ref={ref} className="grid lg:grid-cols-2 gap-12 items-center">

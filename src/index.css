@@ -153,6 +153,70 @@
   }
 }
 
+/* New dynamic background animations */
+@keyframes wander-1 {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(30vw, 20vh) scale(1.2);
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translate(-20vw, -30vh) scale(0.8);
+    opacity: 0;
+  }
+}
+
+@keyframes wander-2 {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.5;
+  }
+  60% {
+    transform: translate(-40vw, 30vh) scale(1.1);
+    opacity: 0.7;
+  }
+  85% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translate(25vw, -20vh) scale(0.9);
+    opacity: 0;
+  }
+}
+
+@keyframes wander-3 {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.4;
+  }
+  70% {
+    transform: translate(15vw, -25vh) scale(1.3);
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.2;
+  }
+  100% {
+    transform: translate(-35vw, 15vh) scale(0.7);
+    opacity: 0;
+  }
+}
+
 /* Background animation keyframes */
 @keyframes float {
   0%, 100% {
@@ -272,6 +336,19 @@
 
 .animate-pulse-slow {
   animation: pulse-slow 4s ease-in-out infinite;
+}
+
+/* New wandering animations */
+.animate-wander-1 {
+  animation: wander-1 15s ease-in-out infinite;
+}
+
+.animate-wander-2 {
+  animation: wander-2 18s ease-in-out infinite 3s;
+}
+
+.animate-wander-3 {
+  animation: wander-3 12s ease-in-out infinite 6s;
 }
 
 /* Staggered animations */
