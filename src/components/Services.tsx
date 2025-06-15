@@ -1,4 +1,3 @@
-
 import { Brain, Cog, Database, MessageSquare, BarChart3, Shield } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
@@ -62,7 +61,7 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-gradient-to-br from-slate-50 via-slate-100 to-blue-50 dark:from-background dark:via-slate-900/70 dark:to-blue-500/10 relative">
+    <section id="services" className="py-20 bg-gradient-to-br from-slate-50/50 via-slate-100/50 to-blue-50/50 dark:from-background/50 dark:via-slate-900/40 dark:to-blue-500/50 relative">
       {/* Glassy backdrop shapes for modern look */}
       <div className="absolute left-8 top-32 w-96 h-60 rounded-full bg-blue-200/25 blur-2xl opacity-30 dark:bg-blue-800/10 z-0 hidden md:block" />
       <div className="absolute right-6 bottom-0 w-64 h-40 bg-purple-200/20 rounded-full blur-2xl opacity-40 dark:bg-purple-900/20 z-0 hidden md:block" />
@@ -113,8 +112,9 @@ const Services = () => {
                 <Card
                   className={`
                     h-full flex flex-col
-                    ring-1 ring-white/70 dark:ring-slate-500/50 hover:shadow-2xl transition-all duration-500 hover:scale-105
-                    border-0 bg-white/60 dark:bg-slate-900/50 backdrop-blur-xl hover:bg-white/80 hover:dark:bg-slate-900/80 group
+                    hover:shadow-2xl transition-all duration-500 hover:scale-105
+                    border border-white/30 dark:border-slate-700/30 bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl
+                    group shadow-lg shadow-black/5
                   `}
                 >
                   <CardHeader>

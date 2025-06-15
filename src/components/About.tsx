@@ -19,7 +19,7 @@ const About = () => {
   } = useIntersectionObserver({
     threshold: 0.2
   });
-  return <section id="about" className="py-20 bg-gradient-to-br from-background via-white/70 to-purple-100/30 dark:from-background dark:via-slate-900/70 dark:to-purple-700/10 relative">
+  return <section id="about" className="py-20 bg-gradient-to-br from-background/50 via-white/40 to-purple-100/20 dark:from-background/50 dark:via-slate-900/40 dark:to-purple-700/20 relative">
       {/* Glass blobs for extra flair */}
       <div className="absolute right-16 top-32 w-96 h-60 rounded-full bg-purple-200/15 blur-2xl opacity-30 dark:bg-purple-800/10 z-0 hidden md:block" />
       <div className="absolute left-10 bottom-8 w-80 h-28 bg-blue-200/20 rounded-full blur-2xl opacity-25 dark:bg-blue-800/20 z-0 hidden md:block" />
@@ -55,7 +55,7 @@ const About = () => {
           </div>
 
           <div ref={featuresRef} className="space-y-6">
-            <div className={`bg-gradient-to-br from-white/70 to-blue-50/70 dark:from-slate-800/60 dark:to-blue-900/60 p-8 rounded-3xl shadow-2xl hover:shadow-2xl hover:scale-105 transition-all duration-500 animate-on-scroll fade-in-right ${areFeaturesVisible ? 'visible' : ''} border border-white/60 dark:border-slate-700`}>
+            <div className={`bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl p-8 rounded-3xl shadow-lg shadow-black/5 hover:shadow-2xl hover:scale-105 transition-all duration-500 animate-on-scroll fade-in-right ${areFeaturesVisible ? 'visible' : ''} border border-white/30 dark:border-slate-700/30`}>
               <h3 className="text-2xl font-bold mb-6 text-center">Perché Scegliere ApexAI</h3>
               
               <div className="space-y-6">

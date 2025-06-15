@@ -8,7 +8,7 @@ const Footer = () => {
   } = useIntersectionObserver({
     threshold: 0.2
   });
-  return <footer ref={ref} className="bg-slate-900 text-white py-16">
+  return <footer ref={ref} className="bg-slate-900/70 backdrop-blur-xl text-white py-16">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-8">
           <div className={`space-y-4 animate-on-scroll fade-in-up ${isIntersecting ? 'visible' : ''}`}>
@@ -60,7 +60,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className={`border-t border-slate-700 mt-12 pt-8 text-center text-slate-400 animate-on-scroll fade-in-up stagger-5 ${isIntersecting ? 'visible' : ''}`}>
+        <div className={`border-t border-slate-700/50 mt-12 pt-8 text-center text-slate-400 animate-on-scroll fade-in-up stagger-5 ${isIntersecting ? 'visible' : ''}`}>
           <p>© 2024 ApexAI. Tutti i diritti riservati.</p>
         </div>
       </div>
