@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
@@ -73,7 +72,7 @@ const Header = () => {
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="hover:scale-105 transition-transform duration-300 cursor-pointer"
           >
-            <img src="/lovable-uploads/cc3741a6-d4c6-44d6-8d0c-42f96b12dcfd.png" alt="ApexAI Logo" className="h-10" />
+            <img src="/lovable-uploads/aa430766-16dd-4783-bc9f-f9980ee34dea.png" alt="ApexAI Logo" className="h-10" />
           </button>
           
           {/* Desktop Navigation */}
