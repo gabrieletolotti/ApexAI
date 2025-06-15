@@ -1,4 +1,3 @@
-
 import { ArrowRight, Bot, Zap, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
@@ -94,39 +93,24 @@ const Hero = () => {
 
             {/* Sistema AI predittivo */}
             <div className="bg-gradient-to-br from-white/80 to-slate-100/70 dark:from-slate-800/90 dark:to-slate-900/80 rounded-2xl p-6 lg:p-8 backdrop-blur-2xl border-2 border-slate-200/60 dark:border-slate-600/50 shadow-xl shadow-slate-400/20 dark:shadow-slate-900/40 max-w-4xl mx-auto">
-              <div className="flex items-start space-x-4">
-                <div className="text-green-500 text-2xl font-bold">✅</div>
-                <div className="space-y-4 flex-1">
-                  <h4 className="text-xl lg:text-2xl font-bold text-slate-800 dark:text-slate-200">
-                    Sistema AI predittivo
-                  </h4>
-                  <div className="grid md:grid-cols-3 gap-4">
-                    <div className="text-center p-4 bg-white/60 dark:bg-slate-700/50 rounded-lg border border-slate-200/40 dark:border-slate-600/30">
-                      <div className="text-lg font-bold text-green-500">+89%</div>
-                      <div className="text-sm text-slate-600 dark:text-slate-400">Aumenta l'efficienza</div>
-                    </div>
-                    <div className="text-center p-4 bg-white/60 dark:bg-slate-700/50 rounded-lg border border-slate-200/40 dark:border-slate-600/30">
-                      <div className="text-lg font-bold text-blue-500">-67%</div>
-                      <div className="text-sm text-slate-600 dark:text-slate-400">Riduci i costi operativi</div>
-                    </div>
-                    <div className="text-center p-4 bg-white/60 dark:bg-slate-700/50 rounded-lg border border-slate-200/40 dark:border-slate-600/30">
-                      <div className="text-lg font-bold text-purple-500">Real-time</div>
-                      <div className="text-sm text-slate-600 dark:text-slate-400">Adattamento continuo</div>
-                    </div>
-                  </div>
+              <div className="grid md:grid-cols-3 gap-4">
+                <div className="text-center p-4 bg-white/60 dark:bg-slate-700/50 rounded-lg border border-slate-200/40 dark:border-slate-600/30">
+                  <div className="text-lg font-bold text-green-500">+89%</div>
+                  <div className="text-sm text-slate-600 dark:text-slate-400">Aumenta l'efficienza</div>
+                </div>
+                <div className="text-center p-4 bg-white/60 dark:bg-slate-700/50 rounded-lg border border-slate-200/40 dark:border-slate-600/30">
+                  <div className="text-lg font-bold text-blue-500">-67%</div>
+                  <div className="text-sm text-slate-600 dark:text-slate-400">Riduci i costi operativi</div>
+                </div>
+                <div className="text-center p-4 bg-white/60 dark:bg-slate-700/50 rounded-lg border border-slate-200/40 dark:border-slate-600/30">
+                  <div className="text-lg font-bold text-purple-500">Real-time</div>
+                  <div className="text-sm text-slate-600 dark:text-slate-400">Adattamento continuo</div>
                 </div>
               </div>
             </div>
 
             {/* 3 Pilastri strategici */}
             <div className="bg-gradient-to-br from-white/80 to-slate-100/70 dark:from-slate-800/90 dark:to-slate-900/80 rounded-2xl p-6 lg:p-8 backdrop-blur-2xl border-2 border-slate-200/60 dark:border-slate-600/50 shadow-xl shadow-slate-400/20 dark:shadow-slate-900/40 max-w-4xl mx-auto">
-              <div className="flex items-start space-x-4 mb-6">
-                <div className="text-green-500 text-2xl font-bold">✅</div>
-                <h4 className="text-xl lg:text-2xl font-bold text-slate-800 dark:text-slate-200">
-                  3 Pilastri strategici:
-                </h4>
-              </div>
-              
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="text-center space-y-4">
                   <div className="bg-blue-100 dark:bg-blue-900/30 w-16 h-16 rounded-xl flex items-center justify-center mx-auto">
