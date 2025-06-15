@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
@@ -20,7 +21,6 @@ const Header = () => {
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
-      // Ottieni l'altezza dell'header in modo più preciso
       const header = document.querySelector('header');
       let headerHeight = 80; // Valore di fallback
       
@@ -28,20 +28,34 @@ const Header = () => {
         const headerRect = header.getBoundingClientRect();
         headerHeight = headerRect.height;
         
-        // Su mobile, se il menu è aperto, chiudilo prima e aggiungi un piccolo delay
-        if (isMenuOpen && window.innerWidth < 768) {
-          setIsMenuOpen(false);
-          setTimeout(() => {
+        // Su mobile, aggiungiamo un offset extra e gestiamo il menu
+        if (window.innerWidth < 768) {
+          // Chiudi il menu mobile se aperto
+          if (isMenuOpen) {
+            setIsMenuOpen(false);
+            // Delay per permettere al menu di chiudersi
+            setTimeout(() => {
+              const sectionTop = section.offsetTop;
+              // Su mobile aggiungiamo 10px extra per compensare problemi di viewport
+              window.scrollTo({ 
+                top: sectionTop - headerHeight - 10, 
+                behavior: 'smooth' 
+              });
+            }, 150);
+            return;
+          } else {
+            // Menu già chiuso, scrolliamo con offset mobile
             const sectionTop = section.offsetTop;
             window.scrollTo({ 
-              top: sectionTop - headerHeight, 
+              top: sectionTop - headerHeight - 10, 
               behavior: 'smooth' 
             });
-          }, 100);
-          return;
+            return;
+          }
         }
       }
       
+      // Desktop/tablet - comportamento normale
       const sectionTop = section.offsetTop;
       window.scrollTo({ 
         top: sectionTop - headerHeight, 

@@ -1,3 +1,4 @@
+
 import { ArrowRight, Bot, Zap, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
@@ -8,15 +9,25 @@ const Hero = () => {
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
-      // Ottieni l'altezza dell'header in modo più preciso
       const header = document.querySelector('header');
       let headerHeight = 80; // Valore di fallback
       
       if (header) {
         const headerRect = header.getBoundingClientRect();
         headerHeight = headerRect.height;
+        
+        // Su mobile aggiungiamo offset extra per compensare viewport mobile
+        if (window.innerWidth < 768) {
+          const sectionTop = section.offsetTop;
+          window.scrollTo({ 
+            top: sectionTop - headerHeight - 10, 
+            behavior: 'smooth' 
+          });
+          return;
+        }
       }
       
+      // Desktop/tablet - comportamento normale
       const sectionTop = section.offsetTop;
       window.scrollTo({ 
         top: sectionTop - headerHeight, 
