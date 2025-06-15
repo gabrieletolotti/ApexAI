@@ -16,11 +16,11 @@ const Hero = () => {
         const headerRect = header.getBoundingClientRect();
         headerHeight = headerRect.height;
         
-        // Su mobile rimuoviamo l'offset extra per far combaciare sezione con header
+        // Su mobile aggiungiamo un offset maggiore per far combaciare sezione con header
         if (window.innerWidth < 768) {
           const sectionTop = section.offsetTop;
           window.scrollTo({ 
-            top: sectionTop - headerHeight, 
+            top: sectionTop - headerHeight - 50, 
             behavior: 'smooth' 
           });
           return;

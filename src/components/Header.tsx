@@ -28,7 +28,7 @@ const Header = () => {
         const headerRect = header.getBoundingClientRect();
         headerHeight = headerRect.height;
         
-        // Su mobile, rimuoviamo l'offset extra per far combaciare sezione con header
+        // Su mobile, aggiungiamo un offset maggiore per far combaciare sezione con header
         if (window.innerWidth < 768) {
           // Chiudi il menu mobile se aperto
           if (isMenuOpen) {
@@ -36,18 +36,18 @@ const Header = () => {
             // Delay per permettere al menu di chiudersi
             setTimeout(() => {
               const sectionTop = section.offsetTop;
-              // Su mobile facciamo combaciare perfettamente sezione con header
+              // Su mobile aggiungiamo un offset significativo per posizionamento corretto
               window.scrollTo({ 
-                top: sectionTop - headerHeight, 
+                top: sectionTop - headerHeight - 50, 
                 behavior: 'smooth' 
               });
             }, 150);
             return;
           } else {
-            // Menu già chiuso, scrolliamo senza offset mobile
+            // Menu già chiuso, scrolliamo con offset mobile maggiore
             const sectionTop = section.offsetTop;
             window.scrollTo({ 
-              top: sectionTop - headerHeight, 
+              top: sectionTop - headerHeight - 50, 
               behavior: 'smooth' 
             });
             return;
