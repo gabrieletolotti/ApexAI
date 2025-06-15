@@ -286,23 +286,23 @@
 
 /* Smooth wandering animations with longer duration and smoother easing */
 .animate-wander-1 {
-  animation: wander-1 20s ease-in-out infinite;
+  animation: wander-1 12s ease-in-out infinite;
 }
 
 .animate-wander-2 {
-  animation: wander-2 22s ease-in-out infinite 12s;
+  animation: wander-2 14s ease-in-out infinite 12s;
 }
 
 .animate-wander-3 {
-  animation: wander-3 18s ease-in-out infinite 25s;
+  animation: wander-3 10s ease-in-out infinite 25s;
 }
 
 .animate-wander-4 {
-  animation: wander-4 21s ease-in-out infinite 10s;
+  animation: wander-4 13s ease-in-out infinite 10s;
 }
 
 .animate-wander-5 {
-  animation: wander-5 19s ease-in-out infinite 30s;
+  animation: wander-5 11s ease-in-out infinite 30s;
 }
 
 /* Staggered animations */
