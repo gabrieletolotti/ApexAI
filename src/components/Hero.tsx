@@ -93,30 +93,30 @@ const Hero = () => {
           </div>
 
           <div className={`relative animate-on-scroll fade-in-right ${isIntersecting ? 'visible' : ''}`}>
-            <div className="bg-gradient-to-br from-white/80 to-slate-100/70 dark:from-slate-800/90 dark:to-slate-900/80 rounded-3xl p-12 backdrop-blur-2xl border-2 border-slate-200/60 dark:border-slate-600/50 hover:scale-105 duration-500 shadow-2xl shadow-slate-400/20 dark:shadow-slate-900/40">
-              <div className="bg-white/60 dark:bg-slate-800/60 rounded-2xl p-10 backdrop-blur-lg border border-slate-200/40 dark:border-slate-700/40">
-                <div className="space-y-8">
+            <div className="bg-gradient-to-br from-white/80 to-slate-100/70 dark:from-slate-800/90 dark:to-slate-900/80 rounded-3xl p-16 backdrop-blur-2xl border-2 border-slate-200/60 dark:border-slate-600/50 hover:scale-105 duration-500 shadow-2xl shadow-slate-400/20 dark:shadow-slate-900/40">
+              <div className="bg-white/60 dark:bg-slate-800/60 rounded-2xl p-12 backdrop-blur-lg border border-slate-200/40 dark:border-slate-700/40">
+                <div className="space-y-10">
                   <div className="flex items-center space-x-4">
-                    <div className="w-5 h-5 bg-green-400 rounded-full animate-pulse"></div>
-                    <span className="text-lg font-medium">Sistema AI Attivo</span>
+                    <div className="w-6 h-6 bg-green-400 rounded-full animate-pulse"></div>
+                    <span className="text-xl font-medium">Sistema AI Attivo</span>
                   </div>
-                  <div className="space-y-5">
-                    <div className="bg-white/70 dark:bg-slate-700/50 rounded-lg p-5 hover:bg-white/90 dark:hover:bg-slate-700/70 duration-300 border border-slate-200/30 dark:border-slate-600/30">
+                  <div className="space-y-6">
+                    <div className="bg-white/70 dark:bg-slate-700/50 rounded-lg p-6 hover:bg-white/90 dark:hover:bg-slate-700/70 duration-300 border border-slate-200/30 dark:border-slate-600/30">
                       <div className="flex justify-between items-center">
-                        <span className="text-base">Efficienza Processi</span>
-                        <span className="text-lg font-bold text-green-400">+89%</span>
+                        <span className="text-lg">Efficienza Processi</span>
+                        <span className="text-xl font-bold text-green-400">+89%</span>
                       </div>
                     </div>
-                    <div className="bg-white/70 dark:bg-slate-700/50 rounded-lg p-5 hover:bg-white/90 dark:hover:bg-slate-700/70 duration-300 border border-slate-200/30 dark:border-slate-600/30">
+                    <div className="bg-white/70 dark:bg-slate-700/50 rounded-lg p-6 hover:bg-white/90 dark:hover:bg-slate-700/70 duration-300 border border-slate-200/30 dark:border-slate-600/30">
                       <div className="flex justify-between items-center">
-                        <span className="text-base">Riduzione Costi</span>
-                        <span className="text-lg font-bold text-blue-400">-67%</span>
+                        <span className="text-lg">Riduzione Costi</span>
+                        <span className="text-xl font-bold text-blue-400">-67%</span>
                       </div>
                     </div>
-                    <div className="bg-white/70 dark:bg-slate-700/50 rounded-lg p-5 hover:bg-white/90 dark:hover:bg-slate-700/70 duration-300 border border-slate-200/30 dark:border-slate-600/30">
+                    <div className="bg-white/70 dark:bg-slate-700/50 rounded-lg p-6 hover:bg-white/90 dark:hover:bg-slate-700/70 duration-300 border border-slate-200/30 dark:border-slate-600/30">
                       <div className="flex justify-between items-center">
-                        <span className="text-base">Automazione Completa</span>
-                        <span className="text-lg font-bold text-purple-400">24/7</span>
+                        <span className="text-lg">Automazione Completa</span>
+                        <span className="text-xl font-bold text-purple-400">24/7</span>
                       </div>
                     </div>
                   </div>
