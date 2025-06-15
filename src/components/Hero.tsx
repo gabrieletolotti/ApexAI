@@ -53,83 +53,109 @@ const Hero = () => {
         <div className="hero-bg-element-5 absolute w-[12vw] h-[7vh] md:w-[8vw] md:h-[6vh] rounded-full bg-pink-200/35 blur-lg dark:bg-pink-800/45" style={{left: '65%', top: '20%', animationDelay: '-18s'}} />
       </div>
 
-      <div className="container mx-auto px-4">
-        <div ref={ref} className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          <div className="space-y-6 lg:space-y-8 text-center lg:text-left">
-            <div className="space-y-4">
-              <h1 className={`text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight animate-on-scroll fade-in-up ${isIntersecting ? 'visible' : ''} font-sans`}>
-                <span className="animate-gradient bg-gradient-to-r from-blue-700 via-purple-700 to-blue-700 bg-clip-text text-transparent drop-shadow-[0_3px_10px_rgba(84,108,255,0.25)] dark:from-blue-600 dark:via-purple-700 dark:to-blue-600" style={{backgroundSize: '200% auto', animation: 'gradient-shift 8s linear infinite'}}>
-                  Automazioni intelligenti
-                </span>
-              </h1>
-              <p className={`text-xl sm:text-2xl lg:text-3xl text-white font-medium animate-on-scroll fade-in-up stagger-2 ${isIntersecting ? 'visible' : ''}`}>
-                per business in evoluzione.
-              </p>
-            </div>
+      <div className="container mx-auto px-4 max-w-6xl">
+        <div ref={ref} className="space-y-12 lg:space-y-16">
+          {/* Titolo principale */}
+          <div className="text-center space-y-6">
+            <h1 className={`text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight animate-on-scroll fade-in-up ${isIntersecting ? 'visible' : ''} font-sans`}>
+              <span className="animate-gradient bg-gradient-to-r from-blue-700 via-purple-700 to-blue-700 bg-clip-text text-transparent drop-shadow-[0_3px_10px_rgba(84,108,255,0.25)] dark:from-blue-600 dark:via-purple-700 dark:to-blue-600" style={{backgroundSize: '200% auto', animation: 'gradient-shift 8s linear infinite'}}>
+                Trasformiamo il tuo business
+              </span>
+            </h1>
+            <h2 className={`text-2xl sm:text-3xl lg:text-4xl text-slate-700 dark:text-slate-300 font-medium animate-on-scroll fade-in-up stagger-2 ${isIntersecting ? 'visible' : ''}`}>
+              con automazioni AI intelligenti
+            </h2>
             
-            <div className={`flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-on-scroll fade-in-up stagger-3 ${isIntersecting ? 'visible' : ''}`}>
+            <div className={`flex flex-col sm:flex-row gap-4 justify-center animate-on-scroll fade-in-up stagger-3 ${isIntersecting ? 'visible' : ''} pt-8`}>
               <Button 
                 size="lg" 
                 onClick={() => scrollToSection('contact')}
-                className="bg-gradient-to-r from-blue-700 via-blue-500 to-purple-700 hover:from-blue-800 hover:to-purple-800 shadow-xl shadow-blue-200/30 dark:shadow-none text-base font-semibold rounded-xl backdrop-blur-sm w-full sm:w-auto"
+                className="bg-gradient-to-r from-blue-700 via-blue-500 to-purple-700 hover:from-blue-800 hover:to-purple-800 shadow-xl shadow-blue-200/30 dark:shadow-none text-lg font-bold rounded-xl backdrop-blur-sm w-full sm:w-auto px-8 py-4"
               >
                 Inizia Ora
-                <ArrowRight className="ml-2" size={20} />
+                <ArrowRight className="ml-2" size={24} />
               </Button>
               <Button 
                 variant="outline" 
                 size="lg" 
                 onClick={() => scrollToSection('services')}
-                className="hover:bg-blue-50 dark:hover:bg-slate-800/70 text-base font-semibold rounded-xl border-2 border-blue-600/20 dark:border-blue-300/20 backdrop-blur-sm w-full sm:w-auto"
+                className="hover:bg-blue-50 dark:hover:bg-slate-800/70 text-lg font-semibold rounded-xl border-2 border-blue-600/20 dark:border-blue-300/20 backdrop-blur-sm w-full sm:w-auto px-8 py-4"
               >
-                Scopri di Più
+                Servizi
               </Button>
-            </div>
-
-            <div className="grid grid-cols-3 gap-4 lg:gap-6 pt-6 lg:pt-8 max-w-md mx-auto lg:max-w-none">
-              <div className={`text-center animate-on-scroll scale-in stagger-4 ${isIntersecting ? 'visible' : ''} hover:scale-110 duration-300 cursor-pointer`}>
-                <div className="bg-blue-100 dark:bg-blue-900/30 w-10 h-10 lg:w-12 lg:h-12 rounded-xl flex items-center justify-center mx-auto mb-2 hover:bg-blue-200 duration-300 shadow-lg shadow-blue-100/30 dark:shadow-blue-600/10">
-                  <Bot className="text-blue-600 dark:text-blue-300" size={20} />
-                </div>
-                <p className="text-xs lg:text-sm font-medium">AI Avanzata</p>
-              </div>
-              <div className={`text-center animate-on-scroll scale-in stagger-5 ${isIntersecting ? 'visible' : ''} hover:scale-110 duration-300 cursor-pointer`}>
-                <div className="bg-purple-100 dark:bg-purple-900/30 w-10 h-10 lg:w-12 lg:h-12 rounded-xl flex items-center justify-center mx-auto mb-2 hover:bg-purple-200 duration-300 shadow-lg shadow-purple-100/30 dark:shadow-purple-700/10">
-                  <Zap className="text-purple-600 dark:text-purple-300" size={20} />
-                </div>
-                <p className="text-xs lg:text-sm font-medium">Automazione</p>
-              </div>
-              <div className={`text-center animate-on-scroll scale-in stagger-6 ${isIntersecting ? 'visible' : ''} hover:scale-110 duration-300 cursor-pointer`}>
-                <div className="bg-green-100 dark:bg-green-900/20 w-10 h-10 lg:w-12 lg:h-12 rounded-xl flex items-center justify-center mx-auto mb-2 hover:bg-green-200 duration-300 shadow-lg shadow-green-100/30 dark:shadow-green-700/10">
-                  <TrendingUp className="text-green-600 dark:text-green-300" size={20} />
-                </div>
-                <p className="text-xs lg:text-sm font-medium">Crescita</p>
-              </div>
             </div>
           </div>
 
-          <div className={`relative animate-on-scroll fade-in-right ${isIntersecting ? 'visible' : ''} mt-8 lg:mt-0`}>
-            <div className="bg-gradient-to-br from-white/80 to-slate-100/70 dark:from-slate-800/90 dark:to-slate-900/80 rounded-2xl p-3 lg:p-5 backdrop-blur-2xl border-2 border-slate-200/60 dark:border-slate-600/50 shadow-xl shadow-slate-400/20 dark:shadow-slate-900/40 max-w-lg mx-auto">
-              <div className="bg-white/60 dark:bg-slate-800/60 rounded-xl p-3 lg:p-4 backdrop-blur-lg border border-slate-200/40 dark:border-slate-700/40">
-                <div className="space-y-3 lg:space-y-4">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 lg:w-3 lg:h-3 bg-green-400 rounded-full"></div>
-                    <span className="text-sm lg:text-base font-medium">Sistema AI Attivo</span>
+          {/* Sezione Perché funzionano */}
+          <div className={`animate-on-scroll fade-in-up stagger-4 ${isIntersecting ? 'visible' : ''} space-y-8`}>
+            <h3 className="text-2xl lg:text-3xl font-bold text-center text-slate-800 dark:text-slate-200">
+              Perché le nostre automazioni funzionano:
+            </h3>
+
+            {/* Sistema AI predittivo */}
+            <div className="bg-gradient-to-br from-white/80 to-slate-100/70 dark:from-slate-800/90 dark:to-slate-900/80 rounded-2xl p-6 lg:p-8 backdrop-blur-2xl border-2 border-slate-200/60 dark:border-slate-600/50 shadow-xl shadow-slate-400/20 dark:shadow-slate-900/40 max-w-4xl mx-auto">
+              <div className="flex items-start space-x-4">
+                <div className="text-green-500 text-2xl font-bold">✅</div>
+                <div className="space-y-4 flex-1">
+                  <h4 className="text-xl lg:text-2xl font-bold text-slate-800 dark:text-slate-200">
+                    Sistema AI predittivo
+                  </h4>
+                  <div className="grid md:grid-cols-3 gap-4">
+                    <div className="text-center p-4 bg-white/60 dark:bg-slate-700/50 rounded-lg border border-slate-200/40 dark:border-slate-600/30">
+                      <div className="text-lg font-bold text-green-500">+89%</div>
+                      <div className="text-sm text-slate-600 dark:text-slate-400">Aumenta l'efficienza</div>
+                    </div>
+                    <div className="text-center p-4 bg-white/60 dark:bg-slate-700/50 rounded-lg border border-slate-200/40 dark:border-slate-600/30">
+                      <div className="text-lg font-bold text-blue-500">-67%</div>
+                      <div className="text-sm text-slate-600 dark:text-slate-400">Riduci i costi operativi</div>
+                    </div>
+                    <div className="text-center p-4 bg-white/60 dark:bg-slate-700/50 rounded-lg border border-slate-200/40 dark:border-slate-600/30">
+                      <div className="text-lg font-bold text-purple-500">Real-time</div>
+                      <div className="text-sm text-slate-600 dark:text-slate-400">Adattamento continuo</div>
+                    </div>
                   </div>
-                  <div className="grid grid-cols-3 gap-2 lg:gap-3">
-                    <div className="bg-white/70 dark:bg-slate-700/50 rounded-lg p-2 lg:p-3 border border-slate-200/30 dark:border-slate-600/30 text-center">
-                      <div className="text-xs lg:text-sm text-muted-foreground mb-1">Efficienza</div>
-                      <div className="text-sm lg:text-base font-bold text-green-400">+89%</div>
-                    </div>
-                    <div className="bg-white/70 dark:bg-slate-700/50 rounded-lg p-2 lg:p-3 border border-slate-200/30 dark:border-slate-600/30 text-center">
-                      <div className="text-xs lg:text-sm text-muted-foreground mb-1">Costi</div>
-                      <div className="text-sm lg:text-base font-bold text-blue-400">-67%</div>
-                    </div>
-                    <div className="bg-white/70 dark:bg-slate-700/50 rounded-lg p-2 lg:p-3 border border-slate-200/30 dark:border-slate-600/30 text-center">
-                      <div className="text-xs lg:text-sm text-muted-foreground mb-1">Attivo</div>
-                      <div className="text-sm lg:text-base font-bold text-purple-400">24/7</div>
-                    </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 3 Pilastri strategici */}
+            <div className="bg-gradient-to-br from-white/80 to-slate-100/70 dark:from-slate-800/90 dark:to-slate-900/80 rounded-2xl p-6 lg:p-8 backdrop-blur-2xl border-2 border-slate-200/60 dark:border-slate-600/50 shadow-xl shadow-slate-400/20 dark:shadow-slate-900/40 max-w-4xl mx-auto">
+              <div className="flex items-start space-x-4 mb-6">
+                <div className="text-green-500 text-2xl font-bold">✅</div>
+                <h4 className="text-xl lg:text-2xl font-bold text-slate-800 dark:text-slate-200">
+                  3 Pilastri strategici:
+                </h4>
+              </div>
+              
+              <div className="grid md:grid-cols-3 gap-6">
+                <div className="text-center space-y-4">
+                  <div className="bg-blue-100 dark:bg-blue-900/30 w-16 h-16 rounded-xl flex items-center justify-center mx-auto">
+                    <Bot className="text-blue-600 dark:text-blue-300" size={32} />
                   </div>
+                  <h5 className="text-lg font-bold text-slate-800 dark:text-slate-200">AI Su Misura</h5>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">
+                    Soluzioni calibrate sui tuoi dati
+                  </p>
+                </div>
+                
+                <div className="text-center space-y-4">
+                  <div className="bg-purple-100 dark:bg-purple-900/30 w-16 h-16 rounded-xl flex items-center justify-center mx-auto">
+                    <Zap className="text-purple-600 dark:text-purple-300" size={32} />
+                  </div>
+                  <h5 className="text-lg font-bold text-slate-800 dark:text-slate-200">Automazione Continua</h5>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">
+                    Processi che migliorano nel tempo
+                  </p>
+                </div>
+                
+                <div className="text-center space-y-4">
+                  <div className="bg-green-100 dark:bg-green-900/20 w-16 h-16 rounded-xl flex items-center justify-center mx-auto">
+                    <TrendingUp className="text-green-600 dark:text-green-300" size={32} />
+                  </div>
+                  <h5 className="text-lg font-bold text-slate-800 dark:text-slate-200">Crescita Guidata</h5>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">
+                    Risultati misurabili in 30 giorni
+                  </p>
                 </div>
               </div>
             </div>
