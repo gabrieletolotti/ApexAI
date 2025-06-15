@@ -1,4 +1,3 @@
-
 import { ArrowRight, Bot, Zap, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
@@ -94,30 +93,30 @@ const Hero = () => {
           </div>
 
           <div className={`relative animate-on-scroll fade-in-right ${isIntersecting ? 'visible' : ''}`}>
-            <div className="bg-gradient-to-br from-white/80 to-slate-100/70 dark:from-slate-800/90 dark:to-slate-900/80 rounded-3xl p-8 backdrop-blur-2xl border-2 border-slate-200/60 dark:border-slate-600/50 hover:scale-105 duration-500 shadow-2xl shadow-slate-400/20 dark:shadow-slate-900/40">
-              <div className="bg-white/60 dark:bg-slate-800/60 rounded-2xl p-6 backdrop-blur-lg border border-slate-200/40 dark:border-slate-700/40">
-                <div className="space-y-4">
+            <div className="bg-gradient-to-br from-white/80 to-slate-100/70 dark:from-slate-800/90 dark:to-slate-900/80 rounded-3xl p-10 backdrop-blur-2xl border-2 border-slate-200/60 dark:border-slate-600/50 hover:scale-105 duration-500 shadow-2xl shadow-slate-400/20 dark:shadow-slate-900/40">
+              <div className="bg-white/60 dark:bg-slate-800/60 rounded-2xl p-8 backdrop-blur-lg border border-slate-200/40 dark:border-slate-700/40">
+                <div className="space-y-6">
                   <div className="flex items-center space-x-3">
-                    <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-                    <span className="text-sm font-medium">Sistema AI Attivo</span>
+                    <div className="w-4 h-4 bg-green-400 rounded-full animate-pulse"></div>
+                    <span className="text-base font-medium">Sistema AI Attivo</span>
                   </div>
-                  <div className="space-y-3">
-                    <div className="bg-white/70 dark:bg-slate-700/50 rounded-lg p-3 hover:bg-white/90 dark:hover:bg-slate-700/70 duration-300 border border-slate-200/30 dark:border-slate-600/30">
+                  <div className="space-y-4">
+                    <div className="bg-white/70 dark:bg-slate-700/50 rounded-lg p-4 hover:bg-white/90 dark:hover:bg-slate-700/70 duration-300 border border-slate-200/30 dark:border-slate-600/30">
                       <div className="flex justify-between items-center">
-                        <span className="text-sm">Efficienza Processi</span>
-                        <span className="text-sm font-bold text-green-400">+89%</span>
+                        <span className="text-base">Efficienza Processi</span>
+                        <span className="text-base font-bold text-green-400">+89%</span>
                       </div>
                     </div>
-                    <div className="bg-white/70 dark:bg-slate-700/50 rounded-lg p-3 hover:bg-white/90 dark:hover:bg-slate-700/70 duration-300 border border-slate-200/30 dark:border-slate-600/30">
+                    <div className="bg-white/70 dark:bg-slate-700/50 rounded-lg p-4 hover:bg-white/90 dark:hover:bg-slate-700/70 duration-300 border border-slate-200/30 dark:border-slate-600/30">
                       <div className="flex justify-between items-center">
-                        <span className="text-sm">Riduzione Costi</span>
-                        <span className="text-sm font-bold text-blue-400">-67%</span>
+                        <span className="text-base">Riduzione Costi</span>
+                        <span className="text-base font-bold text-blue-400">-67%</span>
                       </div>
                     </div>
-                    <div className="bg-white/70 dark:bg-slate-700/50 rounded-lg p-3 hover:bg-white/90 dark:hover:bg-slate-700/70 duration-300 border border-slate-200/30 dark:border-slate-600/30">
+                    <div className="bg-white/70 dark:bg-slate-700/50 rounded-lg p-4 hover:bg-white/90 dark:hover:bg-slate-700/70 duration-300 border border-slate-200/30 dark:border-slate-600/30">
                       <div className="flex justify-between items-center">
-                        <span className="text-sm">Automazione Completa</span>
-                        <span className="text-sm font-bold text-purple-400">24/7</span>
+                        <span className="text-base">Automazione Completa</span>
+                        <span className="text-base font-bold text-purple-400">24/7</span>
                       </div>
                     </div>
                   </div>
