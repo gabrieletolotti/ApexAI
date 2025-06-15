@@ -1,10 +1,9 @@
-
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
@@ -21,19 +20,12 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const { name, email, company, message } = formData;
-    
-    const subject = `Richiesta Consulenza da: ${name} ${company ? `(${company})` : ''}`;
-    const body = `Nome: ${name}\nEmail: ${email}\nAzienda: ${company || 'Non specificata'}\n\nMessaggio:\n${message}`;
-    
-    const mailtoLink = `mailto:info@apexai.it?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    
-    window.location.href = mailtoLink;
-
+    console.log('Form submitted:', formData);
     toast({
-      title: "Apriamo il tuo client email!",
-      description: "Completa l'invio della mail per contattarci. Se non succede nulla, puoi scriverci a info@apexai.it",
+      title: "Messaggio Inviato!",
+      description: "Ti contatteremo presto per discutere del tuo progetto AI."
     });
+    setFormData({ name: '', email: '', company: '', message: '' });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -58,10 +50,7 @@ const Contact = () => {
         <div ref={contentRef} className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           <Card className={`border-0 ring-1 ring-white/80 dark:ring-slate-700 shadow-xl bg-white/70 dark:bg-slate-900/50 backdrop-blur-xl hover:shadow-2xl hover:scale-105 duration-500 animate-on-scroll fade-in-left ${isContentVisible ? 'visible' : ''}`}>
             <CardHeader>
-              <CardTitle className="text-2xl">Richiedi una Consulenza Gratuita</CardTitle>
-              <CardDescription className="pt-2 text-muted-foreground">
-                Compila il modulo per discutere come l'AI può migliorare i tuoi processi aziendali. Ti risponderemo al più presto.
-              </CardDescription>
+              <CardTitle className="text-2xl">Parlaci del Tuo Progetto</CardTitle>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -88,9 +77,9 @@ const Contact = () => {
           </Card>
 
           <div className="space-y-8">
-            <Card className={`border-0 ring-1 ring-white/70 dark:ring-slate-700 shadow-lg bg-white/70 dark:bg-slate-900/60 backdrop-blur-xl hover:shadow-xl hover:scale-105 duration-500 animate-on-scroll fade-in-right ${isContentVisible ? 'visible' : ''} h-full`}>
-              <CardContent className="p-8 h-full flex flex-col justify-evenly">
-                <div className="flex items-center space-x-4 duration-300">
+            <Card className={`border-0 ring-1 ring-white/70 dark:ring-slate-700 shadow-lg bg-white/70 dark:bg-slate-900/60 backdrop-blur-xl hover:shadow-xl hover:scale-105 duration-500 animate-on-scroll fade-in-right ${isContentVisible ? 'visible' : ''}`}>
+              <CardContent className="p-8">
+                <div className="flex items-center space-x-4 mb-6 duration-300">
                   <div className="bg-blue-100 p-3 rounded-lg hover:bg-blue-200 duration-300">
                     <Mail className="text-blue-600" size={24} />
                   </div>
@@ -100,7 +89,7 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-4 duration-300">
+                <div className="flex items-center space-x-4 mb-6 duration-300">
                   <div className="bg-purple-100 p-3 rounded-lg hover:bg-purple-200 duration-300">
                     <Phone className="text-purple-600" size={24} />
                   </div>
@@ -119,6 +108,18 @@ const Contact = () => {
                     <p className="text-muted-foreground">Bergamo, Italia</p>
                   </div>
                 </div>
+              </CardContent>
+            </Card>
+
+            <Card className={`border-0 shadow-lg bg-gradient-to-br from-blue-600 to-purple-600 text-white hover:shadow-2xl hover:scale-105 duration-500 animate-on-scroll fade-in-right stagger-2 ${isContentVisible ? 'visible' : ''} ring-1 ring-blue-400/40 dark:ring-blue-300/30`}>
+              <CardContent className="p-8">
+                <h3 className="text-xl font-bold mb-4">Consulenza Gratuita</h3>
+                <p className="mb-6 opacity-90">
+                  Prenota una chiamata di 30 minuti per discutere come l'AI può migliorare i tuoi processi aziendali.
+                </p>
+                <Button variant="secondary" className="bg-white text-slate-900 hover:bg-gray-100 dark:text-slate-900 dark:hover:bg-slate-200 transform hover:scale-105 rounded-xl duration-300 font-semibold">
+                  Prenota Ora
+                </Button>
               </CardContent>
             </Card>
           </div>
