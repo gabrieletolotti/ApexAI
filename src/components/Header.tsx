@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
@@ -21,10 +22,18 @@ const Header = () => {
     const section = document.getElementById(sectionId);
     if (section) {
       const header = document.querySelector('header');
-      const headerHeight = header ? header.offsetHeight : 0;
-      const sectionTop = section.offsetTop;
+      let headerHeight = 0;
       
-      // Posiziona la sezione subito sotto l'header
+      if (header) {
+        // Su mobile consideriamo anche il menu aperto
+        headerHeight = header.offsetHeight;
+        if (isMenuOpen && window.innerWidth < 768) {
+          // Aggiungiamo spazio extra per il menu mobile
+          headerHeight += 200; // Spazio approssimativo per il menu mobile
+        }
+      }
+      
+      const sectionTop = section.offsetTop;
       const scrollPosition = sectionTop - headerHeight;
       
       window.scrollTo({ 
