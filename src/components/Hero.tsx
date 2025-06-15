@@ -1,3 +1,4 @@
+
 import { ArrowRight, Bot, Zap, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
@@ -27,13 +28,21 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center relative z-0 pt-20 bg-gradient-to-br from-slate-100 via-slate-50 to-blue-50 dark:from-background dark:via-slate-900/60 dark:to-blue-500/5">
-      {/* Dynamic wandering blob effects with increased roundness */}
+      {/* Dynamic animated background elements */}
       <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[35vw] h-[30vh] rounded-[50%] bg-blue-200/40 blur-3xl dark:bg-blue-800/50" />
-        <div className="absolute right-1/4 bottom-1/3 w-[30vw] h-[25vh] bg-purple-200/35 rounded-[60%] blur-3xl dark:bg-purple-800/45" />
-        <div className="absolute left-1/3 top-1/4 w-[25vw] h-[20vh] bg-blue-100/30 rounded-[70%] blur-2xl dark:bg-blue-900/40" />
-        <div className="absolute right-1/3 top-2/3 w-[20vw] h-[15vh] bg-purple-100/25 rounded-[80%] blur-2xl dark:bg-purple-900/35" />
+        {/* Animated floating elements */}
+        <div className="hero-bg-element-1 absolute w-[25vw] h-[20vh] rounded-full bg-blue-200/30 blur-3xl dark:bg-blue-800/40" style={{left: '10%', top: '20%'}} />
+        <div className="hero-bg-element-2 absolute w-[30vw] h-[25vh] rounded-full bg-purple-200/25 blur-3xl dark:bg-purple-800/35" style={{right: '15%', bottom: '30%'}} />
+        <div className="hero-bg-element-3 absolute w-[20vw] h-[15vh] rounded-full bg-blue-100/35 blur-2xl dark:bg-blue-900/45" style={{left: '30%', top: '60%'}} />
+        <div className="hero-bg-element-4 absolute w-[35vw] h-[30vh] rounded-full bg-purple-100/20 blur-3xl dark:bg-purple-900/30" style={{right: '20%', top: '10%'}} />
+        <div className="hero-bg-element-5 absolute w-[15vw] h-[12vh] rounded-full bg-blue-300/40 blur-2xl dark:bg-blue-700/50" style={{left: '60%', bottom: '40%'}} />
+        
+        {/* Additional smaller floating elements */}
+        <div className="hero-bg-element-1 absolute w-[10vw] h-[8vh] rounded-full bg-indigo-200/30 blur-xl dark:bg-indigo-800/40" style={{left: '5%', bottom: '20%', animationDelay: '-8s'}} />
+        <div className="hero-bg-element-3 absolute w-[12vw] h-[10vh] rounded-full bg-cyan-200/25 blur-xl dark:bg-cyan-800/35" style={{right: '10%', top: '40%', animationDelay: '-12s'}} />
+        <div className="hero-bg-element-5 absolute w-[8vw] h-[6vh] rounded-full bg-pink-200/35 blur-lg dark:bg-pink-800/45" style={{left: '70%', top: '25%', animationDelay: '-18s'}} />
       </div>
+
       <div className="container mx-auto px-4">
         <div ref={ref} className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
