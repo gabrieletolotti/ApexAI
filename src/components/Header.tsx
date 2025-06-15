@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
@@ -27,7 +28,7 @@ const Header = () => {
         const headerRect = header.getBoundingClientRect();
         headerHeight = headerRect.height;
         
-        // Su mobile, aggiungiamo un offset molto maggiore per far combaciare sezione con header
+        // Su mobile, aggiungiamo un offset drastico per far combaciare sezione con header
         if (window.innerWidth < 768) {
           // Chiudi il menu mobile se aperto
           if (isMenuOpen) {
@@ -35,18 +36,18 @@ const Header = () => {
             // Delay per permettere al menu di chiudersi
             setTimeout(() => {
               const sectionTop = section.offsetTop;
-              // Su mobile aggiungiamo un offset molto significativo per posizionamento corretto
+              // Su mobile aggiungiamo un offset drastico per posizionamento perfetto
               window.scrollTo({ 
-                top: sectionTop - headerHeight - 120, 
+                top: sectionTop - headerHeight - 200, 
                 behavior: 'smooth' 
               });
             }, 150);
             return;
           } else {
-            // Menu già chiuso, scrolliamo con offset mobile molto maggiore
+            // Menu già chiuso, scrolliamo con offset mobile drastico
             const sectionTop = section.offsetTop;
             window.scrollTo({ 
-              top: sectionTop - headerHeight - 120, 
+              top: sectionTop - headerHeight - 200, 
               behavior: 'smooth' 
             });
             return;
