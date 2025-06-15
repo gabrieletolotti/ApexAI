@@ -10,15 +10,13 @@ const Hero = () => {
     if (section) {
       const header = document.querySelector('header');
       const headerHeight = header ? header.offsetHeight : 0;
-      const viewportHeight = window.innerHeight;
       const sectionTop = section.offsetTop;
-      const sectionHeight = section.offsetHeight;
       
-      // Calcola per centrare la sezione nella viewport
-      const centerPosition = sectionTop - (viewportHeight / 2) + (sectionHeight / 2) + headerHeight;
+      // Posiziona la sezione subito sotto l'header
+      const scrollPosition = sectionTop - headerHeight;
       
       window.scrollTo({ 
-        top: Math.max(0, centerPosition), 
+        top: Math.max(0, scrollPosition), 
         behavior: 'smooth' 
       });
     }
