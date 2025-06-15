@@ -1,5 +1,5 @@
 
-import { ArrowRight, Bot, Zap, TrendingUp } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
@@ -92,67 +92,45 @@ const Hero = () => {
               Perché le nostre automazioni funzionano:
             </h3>
 
-            {/* Sistema AI predittivo */}
+            {/* Lista vantaggi */}
             <div className="bg-gradient-to-br from-white/80 to-slate-100/70 dark:from-slate-800/90 dark:to-slate-900/80 rounded-2xl p-6 lg:p-8 backdrop-blur-2xl border-2 border-slate-200/60 dark:border-slate-600/50 shadow-xl shadow-slate-400/20 dark:shadow-slate-900/40 max-w-4xl mx-auto">
-              <div className="flex items-start space-x-4">
-                <div className="text-green-500 text-2xl font-bold">✅</div>
-                <div className="space-y-4 flex-1">
-                  <h4 className="text-xl lg:text-2xl font-bold text-slate-800 dark:text-slate-200">
-                    Sistema AI predittivo
-                  </h4>
-                  <div className="grid md:grid-cols-3 gap-4">
-                    <div className="text-center p-4 bg-white/60 dark:bg-slate-700/50 rounded-lg border border-slate-200/40 dark:border-slate-600/30">
-                      <div className="text-lg font-bold text-green-500">+89%</div>
-                      <div className="text-sm text-slate-600 dark:text-slate-400">Aumenta l'efficienza</div>
-                    </div>
-                    <div className="text-center p-4 bg-white/60 dark:bg-slate-700/50 rounded-lg border border-slate-200/40 dark:border-slate-600/30">
-                      <div className="text-lg font-bold text-blue-500">-67%</div>
-                      <div className="text-sm text-slate-600 dark:text-slate-400">Riduci i costi operativi</div>
-                    </div>
-                    <div className="text-center p-4 bg-white/60 dark:bg-slate-700/50 rounded-lg border border-slate-200/40 dark:border-slate-600/30">
-                      <div className="text-lg font-bold text-purple-500">Real-time</div>
-                      <div className="text-sm text-slate-600 dark:text-slate-400">Adattamento continuo</div>
-                    </div>
-                  </div>
-                </div>
+              <div className="space-y-4 flex-1">
+                <ul className="space-y-3 text-lg">
+                  <li className="flex items-center space-x-3">
+                    <span className="text-green-500 text-xl">•</span>
+                    <span className="text-slate-800 dark:text-slate-200">Aumenta l'efficienza fino all'89%</span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                    <span className="text-green-500 text-xl">•</span>
+                    <span className="text-slate-800 dark:text-slate-200">Riduci i costi operativi del 67%</span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                    <span className="text-green-500 text-xl">•</span>
+                    <span className="text-slate-800 dark:text-slate-200">Adattamento in tempo reale</span>
+                  </li>
+                </ul>
               </div>
             </div>
 
-            {/* 3 Pilastri strategici */}
+            {/* Tabella 3 pilastri */}
             <div className="bg-gradient-to-br from-white/80 to-slate-100/70 dark:from-slate-800/90 dark:to-slate-900/80 rounded-2xl p-6 lg:p-8 backdrop-blur-2xl border-2 border-slate-200/60 dark:border-slate-600/50 shadow-xl shadow-slate-400/20 dark:shadow-slate-900/40 max-w-4xl mx-auto">
-              <div className="flex items-start space-x-4 mb-6">
-                <div className="text-green-500 text-2xl font-bold">✅</div>
-                <h4 className="text-xl lg:text-2xl font-bold text-slate-800 dark:text-slate-200">
-                  3 Pilastri strategici:
-                </h4>
-              </div>
-              
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="text-center space-y-4">
-                  <div className="bg-blue-100 dark:bg-blue-900/30 w-16 h-16 rounded-xl flex items-center justify-center mx-auto">
-                    <Bot className="text-blue-600 dark:text-blue-300" size={32} />
-                  </div>
-                  <h5 className="text-lg font-bold text-slate-800 dark:text-slate-200">AI Su Misura</h5>
+                  <h5 className="text-lg font-bold text-slate-800 dark:text-slate-200 border-b border-slate-300 dark:border-slate-600 pb-2">AI Su Misura</h5>
                   <p className="text-sm text-slate-600 dark:text-slate-400">
                     Soluzioni calibrate sui tuoi dati
                   </p>
                 </div>
                 
                 <div className="text-center space-y-4">
-                  <div className="bg-purple-100 dark:bg-purple-900/30 w-16 h-16 rounded-xl flex items-center justify-center mx-auto">
-                    <Zap className="text-purple-600 dark:text-purple-300" size={32} />
-                  </div>
-                  <h5 className="text-lg font-bold text-slate-800 dark:text-slate-200">Automazione Continua</h5>
+                  <h5 className="text-lg font-bold text-slate-800 dark:text-slate-200 border-b border-slate-300 dark:border-slate-600 pb-2">Automazione Continua</h5>
                   <p className="text-sm text-slate-600 dark:text-slate-400">
                     Processi che migliorano nel tempo
                   </p>
                 </div>
                 
                 <div className="text-center space-y-4">
-                  <div className="bg-green-100 dark:bg-green-900/20 w-16 h-16 rounded-xl flex items-center justify-center mx-auto">
-                    <TrendingUp className="text-green-600 dark:text-green-300" size={32} />
-                  </div>
-                  <h5 className="text-lg font-bold text-slate-800 dark:text-slate-200">Crescita Guidata</h5>
+                  <h5 className="text-lg font-bold text-slate-800 dark:text-slate-200 border-b border-slate-300 dark:border-slate-600 pb-2">Crescita Guidata</h5>
                   <p className="text-sm text-slate-600 dark:text-slate-400">
                     Risultati misurabili in 30 giorni
                   </p>
