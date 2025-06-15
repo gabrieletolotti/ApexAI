@@ -1,4 +1,3 @@
-
 import { ArrowRight, Bot, Zap, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
@@ -16,11 +15,11 @@ const Hero = () => {
         const headerRect = header.getBoundingClientRect();
         headerHeight = headerRect.height;
         
-        // Su mobile aggiungiamo un offset maggiore per far combaciare sezione con header
+        // Su mobile aggiungiamo un offset molto maggiore per far combaciare sezione con header
         if (window.innerWidth < 768) {
           const sectionTop = section.offsetTop;
           window.scrollTo({ 
-            top: sectionTop - headerHeight - 50, 
+            top: sectionTop - headerHeight - 120, 
             behavior: 'smooth' 
           });
           return;
