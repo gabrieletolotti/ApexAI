@@ -88,9 +88,9 @@ const Contact = () => {
           </Card>
 
           <div className="space-y-8">
-            <Card className={`border-0 ring-1 ring-white/70 dark:ring-slate-700 shadow-lg bg-white/70 dark:bg-slate-900/60 backdrop-blur-xl hover:shadow-xl hover:scale-105 duration-500 animate-on-scroll fade-in-right ${isContentVisible ? 'visible' : ''}`}>
-              <CardContent className="p-8">
-                <div className="flex items-center space-x-4 mb-6 duration-300">
+            <Card className={`border-0 ring-1 ring-white/70 dark:ring-slate-700 shadow-lg bg-white/70 dark:bg-slate-900/60 backdrop-blur-xl hover:shadow-xl hover:scale-105 duration-500 animate-on-scroll fade-in-right ${isContentVisible ? 'visible' : ''} h-full`}>
+              <CardContent className="p-8 h-full flex flex-col justify-evenly">
+                <div className="flex items-center space-x-4 duration-300">
                   <div className="bg-blue-100 p-3 rounded-lg hover:bg-blue-200 duration-300">
                     <Mail className="text-blue-600" size={24} />
                   </div>
@@ -100,7 +100,7 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-4 mb-6 duration-300">
+                <div className="flex items-center space-x-4 duration-300">
                   <div className="bg-purple-100 p-3 rounded-lg hover:bg-purple-200 duration-300">
                     <Phone className="text-purple-600" size={24} />
                   </div>
