@@ -2,5 +2,6 @@
 include:
   - _headers
   - .nojekyll
+  - assets
 
 plugins: []
