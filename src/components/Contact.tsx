@@ -117,7 +117,7 @@ const Contact = () => {
                 <p className="mb-6 opacity-90">
                   Prenota una chiamata di 30 minuti per discutere come l'AI può migliorare i tuoi processi aziendali.
                 </p>
-                <Button variant="secondary" className="bg-white text-blue-700 dark:text-blue-400 hover:bg-gray-100 dark:hover:bg-slate-800 transform hover:scale-105 rounded-xl duration-300 font-semibold">
+                <Button variant="secondary" className="bg-white text-slate-900 hover:bg-gray-100 dark:text-slate-900 dark:hover:bg-slate-200 transform hover:scale-105 rounded-xl duration-300 font-semibold">
                   Prenota Ora
                 </Button>
               </CardContent>
