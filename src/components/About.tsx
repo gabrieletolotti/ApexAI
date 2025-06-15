@@ -1,3 +1,4 @@
+
 import { Users, MapPin, Award, Clock } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 const About = () => {
@@ -6,12 +7,6 @@ const About = () => {
     isIntersecting: isContentVisible
   } = useIntersectionObserver({
     threshold: 0.2
-  });
-  const {
-    ref: statsRef,
-    isIntersecting: areStatsVisible
-  } = useIntersectionObserver({
-    threshold: 0.3
   });
   const {
     ref: featuresRef,
@@ -40,17 +35,6 @@ const About = () => {
                 rendendo queste tecnologie avanzate accessibili e utili per aziende di ogni dimensione. 
                 Combiniamo l'eccellenza italiana nel design e nell'innovazione con le più moderne tecnologie AI.
               </p>
-            </div>
-
-            <div ref={statsRef} className="grid grid-cols-2 gap-6">
-              <div className="">
-                <div className="text-3xl font-bold text-blue-600 mb-2 dark:text-blue-400">50+</div>
-                <div className="text-sm text-muted-foreground">Progetti Completati</div>
-              </div>
-              <div className="">
-                <div className="text-3xl font-bold text-purple-600 mb-2 dark:text-purple-400">98%</div>
-                <div className="text-sm text-muted-foreground">Soddisfazione Clienti</div>
-              </div>
             </div>
           </div>
 
