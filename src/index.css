@@ -115,7 +115,6 @@
     top: -20vh;
     left: -20vw;
     background: hsl(var(--primary) / 0.1);
-    animation: liquid-1 8s ease-in-out infinite alternate;
   }
 
   body::after {
@@ -124,7 +123,6 @@
     bottom: -20vh;
     right: -15vw;
     background: hsl(var(--accent) / 0.1);
-    animation: liquid-2 10s ease-in-out infinite alternate;
   }
   
   .dark body::before {
@@ -135,14 +133,6 @@
   .dark body::after {
      background: hsl(var(--accent) / 0.2);
      opacity: 1;
-  }
-  
-  @keyframes liquid-1 {
-    to { transform: translate(25vw, 30vh) rotate(90deg) scale(1.2); }
-  }
-
-  @keyframes liquid-2 {
-    to { transform: translate(-20vw, -25vh) rotate(-90deg) scale(1.3); }
   }
 }
 
@@ -211,37 +201,6 @@
   }
 }
 
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
-}
-
-@keyframes float-reverse {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(10px); }
-  100% { transform: translateY(0px); }
-}
-
-@keyframes drift {
-  0% { transform: translate(0, 0); }
-  25% { transform: translate(5px, -5px); }
-  50% { transform: translate(-5px, 5px); }
-  75% { transform: translate(5px, 5px); }
-  100% { transform: translate(0, 0); }
-}
-
-@keyframes pulse-slow {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.9;
-    transform: scale(1.03);
-  }
-}
-
 /* Improved animation classes with smooth transitions */
 .animate-on-scroll {
   opacity: 0;
@@ -299,42 +258,8 @@
 }
 
 /* Background animation classes */
-.animate-float {
-  animation: float 8s ease-in-out infinite;
-}
-
-.animate-float-reverse {
-  animation: float-reverse 10s ease-in-out infinite;
-}
-
-.animate-drift {
-  animation: drift 12s ease-in-out infinite;
-}
-
-.animate-pulse-slow {
-  animation: pulse-slow 4s ease-in-out infinite;
-}
 
 /* Smooth wandering animations with longer duration and smoother easing */
-.animate-wander-1 {
-  animation: wander-1 5s ease-in-out infinite;
-}
-
-.animate-wander-2 {
-  animation: wander-2 6s ease-in-out infinite 5s;
-}
-
-.animate-wander-3 {
-  animation: wander-3 4s ease-in-out infinite 8s;
-}
-
-.animate-wander-4 {
-  animation: wander-4 6s ease-in-out infinite 4s;
-}
-
-.animate-wander-5 {
-  animation: wander-5 5s ease-in-out infinite 10s;
-}
 
 /* Staggered animations */
 .stagger-1 { animation-delay: 0.1s; }
