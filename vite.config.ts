@@ -6,7 +6,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: mode === 'production' ? '/apexai-italia-website/' : '/',
+  base: mode === 'production' ? '/ApexAI/' : '/',
   server: {
     host: "::",
     port: 8080,
