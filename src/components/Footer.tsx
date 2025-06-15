@@ -13,7 +13,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8">
           <div className={`space-y-4 animate-on-scroll fade-in-up ${isIntersecting ? 'visible' : ''}`}>
             <div className="cursor-pointer hover:scale-105 transition-transform duration-300">
-              <img src="/lovable-uploads/17ea1c3e-91fc-43b7-89e1-ceddcb029d59.png" alt="ApexAI Logo" className="h-10" />
+              <img src="/lovable-uploads/cc3741a6-d4c6-44d6-8d0c-42f96b12dcfd.png" alt="ApexAI Logo" className="h-10" />
             </div>
             <p className="text-slate-300 leading-relaxed">
               La tua partner italiana per l'automazione AI e l'innovazione tecnologica. 
