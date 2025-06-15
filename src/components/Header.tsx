@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
@@ -21,23 +20,31 @@ const Header = () => {
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
+      // Ottieni l'altezza dell'header in modo più preciso
       const header = document.querySelector('header');
-      let headerHeight = 0;
+      let headerHeight = 80; // Valore di fallback
       
       if (header) {
-        // Su mobile consideriamo anche il menu aperto
-        headerHeight = header.offsetHeight;
+        const headerRect = header.getBoundingClientRect();
+        headerHeight = headerRect.height;
+        
+        // Su mobile, se il menu è aperto, chiudilo prima e aggiungi un piccolo delay
         if (isMenuOpen && window.innerWidth < 768) {
-          // Aggiungiamo spazio extra per il menu mobile
-          headerHeight += 200; // Spazio approssimativo per il menu mobile
+          setIsMenuOpen(false);
+          setTimeout(() => {
+            const sectionTop = section.offsetTop;
+            window.scrollTo({ 
+              top: sectionTop - headerHeight, 
+              behavior: 'smooth' 
+            });
+          }, 100);
+          return;
         }
       }
       
       const sectionTop = section.offsetTop;
-      const scrollPosition = sectionTop - headerHeight;
-      
       window.scrollTo({ 
-        top: Math.max(0, scrollPosition), 
+        top: sectionTop - headerHeight, 
         behavior: 'smooth' 
       });
     }

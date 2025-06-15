@@ -8,22 +8,18 @@ const Hero = () => {
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
+      // Ottieni l'altezza dell'header in modo più preciso
       const header = document.querySelector('header');
-      let headerHeight = 0;
+      let headerHeight = 80; // Valore di fallback
       
       if (header) {
-        headerHeight = header.offsetHeight;
-        // Su mobile aggiungiamo un piccolo offset extra per compensare eventuali problemi di viewport
-        if (window.innerWidth < 768) {
-          headerHeight += 10;
-        }
+        const headerRect = header.getBoundingClientRect();
+        headerHeight = headerRect.height;
       }
       
       const sectionTop = section.offsetTop;
-      const scrollPosition = sectionTop - headerHeight;
-      
       window.scrollTo({ 
-        top: Math.max(0, scrollPosition), 
+        top: sectionTop - headerHeight, 
         behavior: 'smooth' 
       });
     }
