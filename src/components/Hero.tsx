@@ -1,3 +1,4 @@
+
 import { ArrowRight, Bot, Zap, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
@@ -108,31 +109,25 @@ const Hero = () => {
           </div>
 
           <div className={`relative animate-on-scroll fade-in-right ${isIntersecting ? 'visible' : ''} mt-8 lg:mt-0`}>
-            <div className="bg-gradient-to-br from-white/80 to-slate-100/70 dark:from-slate-800/90 dark:to-slate-900/80 rounded-2xl p-4 lg:p-8 backdrop-blur-2xl border-2 border-slate-200/60 dark:border-slate-600/50 shadow-xl shadow-slate-400/20 dark:shadow-slate-900/40 max-w-md mx-auto">
-              <div className="bg-white/60 dark:bg-slate-800/60 rounded-xl p-3 lg:p-6 backdrop-blur-lg border border-slate-200/40 dark:border-slate-700/40">
-                <div className="space-y-3 lg:space-y-6">
+            <div className="bg-gradient-to-br from-white/80 to-slate-100/70 dark:from-slate-800/90 dark:to-slate-900/80 rounded-2xl p-3 lg:p-5 backdrop-blur-2xl border-2 border-slate-200/60 dark:border-slate-600/50 shadow-xl shadow-slate-400/20 dark:shadow-slate-900/40 max-w-lg mx-auto">
+              <div className="bg-white/60 dark:bg-slate-800/60 rounded-xl p-3 lg:p-4 backdrop-blur-lg border border-slate-200/40 dark:border-slate-700/40">
+                <div className="space-y-3 lg:space-y-4">
                   <div className="flex items-center space-x-3">
                     <div className="w-2 h-2 lg:w-3 lg:h-3 bg-green-400 rounded-full"></div>
                     <span className="text-sm lg:text-base font-medium">Sistema AI Attivo</span>
                   </div>
-                  <div className="space-y-2 lg:space-y-3">
-                    <div className="bg-white/70 dark:bg-slate-700/50 rounded-lg p-2 lg:p-3 border border-slate-200/30 dark:border-slate-600/30">
-                      <div className="flex justify-between items-center">
-                        <span className="text-xs lg:text-sm">Efficienza Processi</span>
-                        <span className="text-sm lg:text-base font-bold text-green-400">+89%</span>
-                      </div>
+                  <div className="grid grid-cols-3 gap-2 lg:gap-3">
+                    <div className="bg-white/70 dark:bg-slate-700/50 rounded-lg p-2 lg:p-3 border border-slate-200/30 dark:border-slate-600/30 text-center">
+                      <div className="text-xs lg:text-sm text-muted-foreground mb-1">Efficienza</div>
+                      <div className="text-sm lg:text-base font-bold text-green-400">+89%</div>
                     </div>
-                    <div className="bg-white/70 dark:bg-slate-700/50 rounded-lg p-2 lg:p-3 border border-slate-200/30 dark:border-slate-600/30">
-                      <div className="flex justify-between items-center">
-                        <span className="text-xs lg:text-sm">Riduzione Costi</span>
-                        <span className="text-sm lg:text-base font-bold text-blue-400">-67%</span>
-                      </div>
+                    <div className="bg-white/70 dark:bg-slate-700/50 rounded-lg p-2 lg:p-3 border border-slate-200/30 dark:border-slate-600/30 text-center">
+                      <div className="text-xs lg:text-sm text-muted-foreground mb-1">Costi</div>
+                      <div className="text-sm lg:text-base font-bold text-blue-400">-67%</div>
                     </div>
-                    <div className="bg-white/70 dark:bg-slate-700/50 rounded-lg p-2 lg:p-3 border border-slate-200/30 dark:border-slate-600/30">
-                      <div className="flex justify-between items-center">
-                        <span className="text-xs lg:text-sm">Automazione Completa</span>
-                        <span className="text-sm lg:text-base font-bold text-purple-400">24/7</span>
-                      </div>
+                    <div className="bg-white/70 dark:bg-slate-700/50 rounded-lg p-2 lg:p-3 border border-slate-200/30 dark:border-slate-600/30 text-center">
+                      <div className="text-xs lg:text-sm text-muted-foreground mb-1">Attivo</div>
+                      <div className="text-sm lg:text-base font-bold text-purple-400">24/7</div>
                     </div>
                   </div>
                 </div>
