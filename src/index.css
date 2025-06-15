@@ -115,7 +115,7 @@
     top: -20vh;
     left: -20vw;
     background: hsl(var(--primary) / 0.1);
-    animation: liquid-1 15s ease-in-out infinite alternate;
+    animation: liquid-1 8s ease-in-out infinite alternate;
   }
 
   body::after {
@@ -124,7 +124,7 @@
     bottom: -20vh;
     right: -15vw;
     background: hsl(var(--accent) / 0.1);
-    animation: liquid-2 18s ease-in-out infinite alternate;
+    animation: liquid-2 10s ease-in-out infinite alternate;
   }
   
   .dark body::before {
@@ -286,23 +286,23 @@
 
 /* Smooth wandering animations with longer duration and smoother easing */
 .animate-wander-1 {
-  animation: wander-1 12s ease-in-out infinite;
+  animation: wander-1 5s ease-in-out infinite;
 }
 
 .animate-wander-2 {
-  animation: wander-2 14s ease-in-out infinite 12s;
+  animation: wander-2 6s ease-in-out infinite 5s;
 }
 
 .animate-wander-3 {
-  animation: wander-3 10s ease-in-out infinite 25s;
+  animation: wander-3 4s ease-in-out infinite 8s;
 }
 
 .animate-wander-4 {
-  animation: wander-4 13s ease-in-out infinite 10s;
+  animation: wander-4 6s ease-in-out infinite 4s;
 }
 
 .animate-wander-5 {
-  animation: wander-5 11s ease-in-out infinite 30s;
+  animation: wander-5 5s ease-in-out infinite 10s;
 }
 
 /* Staggered animations */
