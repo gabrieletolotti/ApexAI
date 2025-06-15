@@ -36,7 +36,7 @@ const Header = () => {
         behavior: 'smooth' 
       });
     }
-    setIsMenuОpen(false);
+    setIsMenuOpen(false);
   };
 
   return (
