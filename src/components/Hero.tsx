@@ -1,5 +1,3 @@
-
-
 import { ArrowRight, Bot, Zap, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
@@ -60,9 +58,12 @@ const Hero = () => {
             <div className="space-y-4">
               <h1 className={`text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight animate-on-scroll fade-in-up ${isIntersecting ? 'visible' : ''} font-sans`}>
                 <span className="animate-gradient bg-gradient-to-r from-blue-700 via-purple-700 to-blue-700 bg-clip-text text-transparent drop-shadow-[0_3px_10px_rgba(84,108,255,0.25)] dark:from-blue-600 dark:via-purple-700 dark:to-blue-600" style={{backgroundSize: '200% auto', animation: 'gradient-shift 8s linear infinite'}}>
-                  Automazioni intelligenti per business in evoluzione.
+                  Automazioni intelligenti
                 </span>
               </h1>
+              <p className={`text-xl sm:text-2xl lg:text-3xl text-white font-medium animate-on-scroll fade-in-up stagger-2 ${isIntersecting ? 'visible' : ''}`}>
+                per business in evoluzione.
+              </p>
             </div>
             
             <div className={`flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-on-scroll fade-in-up stagger-3 ${isIntersecting ? 'visible' : ''}`}>
@@ -145,4 +146,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
