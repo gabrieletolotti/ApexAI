@@ -97,6 +97,19 @@
   }
 }
 
+/* Gradient animation for hero title */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 /* Scroll-triggered animations */
 @keyframes fade-in-up {
   from {
@@ -362,6 +375,12 @@
 
 .slide-in-up.visible {
   animation: slide-in-up 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Animated gradient class */
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease-in-out infinite;
 }
 
 /* Background animation classes */
