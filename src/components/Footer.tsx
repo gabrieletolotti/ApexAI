@@ -18,8 +18,7 @@ const Footer = () => {
               <img src="/lovable-uploads/aa430766-16dd-4783-bc9f-f9980ee34dea.png" alt="ApexAI Logo" className="h-10" />
             </div>
             <p className="text-slate-300 leading-relaxed max-w-md">
-              La tua partner italiana per l'automazione AI e l'innovazione tecnologica. 
-              Trasformiamo le aziende con soluzioni intelligenti.
+              Automazioni intelligenti per business in evoluzione.
             </p>
           </div>
         </div>

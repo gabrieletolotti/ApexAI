@@ -1,3 +1,4 @@
+
 import { ArrowRight, Bot, Zap, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
@@ -64,7 +65,7 @@ const Hero = () => {
                 per il Futuro
               </h1>
               <p className={`text-base sm:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 animate-on-scroll fade-in-up stagger-2 ${isIntersecting ? 'visible' : ''}`}>
-                Trasformiamo la tua azienda con soluzioni di intelligenza artificiale avanzate. 
+                Automazioni intelligenti per business in evoluzione. 
                 ApexAI è la tua partner italiana per l'automazione intelligente e l'innovazione tecnologica.
               </p>
             </div>
