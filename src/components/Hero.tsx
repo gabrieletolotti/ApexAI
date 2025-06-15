@@ -1,4 +1,3 @@
-
 import { ArrowRight, Bot, Zap, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
@@ -12,15 +11,14 @@ const Hero = () => {
       const header = document.querySelector('header');
       const headerHeight = header ? header.offsetHeight : 0;
       const viewportHeight = window.innerHeight;
+      const sectionTop = section.offsetTop;
       const sectionHeight = section.offsetHeight;
       
-      // Calcola la posizione per centrare la sezione
-      const sectionTop = section.offsetTop;
-      const centerOffset = (viewportHeight - sectionHeight) / 2;
-      const scrollPosition = sectionTop - headerHeight - centerOffset;
+      // Calcola per centrare la sezione nella viewport
+      const centerPosition = sectionTop - (viewportHeight / 2) + (sectionHeight / 2) + headerHeight;
       
       window.scrollTo({ 
-        top: Math.max(0, scrollPosition), 
+        top: Math.max(0, centerPosition), 
         behavior: 'smooth' 
       });
     }
