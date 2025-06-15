@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Menu, X, BrainCircuit } from 'lucide-react';
+import { Menu, X, Bot } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { ThemeToggle } from '@/components/theme-toggle';
 
@@ -36,7 +36,7 @@ const Header = () => {
         behavior: 'smooth' 
       });
     }
-    setIsMenuOpen(false);
+    setIsMenuОpen(false);
   };
 
   return (
@@ -48,7 +48,7 @@ const Header = () => {
             className="flex items-center space-x-2 hover:scale-105 transition-transform duration-300 cursor-pointer"
           >
             <div className="p-1 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg shadow-md">
-              <BrainCircuit className="h-6 w-6 text-white" />
+              <Bot className="h-6 w-6 text-white" />
             </div>
             <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               ApexAI
