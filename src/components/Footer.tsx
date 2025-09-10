@@ -24,7 +24,7 @@ const Footer = () => {
         </div>
 
         <div className={`border-t border-slate-700/50 mt-12 pt-8 text-center text-slate-400 animate-on-scroll fade-in-up stagger-5 ${isIntersecting ? 'visible' : ''}`}>
-          <p>© 2024 ApexAI. Tutti i diritti riservati.</p>
+          <p>© 2025 ApexAI. Tutti i diritti riservati.</p>
         </div>
       </div>
     </footer>
