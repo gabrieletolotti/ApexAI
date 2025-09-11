@@ -67,7 +67,7 @@ const Header = () => {
   return (
     <header ref={ref} className={`fixed top-0 w-full bg-background/80 backdrop-blur-xl z-50 border-b border-white/20 dark:border-slate-700/40 transition-all duration-500 ${isIntersecting ? 'translate-y-0 opacity-100' : 'translate-y-0 opacity-100'}`}>
       <div className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
+        <div className="relative flex items-center justify-between">
           <button 
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="hover:scale-105 transition-transform duration-300 cursor-pointer"
@@ -76,7 +76,7 @@ const Header = () => {
           </button>
           
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-7">
+          <nav className="hidden md:flex items-center space-x-7 md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2">
             <button onClick={() => scrollToSection('home')} className="text-foreground hover:text-primary hover:scale-105 transition-all duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">Home</button>
             <button onClick={() => scrollToSection('services')} className="text-foreground hover:text-primary hover:scale-105 transition-all duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">Servizi</button>
             <button onClick={() => scrollToSection('about')} className="text-foreground hover:text-primary hover:scale-105 transition-all duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">Chi Siamo</button>
