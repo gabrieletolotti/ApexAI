@@ -8,6 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import { sanitizeInput, isValidEmail, rateLimiter } from '@/lib/security';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -23,6 +24,37 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Rate limiting check
+    if (!rateLimiter.canSubmit('contact-form')) {
+      toast({
+        title: "Troppi tentativi",
+        description: "Riprova tra qualche minuto.",
+        variant: "destructive"
+      });
+      return;
+    }
+    
+    // Validate required fields
+    if (!formData.name || !formData.email || !formData.message) {
+      toast({
+        title: "Campi obbligatori mancanti",
+        description: "Per favore, compila tutti i campi obbligatori.",
+        variant: "destructive"
+      });
+      return;
+    }
+    
+    // Validate email format
+    if (!isValidEmail(formData.email)) {
+      toast({
+        title: "Email non valida",
+        description: "Per favore, inserisci un indirizzo email valido.",
+        variant: "destructive"
+      });
+      return;
+    }
+    
     const { name, email, company, annualRevenue, message } = formData;
 
     const subject = `Richiesta consulenza da ${name} - ${company || 'N/A'}`;
@@ -55,7 +87,9 @@ ${name}`;
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    const sanitizedValue = sanitizeInput(value);
+    setFormData({ ...formData, [name]: sanitizedValue });
   };
 
   const handleSelectChange = (name: string, value: string) => {
