@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
@@ -13,6 +14,7 @@ const Contact = () => {
     name: '',
     email: '',
     company: '',
+    annualRevenue: '',
     message: ''
   });
   const { toast } = useToast();
@@ -21,7 +23,7 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const { name, email, company, message } = formData;
+    const { name, email, company, annualRevenue, message } = formData;
 
     const subject = `Richiesta consulenza da ${name} - ${company || 'N/A'}`;
     const body = `Ciao,
@@ -32,6 +34,7 @@ Dettagli:
 Nome: ${name}
 Email: ${email}
 Azienda: ${company || 'N/A'}
+Fatturato Annuale: ${annualRevenue || 'Non specificato'}
 
 Messaggio:
 ${message}
@@ -48,11 +51,15 @@ ${name}`;
       description: "Completa l'invio dell'email per contattarci. Ti risponderemo presto."
     });
 
-    setFormData({ name: '', email: '', company: '', message: '' });
+    setFormData({ name: '', email: '', company: '', annualRevenue: '', message: '' });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSelectChange = (name: string, value: string) => {
+    setFormData({ ...formData, [name]: value });
   };
 
   return (
@@ -90,6 +97,22 @@ ${name}`;
                 </div>
                 <div>
                   <Input name="company" placeholder="Azienda (opzionale)" value={formData.company} onChange={handleChange} className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400" />
+                </div>
+                <div>
+                  <Select value={formData.annualRevenue} onValueChange={(value) => handleSelectChange('annualRevenue', value)}>
+                    <SelectTrigger className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 duration-300 text-slate-900 dark:text-slate-100">
+                      <SelectValue placeholder="Fatturato Annuale (opzionale)" />
+                    </SelectTrigger>
+                    <SelectContent className="bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700">
+                      <SelectItem value="less-than-100k">Meno di €100.000</SelectItem>
+                      <SelectItem value="100k-500k">€100.000 - €500.000</SelectItem>
+                      <SelectItem value="500k-1m">€500.000 - €1.000.000</SelectItem>
+                      <SelectItem value="1m-5m">€1.000.000 - €5.000.000</SelectItem>
+                      <SelectItem value="5m-10m">€5.000.000 - €10.000.000</SelectItem>
+                      <SelectItem value="over-10m">Oltre €10.000.000</SelectItem>
+                      <SelectItem value="prefer-not-to-say">Preferisco non specificare</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
                 <div>
                   <Textarea name="message" placeholder="Descrivi il tuo progetto o le tue esigenze di automazione..." value={formData.message} onChange={handleChange} rows={6} required className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400" />
