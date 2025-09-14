@@ -15,7 +15,7 @@ const Footer = () => {
         <div className="flex justify-center">
           <div className={`space-y-4 text-center animate-on-scroll fade-in-up ${isIntersecting ? 'visible' : ''}`}>
             <div className="cursor-pointer hover:scale-105 transition-transform duration-300 flex justify-center">
-              <img src="/lovable-uploads/aa430766-16dd-4783-bc9f-f9980ee34dea.png" alt="ApexAI Logo" className="h-10" />
+              <img src="./lovable-uploads/aa430766-16dd-4783-bc9f-f9980ee34dea.png" alt="ApexAI Logo" className="h-10" />
             </div>
             <p className="text-slate-300 leading-relaxed max-w-md">
               Automazioni intelligenti per business in evoluzione.
