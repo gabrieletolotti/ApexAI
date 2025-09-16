@@ -36,7 +36,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center relative z-0 pt-48 sm:pt-20 px-4 bg-gradient-to-br from-slate-100 via-slate-50 to-blue-50 dark:from-background dark:via-slate-900/60 dark:to-blue-500/5">
+    <section id="home" className="min-h-screen flex items-center relative z-0 pt-80 sm:pt-60 px-4 bg-gradient-to-br from-slate-100 via-slate-50 to-blue-50 dark:from-background dark:via-slate-900/60 dark:to-blue-500/5">
       {/* Dynamic animated background elements - Ottimizzato per mobile */}
       <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
         {/* Elementi animati per desktop */}
