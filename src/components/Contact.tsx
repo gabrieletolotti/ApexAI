@@ -123,14 +123,38 @@ ${name}`;
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <Input name="name" placeholder="Nome e Cognome" value={formData.name} onChange={handleChange} required className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400" />
+                    <Input 
+                      name="name" 
+                      placeholder="Nome e Cognome" 
+                      value={formData.name} 
+                      onChange={handleChange} 
+                      required 
+                      className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400"
+                      style={{ whiteSpace: 'normal', wordSpacing: 'normal', letterSpacing: 'normal' }}
+                    />
                   </div>
                   <div>
-                    <Input name="email" type="email" placeholder="Email" value={formData.email} onChange={handleChange} required className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400" />
+                    <Input 
+                      name="email" 
+                      type="email" 
+                      placeholder="Email" 
+                      value={formData.email} 
+                      onChange={handleChange} 
+                      required 
+                      className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400"
+                      style={{ whiteSpace: 'normal', wordSpacing: 'normal', letterSpacing: 'normal' }}
+                    />
                   </div>
                 </div>
                 <div>
-                  <Input name="company" placeholder="Azienda (opzionale)" value={formData.company} onChange={handleChange} className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400" />
+                  <Input 
+                    name="company" 
+                    placeholder="Azienda (opzionale)" 
+                    value={formData.company} 
+                    onChange={handleChange} 
+                    className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400"
+                    style={{ whiteSpace: 'normal', wordSpacing: 'normal', letterSpacing: 'normal' }}
+                  />
                 </div>
                 <div>
                   <Select value={formData.annualRevenue} onValueChange={(value) => handleSelectChange('annualRevenue', value)}>
@@ -157,7 +181,7 @@ ${name}`;
                     rows={6} 
                     required 
                     className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400"
-                    style={{ whiteSpace: 'pre-wrap', wordWrap: 'break-word' }}
+                    style={{ whiteSpace: 'pre-wrap', wordWrap: 'break-word', wordSpacing: 'normal', letterSpacing: 'normal' }}
                   />
                 </div>
                 <Button type="submit" size="lg" className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 duration-300 text-white font-semibold">
