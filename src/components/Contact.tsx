@@ -130,7 +130,6 @@ ${name}`;
                       onChange={handleChange} 
                       required 
                       className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400"
-                      style={{ whiteSpace: 'normal', wordSpacing: 'normal', letterSpacing: 'normal' }}
                     />
                   </div>
                   <div>
@@ -142,7 +141,6 @@ ${name}`;
                       onChange={handleChange} 
                       required 
                       className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400"
-                      style={{ whiteSpace: 'normal', wordSpacing: 'normal', letterSpacing: 'normal' }}
                     />
                   </div>
                 </div>
@@ -153,7 +151,6 @@ ${name}`;
                     value={formData.company} 
                     onChange={handleChange} 
                     className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400"
-                    style={{ whiteSpace: 'normal', wordSpacing: 'normal', letterSpacing: 'normal' }}
                   />
                 </div>
                 <div>
@@ -181,7 +178,6 @@ ${name}`;
                     rows={6} 
                     required 
                     className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400"
-                    style={{ whiteSpace: 'pre-wrap', wordWrap: 'break-word', wordSpacing: 'normal', letterSpacing: 'normal' }}
                   />
                 </div>
                 <Button type="submit" size="lg" className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 duration-300 text-white font-semibold">
