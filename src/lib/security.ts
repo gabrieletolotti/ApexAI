@@ -13,7 +13,6 @@ export function sanitizeInput(input: string): string {
     .replace(/[<>]/g, '') // Remove angle brackets
     .replace(/javascript:/gi, '') // Remove javascript protocol
     .replace(/on\w+=/gi, '') // Remove event handlers
-    .trim()
     .slice(0, 1000); // Limit length
 }
 
@@ -22,7 +21,7 @@ export function sanitizeInput(input: string): string {
  */
 export function isValidEmail(email: string): boolean {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  const sanitized = sanitizeInput(email);
+  const sanitized = sanitizeInput(email).trim();
   
   return emailRegex.test(sanitized) && 
          sanitized.length <= 254 && // RFC limit
