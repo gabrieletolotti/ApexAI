@@ -3,9 +3,40 @@ import { Menu, X } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { ThemeToggle } from '@/components/theme-toggle';
 
+/**
+ * Header Component - Navbar sticky con evidenziazione sezione attiva
+ * Monitora lo scroll per evidenziare la sezione corrente
+ */
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
   const { ref, isIntersecting } = useIntersectionObserver({ threshold: 1, triggerOnce: false });
+
+  // Track active section on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['home', 'services', 'about', 'cta', 'contact'];
+      const scrollPosition = window.scrollY + 100;
+
+      for (const sectionId of sections) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          const sectionTop = section.offsetTop;
+          const sectionBottom = sectionTop + section.offsetHeight;
+          
+          if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+            setActiveSection(sectionId);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Rimuovi l'hash dall'URL al caricamento della pagina per evitare scroll automatico
   useEffect(() => {
@@ -78,12 +109,32 @@ const Header = () => {
             </button>
           </div>
           
-          {/* Center Section - Navigation */}
+          {/* Center Section - Navigation con sezione attiva evidenziata */}
           <nav className="flex items-center justify-center space-x-8">
-            <button onClick={() => scrollToSection('home')} className="text-foreground hover:text-primary hover:scale-105 transition-all duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">Home</button>
-            <button onClick={() => scrollToSection('services')} className="text-foreground hover:text-primary hover:scale-105 transition-all duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">Servizi</button>
-            <button onClick={() => scrollToSection('about')} className="text-foreground hover:text-primary hover:scale-105 transition-all duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">Chi Siamo</button>
-            <button onClick={() => scrollToSection('contact')} className="text-foreground hover:text-primary hover:scale-105 transition-all duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">Contatti</button>
+            <button 
+              onClick={() => scrollToSection('home')} 
+              className={`text-foreground hover:text-primary hover:scale-105 transition-all duration-300 relative after:content-[''] after:absolute after:h-0.5 after:bottom-0 after:left-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full ${activeSection === 'home' ? 'text-primary font-semibold after:w-full' : 'after:w-0'}`}
+            >
+              Home
+            </button>
+            <button 
+              onClick={() => scrollToSection('services')} 
+              className={`text-foreground hover:text-primary hover:scale-105 transition-all duration-300 relative after:content-[''] after:absolute after:h-0.5 after:bottom-0 after:left-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full ${activeSection === 'services' ? 'text-primary font-semibold after:w-full' : 'after:w-0'}`}
+            >
+              Servizi
+            </button>
+            <button 
+              onClick={() => scrollToSection('about')} 
+              className={`text-foreground hover:text-primary hover:scale-105 transition-all duration-300 relative after:content-[''] after:absolute after:h-0.5 after:bottom-0 after:left-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full ${activeSection === 'about' ? 'text-primary font-semibold after:w-full' : 'after:w-0'}`}
+            >
+              Chi Siamo
+            </button>
+            <button 
+              onClick={() => scrollToSection('contact')} 
+              className={`text-foreground hover:text-primary hover:scale-105 transition-all duration-300 relative after:content-[''] after:absolute after:h-0.5 after:bottom-0 after:left-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full ${activeSection === 'contact' ? 'text-primary font-semibold after:w-full' : 'after:w-0'}`}
+            >
+              Contatti
+            </button>
           </nav>
 
           {/* Right Section - Theme Toggle */}

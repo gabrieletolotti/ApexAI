@@ -16,46 +16,51 @@ function useIsMobile(breakpoint = 768) {
   return isMobile;
 }
 
+/**
+ * Services Component - Showcase dei servizi con focus sui risultati
+ * Testi ottimizzati per conversione e orientati ai benefici misurabili
+ */
 const Services = () => {
   const { ref: titleRef, isIntersecting: isTitleVisible } = useIntersectionObserver({ threshold: 0.25 });
   const { ref: subtitleRef, isIntersecting: isSubtitleVisible } = useIntersectionObserver({ threshold: 0.22 });
   const isMobile = useIsMobile();
 
+  // Definizione servizi con testi orientati ai risultati
   const services = [
     {
       icon: Brain,
       title: "Intelligenza Artificiale Personalizzata",
-      description: "Sviluppiamo modelli AI su misura per le esigenze specifiche della tua azienda, ottimizzando processi e decisioni strategiche.",
+      description: "Riduci i costi operativi fino al 40% con modelli AI su misura che automatizzano decisioni complesse e ottimizzano i tuoi processi aziendali.",
       color: "text-blue-600"
     },
     {
       icon: Cog,
       title: "Automazione Processi Aziendali",
-      description: "Trasformiamo i tuoi processi manuali in sistemi automatizzati intelligenti che lavorano 24/7 senza errori.",
+      description: "Elimina gli errori manuali e risparmia fino a 20 ore settimanali automatizzando task ripetitivi con sistemi intelligenti che lavorano 24/7.",
       color: "text-purple-600"
     },
     {
       icon: Database,
       title: "Analisi Dati Avanzata",
-      description: "Estraiamo insights preziosi dai tuoi dati utilizzando algoritmi di machine learning e analisi predittiva.",
+      description: "Prendi decisioni strategiche basate su previsioni accurate grazie a machine learning e analisi predittiva dei tuoi dati.",
       color: "text-green-600"
     },
     {
       icon: MessageSquare,
       title: "Chatbot e Assistenti Virtuali",
-      description: "Implementiamo chatbot intelligenti per migliorare il customer service e automatizzare le interazioni con i clienti.",
+      description: "Aumenta la soddisfazione clienti del 35% con assistenti AI che rispondono istantaneamente h24, riducendo i tempi di attesa.",
       color: "text-orange-600"
     },
     {
       icon: BarChart3,
       title: "Business Intelligence AI",
-      description: "Dashboard intelligenti e report automatici che ti aiutano a prendere decisioni basate su dati in tempo reale.",
+      description: "Monitora le performance aziendali in tempo reale con dashboard intelligenti che identificano opportunità e criticità automaticamente.",
       color: "text-indigo-600"
     },
     {
       icon: Shield,
       title: "Sicurezza e Compliance",
-      description: "Soluzioni AI per la cybersecurity e il rispetto delle normative, proteggendo la tua azienda dalle minacce.",
+      description: "Proteggi la tua azienda con sistemi AI che rilevano minacce in tempo reale e garantiscono conformità normativa automatica.",
       color: "text-red-600"
     }
   ];
@@ -87,8 +92,8 @@ const Services = () => {
               ${isSubtitleVisible ? 'visible' : ''}
             `}
           >
-            Offriamo soluzioni complete di automazione AI per trasformare il modo in cui la tua azienda opera, 
-            aumentando l'efficienza e riducendo i costi.
+            Soluzioni complete di automazione AI che aumentano l'efficienza fino al 40%, 
+            riducono i costi operativi e accelerano la crescita del tuo business.
           </p>
         </div>
 

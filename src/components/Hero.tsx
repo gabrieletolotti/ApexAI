@@ -2,6 +2,10 @@ import { ArrowRight, Bot, Zap, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
+/**
+ * Hero Component - Sezione principale con titolo impattante e CTA
+ * Include lazy loading per le immagini e ottimizzazioni SEO
+ */
 const Hero = () => {
   const { ref, isIntersecting } = useIntersectionObserver({ threshold: 0.2 });
 

@@ -10,6 +10,10 @@ import { useToast } from '@/hooks/use-toast';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { sanitizeInput, isValidEmail, rateLimiter } from '@/lib/security';
 
+/**
+ * Contact Component - Form di contatto con validazione e accessibilità
+ * Include rate limiting e sanitizzazione input per sicurezza
+ */
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -123,34 +127,45 @@ ${name}`;
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
+                    <label htmlFor="name" className="sr-only">Nome e Cognome</label>
                     <Input 
+                      id="name"
                       name="name" 
                       placeholder="Nome e Cognome" 
                       value={formData.name} 
                       onChange={handleChange} 
-                      required 
-                      className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400"
+                      required
+                      aria-label="Nome completo"
+                      aria-required="true"
+                      className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-400 duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400"
                     />
                   </div>
                   <div>
+                    <label htmlFor="email" className="sr-only">Email</label>
                     <Input 
+                      id="email"
                       name="email" 
                       type="email" 
                       placeholder="Email" 
                       value={formData.email} 
                       onChange={handleChange} 
-                      required 
-                      className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400"
+                      required
+                      aria-label="Indirizzo email"
+                      aria-required="true"
+                      className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-400 duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400"
                     />
                   </div>
                 </div>
                 <div>
+                  <label htmlFor="company" className="sr-only">Azienda (opzionale)</label>
                   <Input 
+                    id="company"
                     name="company" 
                     placeholder="Azienda (opzionale)" 
                     value={formData.company} 
-                    onChange={handleChange} 
-                    className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400"
+                    onChange={handleChange}
+                    aria-label="Nome azienda"
+                    className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-400 duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400"
                   />
                 </div>
                 <div>
@@ -170,14 +185,18 @@ ${name}`;
                   </Select>
                 </div>
                 <div>
+                  <label htmlFor="message" className="sr-only">Descrivi il tuo progetto</label>
                   <Textarea 
+                    id="message"
                     name="message" 
                     placeholder="Descrivi il tuo progetto o le tue esigenze di automazione..." 
                     value={formData.message} 
                     onChange={handleChange} 
                     rows={6} 
-                    required 
-                    className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400"
+                    required
+                    aria-label="Messaggio"
+                    aria-required="true"
+                    className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-400 duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400"
                   />
                 </div>
                 <Button type="submit" size="lg" className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 duration-300 text-white font-semibold">
