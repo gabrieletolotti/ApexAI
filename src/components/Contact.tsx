@@ -170,7 +170,7 @@ ${name}`;
                 </div>
                 <div>
                   <Select value={formData.annualRevenue} onValueChange={(value) => handleSelectChange('annualRevenue', value)}>
-                    <SelectTrigger className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 duration-300 text-slate-900 dark:text-slate-100 [&[data-placeholder]]:text-slate-500 dark:[&[data-placeholder]]:text-slate-400">
+                    <SelectTrigger aria-label="Fatturato Annuale" className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 duration-300 text-slate-900 dark:text-slate-100 [&[data-placeholder]]:text-slate-500 dark:[&[data-placeholder]]:text-slate-400">
                       <SelectValue placeholder="Fatturato Annuale (opzionale)" />
                     </SelectTrigger>
                     <SelectContent className="bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700">
