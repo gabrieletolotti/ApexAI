@@ -38,7 +38,7 @@ const Footer = () => {
                 <Mail size={18} />
                 <span>info@apexai.it</span>
               </a>
-              <p className="text-sm">Italia</p>
+              <p className="text-sm">Bergamo, Italia</p>
             </div>
           </div>
 
@@ -47,7 +47,7 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Seguici</h3>
             <div className="flex gap-4 mb-6">
               <a 
-                href="https://linkedin.com/company/apexai" 
+                href="https://linkedin.com/company/apexai-Italia" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="bg-slate-800 p-2 rounded-lg hover:bg-blue-600 transition-colors duration-300"
@@ -56,7 +56,7 @@ const Footer = () => {
                 <Linkedin size={20} />
               </a>
               <a 
-                href="https://instagram.com/apexai" 
+                href="https://instagram.com/apexai.it" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="bg-slate-800 p-2 rounded-lg hover:bg-pink-600 transition-colors duration-300"
@@ -65,7 +65,7 @@ const Footer = () => {
                 <Instagram size={20} />
               </a>
               <a 
-                href="https://facebook.com/apexai" 
+                href="https://facebook.com/apexai.it" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="bg-slate-800 p-2 rounded-lg hover:bg-blue-700 transition-colors duration-300"
@@ -89,7 +89,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className={`border-t border-slate-700/50 pt-8 text-center text-slate-400 text-sm animate-on-scroll fade-in-up stagger-5 ${isIntersecting ? 'visible' : ''}`}>
-          <p>© 2025 ApexAI. Tutti i diritti riservati. P.IVA: IT00000000000</p>
+          <p>© 2025 ApexAI. Tutti i diritti riservati.</p>
         </div>
       </div>
     </footer>
