@@ -143,7 +143,7 @@ const Hero = () => {
                   <div className="bg-blue-100 dark:bg-blue-900/30 w-16 h-16 rounded-xl flex items-center justify-center mx-auto">
                     <Bot className="text-blue-600 dark:text-blue-300" size={32} />
                   </div>
-                  <h5 className="text-lg font-bold text-slate-800 dark:text-slate-200">AI Su Misura</h5>
+                  <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200">AI Su Misura</h3>
                   <p className="text-sm text-slate-600 dark:text-slate-400">
                     Soluzioni calibrate sui tuoi dati
                   </p>
@@ -153,7 +153,7 @@ const Hero = () => {
                   <div className="bg-purple-100 dark:bg-purple-900/30 w-16 h-16 rounded-xl flex items-center justify-center mx-auto">
                     <Zap className="text-purple-600 dark:text-purple-300" size={32} />
                   </div>
-                  <h5 className="text-lg font-bold text-slate-800 dark:text-slate-200">Automazione Continua</h5>
+                  <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200">Automazione Continua</h3>
                   <p className="text-sm text-slate-600 dark:text-slate-400">
                     Processi che migliorano nel tempo
                   </p>
@@ -163,7 +163,7 @@ const Hero = () => {
                   <div className="bg-green-100 dark:bg-green-900/20 w-16 h-16 rounded-xl flex items-center justify-center mx-auto">
                     <TrendingUp className="text-green-600 dark:text-green-300" size={32} />
                   </div>
-                  <h5 className="text-lg font-bold text-slate-800 dark:text-slate-200">Crescita Guidata</h5>
+                  <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200">Crescita Guidata</h3>
                   <p className="text-sm text-slate-600 dark:text-slate-400">
                     Risultati misurabili in 30 giorni
                   </p>
