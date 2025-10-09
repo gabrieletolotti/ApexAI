@@ -1,5 +1,6 @@
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { Mail, Linkedin, Instagram, Facebook } from 'lucide-react';
+import { Link } from 'react-router-dom'; // Importa Link da React Router
 
 /**
  * Footer Component - Include contatti, social e link legali
@@ -75,14 +76,20 @@ const Footer = () => {
               </a>
             </div>
             
-            {/* Link legali */}
+            {/* Link legali aggiornati */}
             <div className="space-y-2 text-sm text-slate-400">
-              <a href="/privacy-policy" className="block hover:text-blue-400 transition-colors duration-300">
+              <Link 
+                to="/privacy-policy" 
+                className="block hover:text-blue-400 transition-colors duration-300"
+              >
                 Privacy Policy
-              </a>
-              <a href="/cookie-policy" className="block hover:text-blue-400 transition-colors duration-300">
+              </Link>
+              <Link 
+                to="/cookie-policy" 
+                className="block hover:text-blue-400 transition-colors duration-300"
+              >
                 Cookie Policy
-              </a>
+              </Link>
             </div>
           </div>
         </div>
