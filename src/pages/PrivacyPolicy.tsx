@@ -1,5 +1,5 @@
 import MarkdownPage from '@/components/MarkdownPage';
-import content from '@/pages/privacy-policy.md';
+import content from '@/pages/privacy-policy.md?raw'; // Aggiunto ?raw per importare come stringa
 
 const PrivacyPolicy = () => {
   return (
@@ -12,3 +12,10 @@ const PrivacyPolicy = () => {
 };
 
 export default PrivacyPolicy;
+
+# Informativa sulla Privacy
+
+## Titolare del trattamento
+**ApexAI**  
+Sede legale: Bergamo, Italia  
+Email: info@apexai.it
