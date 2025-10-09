@@ -1,5 +1,5 @@
 import MarkdownPage from '@/components/MarkdownPage';
-import content from '@/pages/cookie-policy.md';
+import content from '@/pages/cookie-policy.md?raw'; // Aggiunto ?raw per importare come stringa
 
 const CookiePolicy = () => {
   return (
