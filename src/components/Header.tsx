@@ -12,27 +12,35 @@ const Header = () => {
   const [activeSection, setActiveSection] = useState('home');
   const { ref, isIntersecting } = useIntersectionObserver({ threshold: 1, triggerOnce: false });
 
-  // Track active section on scroll
+  // Track active section on scroll - Optimized with RAF to prevent forced reflows
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = ['home', 'services', 'about', 'cta', 'contact'];
-      const scrollPosition = window.scrollY + 100;
+    let ticking = false;
 
-      for (const sectionId of sections) {
-        const section = document.getElementById(sectionId);
-        if (section) {
-          const sectionTop = section.offsetTop;
-          const sectionBottom = sectionTop + section.offsetHeight;
-          
-          if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-            setActiveSection(sectionId);
-            break;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const sections = ['home', 'services', 'about', 'cta', 'contact'];
+          const scrollPosition = window.scrollY + 100;
+
+          for (const sectionId of sections) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+              const sectionTop = section.offsetTop;
+              const sectionBottom = sectionTop + section.offsetHeight;
+              
+              if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                setActiveSection(sectionId);
+                break;
+              }
+            }
           }
-        }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll(); // Initial check
     
     return () => window.removeEventListener('scroll', handleScroll);
