@@ -37,7 +37,7 @@ const Footer = () => {
                 className="flex items-center gap-2 hover:text-blue-400 transition-colors duration-300"
               >
                 <Mail size={18} />
-                <span>info@apexai.it</span>
+                <span>assistenza@apexai.it</span>
               </a>
               <p className="text-sm">Bergamo, Italia</p>
             </div>
