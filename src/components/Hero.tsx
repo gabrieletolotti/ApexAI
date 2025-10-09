@@ -8,8 +8,8 @@ import { useNavigate } from 'react-router-dom';
  * Include lazy loading per le immagini e ottimizzazioni SEO
  */
 const Hero = () => {
-  const { ref, isIntersecting } = useIntersectionObserver({ threshold: 0.2 });
   const navigate = useNavigate();
+  const { ref, isIntersecting } = useIntersectionObserver({ threshold: 0.2 });
 
   const scrollToServices = () => {
     const servicesSection = document.getElementById('services');
