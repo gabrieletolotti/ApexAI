@@ -6,7 +6,6 @@ import Hero from '@/components/Hero';
 import Services from '@/components/Services';
 import About from '@/components/About';
 import CTA from '@/components/CTA';
-import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 
 console.log('Index.tsx loaded');
@@ -41,7 +40,6 @@ const Index = () => {
         <Services />
         <About />
         <CTA />
-        <Contact />
       </main>
       <Footer />
       
