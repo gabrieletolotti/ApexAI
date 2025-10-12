@@ -74,6 +74,17 @@ const Footer = () => {
               </Link>
             </div>
           </div>
+                   
+          {/* Colonna 4: Informazioni aggiuntive */}
+            <div className={`animate-on-scroll fade-in-up stagger-4 ${isIntersecting ? 'visible' : ''}`}>
+              <h3 className="text-lg font-semibold mb-4">Informazioni</h3>
+              <ul className="space-y-2 text-sm text-slate-400">
+                <li>Email: assistenza@apexai.it</li>
+                <li>Telefono: +39 339 507 6268</li>
+                <li>Sede: Bergamo, Italia</li>
+              </ul>
+            </div>
+          </div>
 
           {/* Colonna 3: Social e Link legali */}
           <div className={`animate-on-scroll fade-in-up stagger-3 ${isIntersecting ? 'visible' : ''}`}>
@@ -124,17 +135,6 @@ const Footer = () => {
                 Cookie Policy
               </Link>
             </div>
-
-            {/* Colonna 4: Informazioni aggiuntive */}
-            <div className={`animate-on-scroll fade-in-up stagger-4 ${isIntersecting ? 'visible' : ''}`}>
-              <h3 className="text-lg font-semibold mb-4">Informazioni</h3>
-              <ul className="space-y-2 text-sm text-slate-400">
-                <li>Email: assistenza@apexai.it</li>
-                <li>Telefono: +39 339 507 6268</li>
-                <li>Sede: Bergamo, Italia</li>
-              </ul>
-            </div>
-          </div>
         </div>
 
         {/* Copyright */}
