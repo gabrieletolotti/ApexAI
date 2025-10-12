@@ -34,6 +34,13 @@ const Footer = () => {
             <div className="space-y-2 text-slate-400">
               <Link 
                 to="/" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  const heroSection = document.getElementById('hero');
+                  if (heroSection) {
+                    heroSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
                 className="block hover:text-blue-400 transition-colors duration-300"
               >
                 Home
