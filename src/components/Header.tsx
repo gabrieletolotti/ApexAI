@@ -12,35 +12,27 @@ const Header = () => {
   const [activeSection, setActiveSection] = useState('home');
   const { ref, isIntersecting } = useIntersectionObserver({ threshold: 1, triggerOnce: false });
 
-  // Track active section on scroll - Optimized with RAF to prevent forced reflows
+  // Track active section on scroll
   useEffect(() => {
-    let ticking = false;
-
     const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const sections = ['home', 'services', 'about', 'cta', 'contact'];
-          const scrollPosition = window.scrollY + 100;
+      const sections = ['home', 'services', 'about', 'cta', 'contact'];
+      const scrollPosition = window.scrollY + 100;
 
-          for (const sectionId of sections) {
-            const section = document.getElementById(sectionId);
-            if (section) {
-              const sectionTop = section.offsetTop;
-              const sectionBottom = sectionTop + section.offsetHeight;
-              
-              if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-                setActiveSection(sectionId);
-                break;
-              }
-            }
+      for (const sectionId of sections) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          const sectionTop = section.offsetTop;
+          const sectionBottom = sectionTop + section.offsetHeight;
+          
+          if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+            setActiveSection(sectionId);
+            break;
           }
-          ticking = false;
-        });
-        ticking = true;
+        }
       }
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll);
     handleScroll(); // Initial check
     
     return () => window.removeEventListener('scroll', handleScroll);
@@ -113,7 +105,7 @@ const Header = () => {
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className="hover:scale-105 transition-transform duration-300 cursor-pointer"
             >
-              <img src="./lovable-uploads/aa430766-16dd-4783-bc9f-f9980ee34dea.png" alt="ApexAI Logo" className="h-10" fetchPriority="high" />
+              <img src="./lovable-uploads/aa430766-16dd-4783-bc9f-f9980ee34dea.png" alt="ApexAI Logo" className="h-10" />
             </button>
           </div>
           
@@ -157,7 +149,7 @@ const Header = () => {
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="hover:scale-105 transition-transform duration-300 cursor-pointer"
           >
-            <img src="./lovable-uploads/aa430766-16dd-4783-bc9f-f9980ee34dea.png" alt="ApexAI Logo" className="h-10" fetchPriority="high" />
+            <img src="./lovable-uploads/aa430766-16dd-4783-bc9f-f9980ee34dea.png" alt="ApexAI Logo" className="h-10" />
           </button>
           
           <div className="flex items-center space-x-4">

@@ -1,28 +1,13 @@
-import { ArrowRight, Calendar, Bot, Zap, TrendingUp } from 'lucide-react';
+import { ArrowRight, Bot, Zap, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
-import { useNavigate } from 'react-router-dom';
 
 /**
  * Hero Component - Sezione principale con titolo impattante e CTA
  * Include lazy loading per le immagini e ottimizzazioni SEO
  */
 const Hero = () => {
-  const navigate = useNavigate();
   const { ref, isIntersecting } = useIntersectionObserver({ threshold: 0.2 });
-
-  const scrollToServices = () => {
-    const servicesSection = document.getElementById('services');
-    if (servicesSection) {
-      const header = document.querySelector('header');
-      const headerHeight = header?.getBoundingClientRect().height || 80;
-      const sectionTop = servicesSection.offsetTop;
-      window.scrollTo({ 
-        top: sectionTop - headerHeight, 
-        behavior: 'smooth' 
-      });
-    }
-  };
 
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
@@ -80,30 +65,29 @@ const Hero = () => {
           <div ref={heroRef} className="text-center space-y-6">
             <h1 className={`text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight animate-on-scroll fade-in-up ${heroVisible ? 'visible' : ''} font-sans`}>
               <span className="animate-gradient bg-gradient-to-r from-blue-700 via-purple-700 to-blue-700 bg-clip-text text-transparent drop-shadow-[0_3px_10px_rgba(84,108,255,0.25)] dark:from-blue-600 dark:via-purple-700 dark:to-blue-600" style={{backgroundSize: '200% auto', animation: 'gradient-shift 8s linear infinite'}}>
-                Pronto a Trasformare la Tua Azienda con l'AI?
+                Trasformiamo il tuo business
               </span>
             </h1>
             <h2 className={`text-2xl sm:text-3xl lg:text-4xl text-slate-700 dark:text-slate-300 font-medium animate-on-scroll fade-in-up stagger-2 ${heroVisible ? 'visible' : ''}`}>
-              Scopri come l'automazione intelligente può ridurre i costi e far crescere la tua azienda.
+              con automazioni AI intelligenti
             </h2>
             
             <div className={`flex flex-col sm:flex-row gap-4 justify-center animate-on-scroll fade-in-up stagger-3 ${heroVisible ? 'visible' : ''} pt-8`}>
               <Button 
                 size="lg" 
-                onClick={() => navigate('/prenota')}
+                onClick={() => scrollToSection('contact')}
                 className="bg-gradient-to-r from-blue-700 via-blue-500 to-purple-700 hover:from-blue-800 hover:to-purple-800 shadow-xl shadow-blue-200/30 dark:shadow-none text-lg font-bold rounded-xl backdrop-blur-sm w-full sm:w-auto px-8 py-4"
               >
-                <Calendar className="mr-2" size={20} />
-                Prenota Consulenza Gratuita
+                Inizia Ora
                 <ArrowRight className="ml-2" size={24} />
               </Button>
               <Button 
                 variant="outline" 
                 size="lg" 
-                onClick={scrollToServices}
+                onClick={() => scrollToSection('services')}
                 className="hover:bg-blue-50 dark:hover:bg-slate-800/70 text-lg font-semibold rounded-xl border-2 border-blue-600/20 dark:border-blue-300/20 backdrop-blur-sm w-full sm:w-auto px-8 py-4"
               >
-                Scopri Come Automatizzare
+                Servizi
               </Button>
             </div>
           </div>
@@ -143,7 +127,7 @@ const Hero = () => {
                   <div className="bg-blue-100 dark:bg-blue-900/30 w-16 h-16 rounded-xl flex items-center justify-center mx-auto">
                     <Bot className="text-blue-600 dark:text-blue-300" size={32} />
                   </div>
-                  <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200">AI Su Misura</h3>
+                  <h5 className="text-lg font-bold text-slate-800 dark:text-slate-200">AI Su Misura</h5>
                   <p className="text-sm text-slate-600 dark:text-slate-400">
                     Soluzioni calibrate sui tuoi dati
                   </p>
@@ -153,7 +137,7 @@ const Hero = () => {
                   <div className="bg-purple-100 dark:bg-purple-900/30 w-16 h-16 rounded-xl flex items-center justify-center mx-auto">
                     <Zap className="text-purple-600 dark:text-purple-300" size={32} />
                   </div>
-                  <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200">Automazione Continua</h3>
+                  <h5 className="text-lg font-bold text-slate-800 dark:text-slate-200">Automazione Continua</h5>
                   <p className="text-sm text-slate-600 dark:text-slate-400">
                     Processi che migliorano nel tempo
                   </p>
@@ -163,7 +147,7 @@ const Hero = () => {
                   <div className="bg-green-100 dark:bg-green-900/20 w-16 h-16 rounded-xl flex items-center justify-center mx-auto">
                     <TrendingUp className="text-green-600 dark:text-green-300" size={32} />
                   </div>
-                  <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200">Crescita Guidata</h3>
+                  <h5 className="text-lg font-bold text-slate-800 dark:text-slate-200">Crescita Guidata</h5>
                   <p className="text-sm text-slate-600 dark:text-slate-400">
                     Risultati misurabili in 30 giorni
                   </p>

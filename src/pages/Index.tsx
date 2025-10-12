@@ -6,6 +6,7 @@ import Hero from '@/components/Hero';
 import Services from '@/components/Services';
 import About from '@/components/About';
 import CTA from '@/components/CTA';
+import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 
 console.log('Index.tsx loaded');
@@ -18,21 +19,13 @@ const Index = () => {
   console.log('Index component rendering...');
   const [showScrollTop, setShowScrollTop] = useState(false);
 
-  // Mostra/nascondi pulsante "Torna su" - Optimized with RAF
+  // Mostra/nascondi pulsante "Torna su" in base allo scroll
   useEffect(() => {
-    let ticking = false;
-
     const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          setShowScrollTop(window.scrollY > 400);
-          ticking = false;
-        });
-        ticking = true;
-      }
+      setShowScrollTop(window.scrollY > 400);
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -48,6 +41,7 @@ const Index = () => {
         <Services />
         <About />
         <CTA />
+        <Contact />
       </main>
       <Footer />
       

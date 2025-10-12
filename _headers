@@ -1,3 +1,4 @@
+
 /*
   X-Frame-Options: DENY
   X-XSS-Protection: 1; mode=block
@@ -7,22 +8,11 @@
   Cross-Origin-Embedder-Policy: require-corp
   Cross-Origin-Opener-Policy: same-origin
 
-# Cache for hashed assets (JS, CSS bundles with hash in filename)
-/assets/*.js
+/*.js
   Content-Type: text/javascript
-  Cache-Control: public, max-age=31536000, immutable
 
-/assets/*.mjs
+/*.mjs
   Content-Type: text/javascript
-  Cache-Control: public, max-age=31536000, immutable
-
-/assets/*.css
-  Content-Type: text/css
-  Cache-Control: public, max-age=31536000, immutable
-
-# Cache for uploaded images
-/lovable-uploads/*
-  Cache-Control: public, max-age=31536000, immutable
 
 /*.ts
   Content-Type: text/javascript
@@ -30,6 +20,8 @@
 /*.tsx
   Content-Type: text/javascript
 
+/*.css
+  Content-Type: text/css
+
 /*.html
   Content-Type: text/html
-  Cache-Control: no-cache
