@@ -77,12 +77,18 @@ const Footer = () => {
               >
                 Chi Siamo
               </button>
-              <Link 
-                to="/prenota" 
+              {/* Updated Contatti button in Footer to scroll to CTA */}
+              <button 
+                onClick={() => {
+                  const ctaSection = document.getElementById('cta');
+                  if (ctaSection) {
+                    ctaSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
                 className="block hover:text-blue-400 transition-colors duration-300"
               >
                 Contatti
-              </Link>
+              </button>
             </div>
           </div>
 
