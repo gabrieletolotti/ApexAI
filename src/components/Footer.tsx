@@ -12,9 +12,9 @@ const Footer = () => {
     <footer ref={ref} className="bg-slate-900/70 backdrop-blur-xl text-white py-16">
       <div className="container mx-auto px-4">
         {/* Main footer content - 3 colonne */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 items-start">
+        <div className="flex flex-row flex-wrap gap-12 mb-12 items-start justify-between">
           {/* Colonna 1: Logo e descrizione */}
-          <div className={`space-y-4 animate-on-scroll fade-in-up ${isIntersecting ? 'visible' : ''}`}>
+          <div className={`flex-1 min-w-[220px] space-y-4 animate-on-scroll fade-in-up ${isIntersecting ? 'visible' : ''}`}>
             <div className="cursor-pointer hover:scale-105 transition-transform duration-300">
               <img 
                 src="./lovable-uploads/aa430766-16dd-4783-bc9f-f9980ee34dea.png" 
@@ -29,7 +29,7 @@ const Footer = () => {
           </div>
 
           {/* Colonna 2: Link rapidi */}
-          <div className={`animate-on-scroll fade-in-up stagger-2 ${isIntersecting ? 'visible' : ''}`}>
+          <div className={`flex-1 min-w-[180px] animate-on-scroll fade-in-up stagger-2 ${isIntersecting ? 'visible' : ''}`}>
             <h3 className="text-lg font-semibold mb-4 text-white">Link Rapidi</h3>
             <div className="space-y-2 text-slate-400">
               <Link 
@@ -76,7 +76,7 @@ const Footer = () => {
           </div>
                    
           {/* Colonna 3: Informazioni */}
-          <div className={`animate-on-scroll fade-in-up stagger-4 ${isIntersecting ? 'visible' : ''}`}>
+          <div className={`flex-1 min-w-[220px] animate-on-scroll fade-in-up stagger-4 ${isIntersecting ? 'visible' : ''}`}>
             <h3 className="text-lg font-semibold mb-4">Informazioni</h3>
             <ul className="space-y-2 text-sm text-slate-400">
               <li>Email: assistenza@apexai.it</li>
@@ -86,7 +86,7 @@ const Footer = () => {
           </div>
 
           {/* Colonna 4: Social e Link legali */}
-          <div className={`animate-on-scroll fade-in-up stagger-3 ${isIntersecting ? 'visible' : ''}`}>
+          <div className={`flex-1 min-w-[220px] animate-on-scroll fade-in-up stagger-3 ${isIntersecting ? 'visible' : ''}`}>
             <h3 className="text-lg font-semibold mb-4 text-white">Seguici</h3>
             <div className="flex gap-4 mb-6">
               <a 
