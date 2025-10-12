@@ -124,15 +124,15 @@ const Footer = () => {
                 Cookie Policy
               </Link>
             </div>
-          </div>
 
-          {/* Colonna 4: Informazioni aggiuntive */}
+               {/* Colonna 4: Informazioni aggiuntive */}
           <div className={`animate-on-scroll fade-in-up stagger-4 ${isIntersecting ? 'visible' : ''}`}>
             <h3 className="text-lg font-semibold mb-4">Informazioni</h3>
             <ul className="space-y-2 text-sm text-slate-400">
-              <li>Telefono: +39 123 456 7890</li>
-              <li>Orari: Lun-Ven 9:00 - 18:00</li>
-              <li>Indirizzo: Via Roma 1, Bergamo, Italia</li>
+              <li>Email: assistenza@apexai.it</li>
+              <li>Telefono: +39 339 507 6268</li>
+              <li>Sede: Bergamo, Italia</li>
+              
             </ul>
           </div>
         </div>
