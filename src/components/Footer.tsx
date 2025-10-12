@@ -1,6 +1,6 @@
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { Mail, Linkedin, Instagram, Facebook } from 'lucide-react';
-import { Link } from 'react-router-dom'; // Importa Link da React Router
+import { Link, useLocation, useNavigate } from 'react-router-dom'; // Importa Link da React Router
 
 /**
  * Footer Component - Include contatti, social e link legali
@@ -8,6 +8,17 @@ import { Link } from 'react-router-dom'; // Importa Link da React Router
 const Footer = () => {
   const { ref, isIntersecting } = useIntersectionObserver({ threshold: 0.2 });
   
+  // Add goHome function
+  const location = useLocation();
+  const navigate = useNavigate();
+  const goHome = () => {
+    if (location.pathname !== '/') {
+      navigate('/');
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   return (
     <footer ref={ref} className="bg-slate-900/70 backdrop-blur-xl text-white py-16">
       <div className="container mx-auto px-4">
