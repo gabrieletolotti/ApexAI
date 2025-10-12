@@ -75,7 +75,7 @@ const Hero = () => {
             <div className={`flex flex-col sm:flex-row gap-4 justify-center animate-on-scroll fade-in-up stagger-3 ${heroVisible ? 'visible' : ''} pt-8`}>
               <Button 
                 size="lg" 
-                onClick={() => scrollToSection('contact')}
+                onClick={() => scrollToSection('cta')}
                 className="bg-gradient-to-r from-blue-700 via-blue-500 to-purple-700 hover:from-blue-800 hover:to-purple-800 shadow-xl shadow-blue-200/30 dark:shadow-none text-lg font-bold rounded-xl backdrop-blur-sm w-full sm:w-auto px-8 py-4"
               >
                 Inizia Ora

@@ -55,44 +55,17 @@ const Header = () => {
     const section = document.getElementById(sectionId);
     if (section) {
       const header = document.querySelector('header');
-      let headerHeight = 80; // Valore di fallback
-      
+      let headerHeight = 80; // Default header height
+
       if (header) {
         const headerRect = header.getBoundingClientRect();
         headerHeight = headerRect.height;
-        
-        // Su mobile, aggiungiamo un offset drastico per far combaciare sezione con header
-        if (window.innerWidth < 768) {
-          // Chiudi il menu mobile se aperto
-          if (isMenuOpen) {
-            setIsMenuOpen(false);
-            // Delay per permettere al menu di chiudersi
-            setTimeout(() => {
-              const sectionTop = section.offsetTop;
-              // Su mobile aggiungiamo un offset drastico per posizionamento perfetto
-              window.scrollTo({ 
-                top: sectionTop - headerHeight - 200, 
-                behavior: 'smooth' 
-              });
-            }, 150);
-            return;
-          } else {
-            // Menu già chiuso, scrolliamo con offset mobile drastico
-            const sectionTop = section.offsetTop;
-            window.scrollTo({ 
-              top: sectionTop - headerHeight - 200, 
-              behavior: 'smooth' 
-            });
-            return;
-          }
-        }
       }
-      
-      // Desktop/tablet - comportamento normale
+
       const sectionTop = section.offsetTop;
-      window.scrollTo({ 
-        top: sectionTop - headerHeight, 
-        behavior: 'smooth' 
+      window.scrollTo({
+        top: sectionTop - headerHeight,
+        behavior: 'smooth',
       });
     }
     setIsMenuOpen(false);
@@ -104,8 +77,14 @@ const Header = () => {
         <div className="hidden md:grid md:grid-cols-3 md:items-center">
           {/* Left Section - Logo */}
           <div className="flex justify-start">
+            {/* Updated Logo behavior */}
             <button 
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              onClick={() => {
+                const heroSection = document.getElementById('hero');
+                if (heroSection) {
+                  heroSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
               className="hover:scale-105 transition-transform duration-300 cursor-pointer"
             >
               <img src="./lovable-uploads/aa430766-16dd-4783-bc9f-f9980ee34dea.png" alt="ApexAI Logo" className="h-10" />
@@ -116,9 +95,15 @@ const Header = () => {
           <nav className="flex items-center justify-center space-x-8">
             {isHomePage ? (
               <>
+                {/* Updated Home button behavior */}
                 <button 
-                  onClick={() => scrollToSection('home')} 
-                  className={`text-foreground hover:text-primary hover:scale-105 transition-all duration-300 relative after:content-[''] after:absolute after:h-0.5 after:bottom-0 after:left-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full ${activeSection === 'home' ? 'text-primary font-semibold after:w-full' : 'after:w-0'}`}
+                  onClick={() => {
+                    const heroSection = document.getElementById('hero');
+                    if (heroSection) {
+                      heroSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                  className="text-foreground hover:text-primary hover:scale-105 transition-all duration-300 relative after:content-[''] after:absolute after:h-0.5 after:bottom-0 after:left-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full"
                 >
                   Home
                 </button>
@@ -134,6 +119,13 @@ const Header = () => {
                 >
                   Chi Siamo
                 </button>
+                <button 
+                  onClick={() => scrollToSection('cta')} 
+                  className={`text-foreground hover:text-primary hover:scale-105 transition-all duration-300 relative after:content-[''] after:absolute after:h-0.5 after:bottom-0 after:left-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full ${activeSection === 'cta' ? 'text-primary font-semibold after:w-full' : 'after:w-0'}`}
+                >
+                  {/* CTA Button - Scroll to Contact section */}
+                  Contatti
+                </button>
               </>
             ) : (
               <>
@@ -146,14 +138,11 @@ const Header = () => {
                 <Link to="/" className="text-foreground hover:text-primary hover:scale-105 transition-all duration-300">
                   Chi Siamo
                 </Link>
+                <Link to="/" className="text-foreground hover:text-primary hover:scale-105 transition-all duration-300">
+                  Contatti 
+                </Link>
               </>
             )}
-            <Link 
-              to="/prenota"
-              className={`text-foreground hover:text-primary hover:scale-105 transition-all duration-300 relative after:content-[''] after:absolute after:h-0.5 after:bottom-0 after:left-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full ${!isHomePage && location.pathname === '/prenota' ? 'text-primary font-semibold after:w-full' : 'after:w-0'}`}
-            >
-              Contatti
-            </Link>
           </nav>
 
           {/* Right Section - Theme Toggle */}
@@ -199,7 +188,7 @@ const Header = () => {
                   <Link to="/" onClick={() => setIsMenuOpen(false)} className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 text-left">Chi Siamo</Link>
                 </>
               )}
-              <Link to="/prenota" onClick={() => setIsMenuOpen(false)} className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 text-left">Contatti</Link>
+              <Link to="/" onClick={() => setIsMenuOpen(false)} className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 text-left">Contatti</Link>
             </div>
           </nav>
         )}
