@@ -10,6 +10,7 @@ import { useToast } from '@/hooks/use-toast';
 import { sanitizeInput, isValidEmail } from '@/lib/security';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { useNavigate } from 'react-router-dom';
 
 /**
  * Prenota Page - Pagina per richiedere una consulenza AI gratuita
@@ -18,6 +19,7 @@ const Prenota = () => {
   const { ref: titleRef, isIntersecting: titleVisible } = useIntersectionObserver({ threshold: 0.2 });
   const { ref: contentRef, isIntersecting: contentVisible } = useIntersectionObserver({ threshold: 0.1 });
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     name: '',
@@ -98,6 +100,15 @@ const Prenota = () => {
     <div className="min-h-screen">
       <Header />
       
+      <div className="container mx-auto px-4 mt-4">
+        <button
+          onClick={() => navigate('/')}
+          className="text-blue-600 hover:text-blue-800 transition-colors duration-300"
+        >
+          ← Torna indietro
+        </button>
+      </div>
+
       <main className="pt-24 pb-20">
         <div className="container mx-auto px-4">
           {/* Title Section */}

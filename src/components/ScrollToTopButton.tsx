@@ -25,7 +25,7 @@ const ScrollToTopButton = () => {
       aria-label="Torna su"
       className={`fixed bottom-4 right-4 z-50 bg-blue-600 text-white p-3 rounded-full shadow-lg transition-opacity duration-500 ${visible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
     >
-      ↑ Torna su
+      ↑
     </button>
   );
 };
