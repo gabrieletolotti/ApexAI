@@ -41,10 +41,10 @@ const Footer = () => {
               <button 
                 onClick={() => {
                   window.scrollTo({ top: 0, behavior: 'instant' });
-                  const servicesSection = document.getElementById('services');
-                  if (servicesSection) {
+                  const heroSection = document.getElementById('services');
+                  if (heroSection) {
                     setTimeout(() => {
-                      servicesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      heroSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }, 100);
                   }
                 }}
