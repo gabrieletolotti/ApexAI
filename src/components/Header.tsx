@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { ThemeToggle } from '@/components/theme-toggle';
 
@@ -14,6 +14,16 @@ const Header = () => {
   const { ref, isIntersecting } = useIntersectionObserver({ threshold: 1, triggerOnce: false });
   const location = useLocation();
   const isHomePage = location.pathname === '/';
+  const navigate = useNavigate();
+
+  // Add goHome function
+  const goHome = () => {
+    if (location.pathname !== '/') {
+      navigate('/');
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
 
   // Track active section on scroll
   useEffect(() => {
@@ -78,13 +88,9 @@ const Header = () => {
           {/* Left Section - Logo */}
           <div className="flex justify-start">
             {/* Updated Logo behavior */}
+            {/* Updated Logo button click behavior */}
             <button 
-              onClick={() => {
-                const heroSection = document.getElementById('hero');
-                if (heroSection) {
-                  heroSection.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
+              onClick={goHome}
               className="hover:scale-105 transition-transform duration-300 cursor-pointer"
             >
               <img src="./lovable-uploads/aa430766-16dd-4783-bc9f-f9980ee34dea.png" alt="ApexAI Logo" className="h-10" />
