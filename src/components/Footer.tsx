@@ -76,7 +76,7 @@ const Footer = () => {
           </div>
                    
           {/* Colonna 3: Informazioni */}
-          <div className={`flex-1 min-w-[220px] animate-on-scroll fade-in-up stagger-4 ${isIntersecting ? 'visible' : ''}`}>
+          <div className={`flex-1 min-w-[220px] animate-on-scroll fade-in-up stagger-3 ${isIntersecting ? 'visible' : ''}`}>
             <h3 className="text-lg font-semibold mb-4">Informazioni</h3>
             <ul className="space-y-2 text-sm text-slate-400">
               <li>Email: assistenza@apexai.it</li>
