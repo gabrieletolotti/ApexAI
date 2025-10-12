@@ -24,9 +24,7 @@ const Footer = () => {
               />
             </div>
             <p className="text-slate-400 leading-relaxed">
-              Automazioni intelligenti 
-              
-              per business in evoluzione.
+              <h1>Automazioni intelligenti<br /><span className="sub-line">per business in evoluzione</span></h1>
             </p>
           </div>
 
