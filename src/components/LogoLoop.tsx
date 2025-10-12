@@ -329,7 +329,7 @@ export const LogoLoop = React.memo<LogoLoopProps>(
         </div>
       </div>
     );
-  })
+  }
 );
 
 LogoLoop.displayName = 'LogoLoop';
