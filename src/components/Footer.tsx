@@ -141,8 +141,8 @@ const Footer = () => {
         <div className={`border-t border-slate-700/50 pt-8 text-center text-slate-400 text-sm animate-on-scroll fade-in-up stagger-5 ${isIntersecting ? 'visible' : ''}`}>
           <p>© 2025 ApexAI. Tutti i diritti riservati.</p>
         </div>
-      </div> {/* Chiusura del div container */}
-    </footer> {/* Chiusura del footer */}
+      </div> 
+    </footer>
   );
 };
 
