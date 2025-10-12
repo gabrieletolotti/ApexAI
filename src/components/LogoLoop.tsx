@@ -173,15 +173,15 @@ const useAnimationLoop = (
 export const LogoLoop = React.memo<LogoLoopProps>(
   ({
     logos,
-    speed = 120,
+    speed = 50,
     direction = 'left',
     width = '100%',
-    logoHeight = 28,
-    gap = 32,
+    logoHeight = 60,
+    gap = 60,
     pauseOnHover = true,
-    fadeOut = false,
+    fadeOut = true,
     fadeOutColor,
-    scaleOnHover = false,
+    scaleOnHover = true,
     ariaLabel = 'Partner logos',
     className,
     style

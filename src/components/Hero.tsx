@@ -92,26 +92,26 @@ const Hero = () => {
               </Button>
             </div>
             {/* LogoLoop under CTA */}
-            <div className={`mt-8 animate-on-scroll fade-in-up ${heroVisible ? 'visible' : ''}`}>
+            <div className={`mt-12 animate-on-scroll fade-in-up ${heroVisible ? 'visible' : ''}`}>
               <LogoLoop
                 logos={[
                   { src: 'https://cdn.simpleicons.org/github/ffffff', alt: 'GitHub', href: 'https://github.com' },
-                  { src: 'https://cdn.simpleicons.org/zapier/FF6C37', alt: 'Zapier', href: 'https://zapier.com' },
-                  { src: 'https://cdn.simpleicons.org/google/4285F4', alt: 'Google', href: 'https://cloud.google.com' },
-                  { src: 'https://cdn.simpleicons.org/make/FF6A00', alt: 'Make', href: 'https://www.make.com' },
-                  { src: 'https://cdn.simpleicons.org/n8n/2F855A', alt: 'n8n', href: 'https://n8n.io' },
-                  { src: 'https://cdn.simpleicons.org/apify/0093DD', alt: 'Apify', href: 'https://apify.com' },
-                  { src: 'https://cdn.simpleicons.org/docker/2496ED', alt: 'Docker', href: 'https://www.docker.com' },
-                  { src: 'https://cdn.simpleicons.org/stripe/635BFF', alt: 'Stripe', href: 'https://stripe.com' }
+                  { src: 'https://cdn.simpleicons.org/zapier/ffffff', alt: 'Zapier', href: 'https://zapier.com' },
+                  { src: 'https://cdn.simpleicons.org/google/ffffff', alt: 'Google', href: 'https://cloud.google.com' },
+                  { src: 'https://cdn.simpleicons.org/make/ffffff', alt: 'Make', href: 'https://www.make.com' },
+                  { src: 'https://cdn.simpleicons.org/n8n/ffffff', alt: 'n8n', href: 'https://n8n.io' },
+                  { src: 'https://cdn.simpleicons.org/apify/ffffff', alt: 'Apify', href: 'https://apify.com' },
+                  { src: 'https://cdn.simpleicons.org/docker/ffffff', alt: 'Docker', href: 'https://www.docker.com' },
+                  { src: 'https://cdn.simpleicons.org/stripe/ffffff', alt: 'Stripe', href: 'https://stripe.com' }
                 ]}
-                speed={90}
+                speed={50}
                 direction="left"
-                logoHeight={40}
-                gap={48}
+                logoHeight={60}
+                gap={60}
                 pauseOnHover
                 scaleOnHover
                 fadeOut
-                fadeOutColor="#0b0b0b"
+                fadeOutColor="#ffffff"
                 ariaLabel="Partner logos"
               />
             </div>
