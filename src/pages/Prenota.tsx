@@ -97,16 +97,22 @@ const Prenota = () => {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
+      <button
+        onClick={() => navigate('/')}
+        className="fixed top-4 left-4 text-blue-600 hover:text-blue-800 transition-colors duration-300 z-50"
+      >
+        ← Torna indietro
+      </button>
       <Header />
       
       <div className="container mx-auto px-4 mt-4">
-        <button
+        {/* <button
           onClick={() => navigate('/')}
           className="text-blue-600 hover:text-blue-800 transition-colors duration-300"
         >
           ← Torna indietro
-        </button>
+        </button> */}
       </div>
 
       <main className="pt-24 pb-20">
