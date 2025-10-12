@@ -53,11 +53,8 @@ const Index = () => {
           <ArrowUp size={24} />
         </Button>
       )}
-      </div>
     </div>
   );
 };
-
-console.log('Index component defined');
 
 export default Index;
