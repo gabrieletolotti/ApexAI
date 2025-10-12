@@ -6,7 +6,6 @@ import Hero from '@/components/Hero';
 import Services from '@/components/Services';
 import About from '@/components/About';
 import CTA from '@/components/CTA';
-import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 
 console.log('Index.tsx loaded');
@@ -41,7 +40,7 @@ const Index = () => {
         <Services />
         <About />
         <CTA />
-        <Contact />
+        <Hero />
       </main>
       <Footer />
       
@@ -55,6 +54,21 @@ const Index = () => {
           <ArrowUp size={24} />
         </Button>
       )}
+
+      {/* Modificato il componente Contatti per includere il contenuto della sezione "Pronto a trasformare la tua azienda con l'IA?" */}
+      <div className="text-center py-20 bg-blue-600 text-white">
+        <h2 className="text-4xl font-bold mb-4">Pronto a Trasformare la Tua Azienda con l'IA?</h2>
+        <p className="text-lg mb-8">Scopri come l'automazione intelligente può far crescere il tuo business. Inizia oggi con una consulenza gratuita e personalizzata.</p>
+        <div className="flex justify-center gap-4">
+          <button className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition">Prenota Consulenza Gratuita</button>
+          <button className="bg-transparent border border-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition">Scopri Come Automatizzare</button>
+        </div>
+        <div className="flex justify-center gap-8 mt-8 text-sm">
+          <span>✔ Risposta in 24 ore</span>
+          <span>✔ Consulenza senza impegno</span>
+          <span>✔ Soluzioni su misura</span>
+        </div>
+      </div>
     </div>
   );
 };
