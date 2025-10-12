@@ -40,8 +40,6 @@ const Index = () => {
         <Services />
         <About />
         <CTA />
-        <Hero />
-      </main>
       <Footer />
       
       {/* Pulsante "Torna su" - visibile dopo 400px di scroll */}
