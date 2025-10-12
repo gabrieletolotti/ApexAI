@@ -80,10 +80,7 @@ const Header = () => {
             {/* Updated Logo behavior */}
             <button 
               onClick={() => {
-                const heroSection = document.getElementById('hero');
-                if (heroSection) {
-                  heroSection.scrollIntoView({ behavior: 'smooth' });
-                }
+                window.location.href = '/'; // Redirect to the main page
               }}
               className="hover:scale-105 transition-transform duration-300 cursor-pointer"
             >
@@ -98,10 +95,7 @@ const Header = () => {
                 {/* Updated Home button behavior */}
                 <button 
                   onClick={() => {
-                    const heroSection = document.getElementById('hero');
-                    if (heroSection) {
-                      heroSection.scrollIntoView({ behavior: 'smooth' });
-                    }
+                    window.location.href = '/'; // Redirect to the main page
                   }}
                   className="text-foreground hover:text-primary hover:scale-105 transition-all duration-300 relative after:content-[''] after:absolute after:h-0.5 after:bottom-0 after:left-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full"
                 >
