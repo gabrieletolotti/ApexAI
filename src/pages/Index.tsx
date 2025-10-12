@@ -40,7 +40,6 @@ const Index = () => {
         <Services />
         <About />
         <CTA />
-        <Contact />
       </main>
       <Footer />
       
