@@ -1,5 +1,4 @@
 import { ArrowRight, Bot, Zap, TrendingUp } from 'lucide-react';
-import LogoLoop from '@/components/LogoLoop';
 import { Button } from '@/components/ui/button';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
@@ -90,30 +89,6 @@ const Hero = () => {
               >
                 Servizi
               </Button>
-            </div>
-            {/* LogoLoop under CTA */}
-            <div className={`mt-8 animate-on-scroll fade-in-up ${heroVisible ? 'visible' : ''}`}>
-              <LogoLoop
-                logos={[
-                  { src: 'https://cdn.simpleicons.org/github/ffffff', alt: 'GitHub', href: 'https://github.com' },
-                  { src: 'https://cdn.simpleicons.org/zapier/FF6C37', alt: 'Zapier', href: 'https://zapier.com' },
-                  { src: 'https://cdn.simpleicons.org/google/4285F4', alt: 'Google', href: 'https://cloud.google.com' },
-                  { src: 'https://cdn.simpleicons.org/make/FF6A00', alt: 'Make', href: 'https://www.make.com' },
-                  { src: 'https://cdn.simpleicons.org/n8n/2F855A', alt: 'n8n', href: 'https://n8n.io' },
-                  { src: 'https://cdn.simpleicons.org/apify/0093DD', alt: 'Apify', href: 'https://apify.com' },
-                  { src: 'https://cdn.simpleicons.org/docker/2496ED', alt: 'Docker', href: 'https://www.docker.com' },
-                  { src: 'https://cdn.simpleicons.org/stripe/635BFF', alt: 'Stripe', href: 'https://stripe.com' }
-                ]}
-                speed={90}
-                direction="left"
-                logoHeight={40}
-                gap={48}
-                pauseOnHover
-                scaleOnHover
-                fadeOut
-                fadeOutColor="#0b0b0b"
-                ariaLabel="Partner logos"
-              />
             </div>
           </div>
         </div>
