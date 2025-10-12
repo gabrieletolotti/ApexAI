@@ -59,15 +59,6 @@ const CTA = () => {
               Prenota Consulenza Gratuita
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
-            
-            <Button 
-              size="lg"
-              variant="outline"
-              onClick={scrollToContact}
-              className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-700 hover:scale-105 transition-all duration-300 text-lg px-8 py-6"
-            >
-              Scopri Come Automatizzare
-            </Button>
           </div>
 
           {/* Trust indicators */}
