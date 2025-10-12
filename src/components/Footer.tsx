@@ -11,7 +11,7 @@ const Footer = () => {
   return (
     <footer ref={ref} className="bg-slate-900/70 backdrop-blur-xl text-white py-16">
       <div className="container mx-auto px-4">
-        {/* Main footer content - 3 colonne */}
+        {/* Main footer content - 4 colonne */}
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           {/* Colonna 1: Logo e descrizione */}
           <div className={`space-y-4 animate-on-scroll fade-in-up ${isIntersecting ? 'visible' : ''}`}>
@@ -75,7 +75,7 @@ const Footer = () => {
             </div>
           </div>
                    
-          {/* Colonna 4: Informazioni aggiuntive */}
+          {/* Colonna 3: Informazioni aggiuntive */}
             <div className={`animate-on-scroll fade-in-up stagger-4 ${isIntersecting ? 'visible' : ''}`}>
               <h3 className="text-lg font-semibold mb-4">Informazioni</h3>
               <ul className="space-y-2 text-sm text-slate-400">
@@ -86,7 +86,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Colonna 3: Social e Link legali */}
+          {/* Colonna 4: Social e Link legali */}
           <div className={`animate-on-scroll fade-in-up stagger-3 ${isIntersecting ? 'visible' : ''}`}>
             <h3 className="text-lg font-semibold mb-4 text-white">Seguici</h3>
             <div className="flex gap-4 mb-6">
