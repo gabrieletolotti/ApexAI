@@ -43,12 +43,12 @@ const Footer = () => {
           <div className={`space-y-2 animate-on-scroll fade-in-up stagger-2 ${isIntersecting ? 'visible' : ''}`}>
             <h3 className="text-lg font-semibold mb-4 text-white">Link Rapidi</h3>
             <div className="space-y-2 text-slate-400">
-              <Link 
-                to="/" 
+              <button 
+                onClick={goHome} 
                 className="block hover:text-blue-400 transition-colors duration-300"
               >
                 Home
-              </Link>
+              </button>
               <button 
                 onClick={() => {
                   window.scrollTo({ top: 0, behavior: 'instant' });
