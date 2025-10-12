@@ -11,9 +11,9 @@ const Footer = () => {
   return (
     <footer ref={ref} className="bg-slate-900/70 backdrop-blur-xl text-white py-16">
       <div className="container mx-auto px-4">
-        {/* Main footer content */}
+        {/* Main footer content - 3 colonne */}
         <div className="grid md:grid-cols-3 gap-12 mb-12">
-          {/* Logo e descrizione */}
+          {/* Colonna 1: Logo e descrizione */}
           <div className={`space-y-4 animate-on-scroll fade-in-up ${isIntersecting ? 'visible' : ''}`}>
             <div className="cursor-pointer hover:scale-105 transition-transform duration-300">
               <img 
@@ -23,29 +23,61 @@ const Footer = () => {
                 loading="lazy"
               />
             </div>
-            <p className="text-slate-300 leading-relaxed">
-              Automazioni intelligenti per business in evoluzione. Trasformiamo le aziende con soluzioni AI su misura.
+            <p className="text-slate-400 leading-relaxed">
+              Automazioni intelligenti per business in evoluzione.
             </p>
           </div>
 
-          {/* Contatti */}
+          {/* Colonna 2: Link rapidi */}
           <div className={`animate-on-scroll fade-in-up stagger-2 ${isIntersecting ? 'visible' : ''}`}>
-            <h3 className="text-lg font-semibold mb-4">Contatti</h3>
-            <div className="space-y-3 text-slate-300">
-              <a 
-                href="mailto:info@apexai.it" 
-                className="flex items-center gap-2 hover:text-blue-400 transition-colors duration-300"
+            <h3 className="text-lg font-semibold mb-4 text-white">Link Rapidi</h3>
+            <div className="space-y-2 text-slate-400">
+              <Link 
+                to="/" 
+                className="block hover:text-blue-400 transition-colors duration-300"
               >
-                <Mail size={18} />
-                <span>assistenza@apexai.it</span>
-              </a>
-              <p className="text-sm">Bergamo, Italia</p>
+                Home
+              </Link>
+              <button 
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: 'instant' });
+                  const servicesSection = document.getElementById('services');
+                  if (servicesSection) {
+                    setTimeout(() => {
+                      servicesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 100);
+                  }
+                }}
+                className="block text-left hover:text-blue-400 transition-colors duration-300"
+              >
+                Servizi
+              </button>
+              <button 
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: 'instant' });
+                  const aboutSection = document.getElementById('about');
+                  if (aboutSection) {
+                    setTimeout(() => {
+                      aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 100);
+                  }
+                }}
+                className="block text-left hover:text-blue-400 transition-colors duration-300"
+              >
+                Chi Siamo
+              </button>
+              <Link 
+                to="/prenota" 
+                className="block hover:text-blue-400 transition-colors duration-300"
+              >
+                Contatti
+              </Link>
             </div>
           </div>
 
-          {/* Social e Link */}
+          {/* Colonna 3: Social e Link legali */}
           <div className={`animate-on-scroll fade-in-up stagger-3 ${isIntersecting ? 'visible' : ''}`}>
-            <h3 className="text-lg font-semibold mb-4">Seguici</h3>
+            <h3 className="text-lg font-semibold mb-4 text-white">Seguici</h3>
             <div className="flex gap-4 mb-6">
               <a 
                 href="https://linkedin.com/company/apexai-Italia" 
@@ -76,17 +108,18 @@ const Footer = () => {
               </a>
             </div>
             
-            {/* Link legali aggiornati */}
-            <div className="space-y-2 text-sm text-slate-400">
+            {/* Link legali */}
+            <div className="space-y-2 text-sm">
+              <h4 className="font-semibold text-white mb-2">Informazioni legali</h4>
               <Link 
                 to="/privacy-policy" 
-                className="block hover:text-blue-400 transition-colors duration-300"
+                className="block text-slate-400 hover:text-blue-400 transition-colors duration-300"
               >
                 Privacy Policy
               </Link>
               <Link 
                 to="/cookie-policy" 
-                className="block hover:text-blue-400 transition-colors duration-300"
+                className="block text-slate-400 hover:text-blue-400 transition-colors duration-300"
               >
                 Cookie Policy
               </Link>

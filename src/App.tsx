@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import CookiePolicy from './pages/CookiePolicy';
+import Prenota from './pages/Prenota';
 
 console.log('App.tsx loaded');
 
@@ -25,9 +26,10 @@ const App = () => {
           <Router>
             <Routes>
               <Route path="/" element={<Index />} />
-              <Route path="*" element={<NotFound />} />
+              <Route path="/prenota" element={<Prenota />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/cookie-policy" element={<CookiePolicy />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </Router>
         </TooltipProvider>

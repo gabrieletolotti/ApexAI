@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { ThemeToggle } from '@/components/theme-toggle';
 
@@ -11,6 +12,8 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const { ref, isIntersecting } = useIntersectionObserver({ threshold: 1, triggerOnce: false });
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   // Track active section on scroll
   useEffect(() => {
@@ -111,30 +114,46 @@ const Header = () => {
           
           {/* Center Section - Navigation con sezione attiva evidenziata */}
           <nav className="flex items-center justify-center space-x-8">
-            <button 
-              onClick={() => scrollToSection('home')} 
-              className={`text-foreground hover:text-primary hover:scale-105 transition-all duration-300 relative after:content-[''] after:absolute after:h-0.5 after:bottom-0 after:left-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full ${activeSection === 'home' ? 'text-primary font-semibold after:w-full' : 'after:w-0'}`}
-            >
-              Home
-            </button>
-            <button 
-              onClick={() => scrollToSection('services')} 
-              className={`text-foreground hover:text-primary hover:scale-105 transition-all duration-300 relative after:content-[''] after:absolute after:h-0.5 after:bottom-0 after:left-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full ${activeSection === 'services' ? 'text-primary font-semibold after:w-full' : 'after:w-0'}`}
-            >
-              Servizi
-            </button>
-            <button 
-              onClick={() => scrollToSection('about')} 
-              className={`text-foreground hover:text-primary hover:scale-105 transition-all duration-300 relative after:content-[''] after:absolute after:h-0.5 after:bottom-0 after:left-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full ${activeSection === 'about' ? 'text-primary font-semibold after:w-full' : 'after:w-0'}`}
-            >
-              Chi Siamo
-            </button>
-            <button 
-              onClick={() => scrollToSection('contact')} 
-              className={`text-foreground hover:text-primary hover:scale-105 transition-all duration-300 relative after:content-[''] after:absolute after:h-0.5 after:bottom-0 after:left-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full ${activeSection === 'contact' ? 'text-primary font-semibold after:w-full' : 'after:w-0'}`}
+            {isHomePage ? (
+              <>
+                <button 
+                  onClick={() => scrollToSection('home')} 
+                  className={`text-foreground hover:text-primary hover:scale-105 transition-all duration-300 relative after:content-[''] after:absolute after:h-0.5 after:bottom-0 after:left-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full ${activeSection === 'home' ? 'text-primary font-semibold after:w-full' : 'after:w-0'}`}
+                >
+                  Home
+                </button>
+                <button 
+                  onClick={() => scrollToSection('services')} 
+                  className={`text-foreground hover:text-primary hover:scale-105 transition-all duration-300 relative after:content-[''] after:absolute after:h-0.5 after:bottom-0 after:left-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full ${activeSection === 'services' ? 'text-primary font-semibold after:w-full' : 'after:w-0'}`}
+                >
+                  Servizi
+                </button>
+                <button 
+                  onClick={() => scrollToSection('about')} 
+                  className={`text-foreground hover:text-primary hover:scale-105 transition-all duration-300 relative after:content-[''] after:absolute after:h-0.5 after:bottom-0 after:left-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full ${activeSection === 'about' ? 'text-primary font-semibold after:w-full' : 'after:w-0'}`}
+                >
+                  Chi Siamo
+                </button>
+              </>
+            ) : (
+              <>
+                <Link to="/" className="text-foreground hover:text-primary hover:scale-105 transition-all duration-300">
+                  Home
+                </Link>
+                <Link to="/" className="text-foreground hover:text-primary hover:scale-105 transition-all duration-300">
+                  Servizi
+                </Link>
+                <Link to="/" className="text-foreground hover:text-primary hover:scale-105 transition-all duration-300">
+                  Chi Siamo
+                </Link>
+              </>
+            )}
+            <Link 
+              to="/prenota"
+              className={`text-foreground hover:text-primary hover:scale-105 transition-all duration-300 relative after:content-[''] after:absolute after:h-0.5 after:bottom-0 after:left-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full ${!isHomePage && location.pathname === '/prenota' ? 'text-primary font-semibold after:w-full' : 'after:w-0'}`}
             >
               Contatti
-            </button>
+            </Link>
           </nav>
 
           {/* Right Section - Theme Toggle */}
@@ -167,10 +186,20 @@ const Header = () => {
         {isMenuOpen && (
           <nav className="md:hidden mt-4 pb-4 border-t border-border/50 animate-on-scroll fade-in-up visible">
             <div className="flex flex-col space-y-4 pt-4">
-              <button onClick={() => scrollToSection('home')} className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 text-left">Home</button>
-              <button onClick={() => scrollToSection('services')} className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 text-left">Servizi</button>
-              <button onClick={() => scrollToSection('about')} className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 text-left">Chi Siamo</button>
-              <button onClick={() => scrollToSection('contact')} className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 text-left">Contatti</button>
+              {isHomePage ? (
+                <>
+                  <button onClick={() => scrollToSection('home')} className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 text-left">Home</button>
+                  <button onClick={() => scrollToSection('services')} className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 text-left">Servizi</button>
+                  <button onClick={() => scrollToSection('about')} className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 text-left">Chi Siamo</button>
+                </>
+              ) : (
+                <>
+                  <Link to="/" onClick={() => setIsMenuOpen(false)} className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 text-left">Home</Link>
+                  <Link to="/" onClick={() => setIsMenuOpen(false)} className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 text-left">Servizi</Link>
+                  <Link to="/" onClick={() => setIsMenuOpen(false)} className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 text-left">Chi Siamo</Link>
+                </>
+              )}
+              <Link to="/prenota" onClick={() => setIsMenuOpen(false)} className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 text-left">Contatti</Link>
             </div>
           </nav>
         )}
