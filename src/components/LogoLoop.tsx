@@ -28,7 +28,6 @@ export interface LogoLoopProps {
   gap?: number;
   pauseOnHover?: boolean;
   fadeOut?: boolean;
-  fadeOutColor?: string;
   scaleOnHover?: boolean;
   ariaLabel?: string;
   className?: string;
@@ -186,7 +185,6 @@ export const LogoLoop = React.memo<LogoLoopProps>(
     gap = 60,
     pauseOnHover = true,
     fadeOut = true,
-    fadeOutColor,
     scaleOnHover = true,
     ariaLabel = 'Partner logos',
     className,
@@ -228,10 +226,9 @@ export const LogoLoop = React.memo<LogoLoopProps>(
       () =>
         ({
           '--logoloop-gap': `${gap}px`,
-          '--logoloop-logoHeight': `${logoHeight}px`,
-          ...(fadeOutColor && { '--logoloop-fadeColor': fadeOutColor })
+          '--logoloop-logoHeight': `${logoHeight}px`
         } as React.CSSProperties),
-      [gap, logoHeight, fadeOutColor]
+      [gap, logoHeight]
     );
 
     const rootClassName = useMemo(
