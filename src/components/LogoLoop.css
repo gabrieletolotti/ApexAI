@@ -4,7 +4,7 @@
 
   --logoloop-gap: 32px;
   --logoloop-logoHeight: 28px;
-  --logoloop-fadeColorAuto: #070F20;
+  --logoloop-fadeColorAuto: #ffffff;
 }
 
 .logoloop--scale-hover {
@@ -104,7 +104,7 @@
   background: linear-gradient(
     to right,
     var(--logoloop-fadeColor, var(--logoloop-fadeColorAuto)) 0%,
-    #070F20 100%
+    rgba(0, 0, 0, 0) 100%
   );
 }
 
@@ -113,7 +113,7 @@
   background: linear-gradient(
     to left,
     var(--logoloop-fadeColor, var(--logoloop-fadeColorAuto)) 0%,
-    #070F20 100%
+    rgba(0, 0, 0, 0) 100%
   );
 }
 
