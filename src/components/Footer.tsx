@@ -23,7 +23,7 @@ const Footer = () => {
     <footer ref={ref} className="bg-slate-900/70 backdrop-blur-xl text-white py-16">
       <div className="container mx-auto px-4">
         {/* Main footer content - colonne centrate e spostate a destra */}
-        <div className="grid grid-cols-4 gap-8 justify-center items-start mb-12 mx-auto max-w-[90%]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-center items-start mb-12 mx-auto max-w-[90%]">
           {/* Colonna 1: Logo e descrizione */}
           <div className={`space-y-4 animate-on-scroll fade-in-up ${isIntersecting ? 'visible' : ''}`}>
             <div className="cursor-pointer hover:scale-105 transition-transform duration-300">
