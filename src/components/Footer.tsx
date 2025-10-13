@@ -34,9 +34,10 @@ const Footer = () => {
                 loading="lazy"
               />
             </div>
-            <p className="text-slate-400 leading-relaxed">
-              <h1>Automazioni intelligenti<br /><span className="sub-line">per business in evoluzione</span></h1>
-            </p>
+            <div className="text-slate-400 leading-relaxed">
+              <h3 className="text-lg font-semibold">Automazioni intelligenti</h3>
+              <div className="sub-line">per business in evoluzione</div>
+            </div>
           </div>
 
           {/* Colonna 2: Link rapidi */}

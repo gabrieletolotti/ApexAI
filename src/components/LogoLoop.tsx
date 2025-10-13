@@ -69,6 +69,8 @@ const useResizeObserver = (
     return () => {
       observers.forEach(observer => observer?.disconnect());
     };
+    // We intentionally accept a dependency list from the caller.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, dependencies);
 };
 
@@ -109,6 +111,8 @@ const useImageLoader = (
         img.removeEventListener('error', handleImageLoad);
       });
     };
+    // We intentionally accept a dependency list from the caller.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, dependencies);
 };
 
@@ -167,6 +171,8 @@ const useAnimationLoop = (
       }
       lastTimestampRef.current = null;
     };
+    // animation loop depends on the listed values; callback refs are stable
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [targetVelocity, seqWidth, isHovered, pauseOnHover]);
 };
 
