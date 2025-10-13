@@ -92,7 +92,7 @@ const Hero = () => {
               </Button>
             </div>
             {/* LogoLoop under CTA */}
-            <div className={`mt-12 animate-on-scroll fade-in-up ${heroVisible ? 'visible' : ''}`}>
+            <div className={`mt-20 sm:mt-24 lg:mt-28 animate-on-scroll fade-in-up ${heroVisible ? 'visible' : ''}`}>
               <LogoLoop
                 logos={[
                   { src: 'https://cdn.simpleicons.org/github/ffffff', alt: 'GitHub', href: 'https://github.com' },
@@ -111,7 +111,6 @@ const Hero = () => {
                 pauseOnHover
                 scaleOnHover
                 fadeOut
-                fadeOutColor="#ffffff"
                 ariaLabel="Partner logos"
               />
             </div>

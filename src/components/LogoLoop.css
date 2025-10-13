@@ -32,13 +32,13 @@
 
 .logoloop__item {
   flex: 0 0 auto;
-  margin-right: var(--logoloop-gap);
+  margin-right: min(var(--logoloop-gap), 7vw);
   font-size: var(--logoloop-logoHeight);
   line-height: 1;
 }
 
 .logoloop__item:last-child {
-  margin-right: var(--logoloop-gap);
+  margin-right: min(var(--logoloop-gap), 7vw);
 }
 
 .logoloop__node {
@@ -88,44 +88,36 @@
   outline-offset: 2px;
 }
 
-.logoloop--fade::before,
-.logoloop--fade::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: clamp(24px, 8%, 120px);
-  pointer-events: none;
-  z-index: 1;
-  background: var(--logoloop-fadeColor, var(--logoloop-fadeColorAuto));
-}
-
-.logoloop--fade::before {
-  left: 0;
-  mask-image: linear-gradient(
-    to right,
-    black 0%,
-    transparent 100%
-  );
+.logoloop--fade {
+  /* Fade the content itself using a mask so background shines through */
   -webkit-mask-image: linear-gradient(
     to right,
-    black 0%,
+    transparent 0%,
+    black 12%,
+    black 88%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 12%,
+    black 88%,
     transparent 100%
   );
 }
 
-.logoloop--fade::after {
-  right: 0;
-  mask-image: linear-gradient(
-    to left,
-    black 0%,
-    transparent 100%
-  );
-  -webkit-mask-image: linear-gradient(
-    to left,
-    black 0%,
-    transparent 100%
-  );
+/* Responsive edge widths */
+@media (min-width: 640px) {
+  .logoloop--fade {
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  }
+}
+@media (min-width: 1024px) {
+  .logoloop--fade {
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
