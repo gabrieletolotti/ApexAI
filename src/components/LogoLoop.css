@@ -97,23 +97,34 @@
   width: clamp(24px, 8%, 120px);
   pointer-events: none;
   z-index: 1;
+  background: var(--logoloop-fadeColor, var(--logoloop-fadeColorAuto));
 }
 
 .logoloop--fade::before {
   left: 0;
-  background: linear-gradient(
+  mask-image: linear-gradient(
     to right,
-    var(--logoloop-fadeColor, var(--logoloop-fadeColorAuto)) 0%,
-    rgba(0, 0, 0, 0) 100%
+    black 0%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    black 0%,
+    transparent 100%
   );
 }
 
 .logoloop--fade::after {
   right: 0;
-  background: linear-gradient(
+  mask-image: linear-gradient(
     to left,
-    var(--logoloop-fadeColor, var(--logoloop-fadeColorAuto)) 0%,
-    rgba(0, 0, 0, 0) 100%
+    black 0%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to left,
+    black 0%,
+    transparent 100%
   );
 }
 
