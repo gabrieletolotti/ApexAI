@@ -158,7 +158,7 @@ const Header = () => {
         {/* Mobile Layout */}
         <div className="flex md:hidden items-center justify-between">
           <button 
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            onClick={goHome}
             className="hover:scale-105 transition-transform duration-300 cursor-pointer"
           >
             <img src="./lovable-uploads/aa430766-16dd-4783-bc9f-f9980ee34dea.png" alt="ApexAI Logo" className="h-10" />
@@ -184,15 +184,16 @@ const Header = () => {
                   <button onClick={() => scrollToSection('home')} className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 text-left">Home</button>
                   <button onClick={() => scrollToSection('services')} className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 text-left">Servizi</button>
                   <button onClick={() => scrollToSection('about')} className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 text-left">Chi Siamo</button>
+                  <button onClick={() => scrollToSection('cta')} className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 text-left">Contatti</button>
                 </>
               ) : (
                 <>
                   <Link to="/" onClick={() => setIsMenuOpen(false)} className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 text-left">Home</Link>
                   <Link to="/" onClick={() => setIsMenuOpen(false)} className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 text-left">Servizi</Link>
                   <Link to="/" onClick={() => setIsMenuOpen(false)} className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 text-left">Chi Siamo</Link>
+                  <Link to="/" onClick={() => setIsMenuOpen(false)} className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 text-left">Contatti</Link>
                 </>
               )}
-              <Link to="/" onClick={() => setIsMenuOpen(false)} className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 text-left">Contatti</Link>
             </div>
           </nav>
         )}
