@@ -100,7 +100,9 @@ const Hero = () => {
                   { src: 'https://cdn.simpleicons.org/google/ffffff', alt: 'Google', href: 'https://cloud.google.com' },
                   { src: 'https://cdn.simpleicons.org/make/ffffff', alt: 'Make', href: 'https://www.make.com' },
                   { src: 'https://cdn.simpleicons.org/n8n/ffffff', alt: 'n8n', href: 'https://n8n.io' },
-                  { src: 'https://cdn.simpleicons.org/apify/ffffff', alt: 'Apify', href: 'https://apify.com' },
+                  { src: 'https://cdn.simpleicons.org/notion/ffffff', alt: 'Notion', href: 'https://notion.so' },
+                  { src: 'https://cdn.simpleicons.org/mailchimp/ffffff', alt: 'Mailchimp', href: 'https://mailchimp.com' },
+                  { src: 'https://cdn.simpleicons.org/typeform/ffffff', alt: 'Typeform', href: 'https://typeform.com' },
                   { src: 'https://cdn.simpleicons.org/docker/ffffff', alt: 'Docker', href: 'https://www.docker.com' },
                   { src: 'https://cdn.simpleicons.org/stripe/ffffff', alt: 'Stripe', href: 'https://stripe.com' }
                 ]}
