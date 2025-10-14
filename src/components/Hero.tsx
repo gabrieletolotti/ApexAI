@@ -95,22 +95,22 @@ const Hero = () => {
             <div className={`absolute bottom-[15vh] left-0 right-0 px-8 md:px-16 animate-on-scroll fade-in-up ${heroVisible ? 'visible' : ''}`}>
               <LogoLoop
                 logos={[
+                  { src: 'https://cdn.simpleicons.org/meta/ffffff', alt: 'Meta', href: 'https://meta.com' },
                   { src: 'https://cdn.simpleicons.org/github/ffffff', alt: 'GitHub', href: 'https://github.com' },
                   { src: 'https://cdn.simpleicons.org/zapier/ffffff', alt: 'Zapier', href: 'https://zapier.com' },
                   { src: 'https://cdn.simpleicons.org/google/ffffff', alt: 'Google', href: 'https://cloud.google.com' },
-                  { src: 'https://cdn.simpleicons.org/make/ffffff', alt: 'Make', href: 'https://www.make.com' },
+                  { src: 'https://cdn.simpleicons.org/ollama/ffffff', alt: 'Ollama', href: 'https://ollama.com' },
                   { src: 'https://cdn.simpleicons.org/n8n/ffffff', alt: 'n8n', href: 'https://n8n.io' },
                   { src: 'https://cdn.simpleicons.org/notion/ffffff', alt: 'Notion', href: 'https://notion.so' },
                   { src: 'https://cdn.simpleicons.org/mailchimp/ffffff', alt: 'Mailchimp', href: 'https://mailchimp.com' },
                   { src: 'https://cdn.simpleicons.org/typeform/ffffff', alt: 'Typeform', href: 'https://typeform.com' },
+                  { src: 'https://cdn.simpleicons.org/make/ffffff', alt: 'Make', href: 'https://www.make.com' },
                   { src: 'https://cdn.simpleicons.org/clickup/ffffff', alt: 'ClickUp', href: 'https://clickup.com' },
                   { src: 'https://cdn.simpleicons.org/openai/ffffff', alt: 'OpenAI', href: 'https://openai.com' },
                   { src: 'https://cdn.simpleicons.org/docker/ffffff', alt: 'Docker', href: 'https://www.docker.com' },
                   { src: 'https://cdn.simpleicons.org/stripe/ffffff', alt: 'Stripe', href: 'https://stripe.com' },
                   { src: 'https://cdn.simpleicons.org/airtable/ffffff', alt: 'Airtable', href: 'https://airtable.com' },
-                  { src: 'https://cdn.simpleicons.org/googlegemini/ffffff', alt: 'Google Gemini', href: 'https://cloud.google.com/gemini' },
-                  { src: 'https://cdn.simpleicons.org/ollama/ffffff', alt: 'Ollama', href: 'https://ollama.com' },
-                  { src: 'https://cdn.simpleicons.org/metamind/ffffff', alt: 'MetaMind', href: 'https://apify.com' }
+                  { src: 'https://cdn.simpleicons.org/googlegemini/ffffff', alt: 'Google Gemini', href: 'https://cloud.google.com/gemini' }
                 ]}
                 speed={50}
                 direction="left"
