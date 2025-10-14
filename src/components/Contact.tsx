@@ -1,15 +1,12 @@
 
-import { useState } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
-import { sanitizeInput, isValidEmail, rateLimiter } from '@/lib/security';
 
 /**
  * Contact Component - Form di contatto con validazione e accessibilità
@@ -17,13 +14,6 @@ import { sanitizeInput, isValidEmail, rateLimiter } from '@/lib/security';
  */
 const Contact = () => {
   const [state, handleSubmit] = useForm("xanpdqlz");
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    annualRevenue: '',
-    message: ''
-  });
   const { toast } = useToast();
   const { ref: titleRef, isIntersecting: isTitleVisible } = useIntersectionObserver({ threshold: 0.3 });
   const { ref: contentRef, isIntersecting: isContentVisible } = useIntersectionObserver({ threshold: 0.2 });
@@ -54,15 +44,6 @@ const Contact = () => {
     );
   }
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    const sanitizedValue = sanitizeInput(value);
-    setFormData({ ...formData, [name]: sanitizedValue });
-  };
-
-  const handleSelectChange = (name: string, value: string) => {
-    setFormData({ ...formData, [name]: value });
-  };
 
   return (
     <section id="contact" className="py-20 bg-gradient-to-br from-slate-100 via-slate-50 to-blue-50 dark:from-background dark:via-slate-900/70 dark:to-blue-900/20 relative">
@@ -96,8 +77,6 @@ const Contact = () => {
                       id="name"
                       name="name" 
                       placeholder="Nome e Cognome" 
-                      value={formData.name} 
-                      onChange={handleChange} 
                       required
                       disabled={state.submitting}
                       aria-label="Nome completo"
@@ -113,8 +92,6 @@ const Contact = () => {
                       name="email" 
                       type="email" 
                       placeholder="Email" 
-                      value={formData.email} 
-                      onChange={handleChange} 
                       required
                       disabled={state.submitting}
                       aria-label="Indirizzo email"
@@ -130,29 +107,26 @@ const Contact = () => {
                     id="company"
                     name="company" 
                     placeholder="Azienda (opzionale)" 
-                    value={formData.company} 
-                    onChange={handleChange}
                     disabled={state.submitting}
                     aria-label="Nome azienda"
                     className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-400 duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400"
                   />
                 </div>
                 <div>
-                  <input type="hidden" name="annualRevenue" value={formData.annualRevenue} />
-                  <Select value={formData.annualRevenue} onValueChange={(value) => handleSelectChange('annualRevenue', value)} disabled={state.submitting}>
-                    <SelectTrigger className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 duration-300 text-slate-900 dark:text-slate-100 [&[data-placeholder]]:text-slate-500 dark:[&[data-placeholder]]:text-slate-400">
-                      <SelectValue placeholder="Fatturato Annuale (opzionale)" />
-                    </SelectTrigger>
-                    <SelectContent className="bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700">
-                      <SelectItem value="less-than-100k">Meno di €100.000</SelectItem>
-                      <SelectItem value="100k-500k">€100.000 - €500.000</SelectItem>
-                      <SelectItem value="500k-1m">€500.000 - €1.000.000</SelectItem>
-                      <SelectItem value="1m-5m">€1.000.000 - €5.000.000</SelectItem>
-                      <SelectItem value="5m-10m">€5.000.000 - €10.000.000</SelectItem>
-                      <SelectItem value="over-10m">Oltre €10.000.000</SelectItem>
-                      <SelectItem value="prefer-not-to-say">Preferisco non specificare</SelectItem>
-                    </SelectContent>
-                  </Select>
+                  <select 
+                    name="annualRevenue"
+                    disabled={state.submitting}
+                    className="w-full h-10 px-3 py-2 bg-white/90 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 rounded-md text-sm hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-400 duration-300 text-slate-900 dark:text-slate-100"
+                  >
+                    <option value="">Fatturato Annuale (opzionale)</option>
+                    <option value="less-than-100k">Meno di €100.000</option>
+                    <option value="100k-500k">€100.000 - €500.000</option>
+                    <option value="500k-1m">€500.000 - €1.000.000</option>
+                    <option value="1m-5m">€1.000.000 - €5.000.000</option>
+                    <option value="5m-10m">€5.000.000 - €10.000.000</option>
+                    <option value="over-10m">Oltre €10.000.000</option>
+                    <option value="prefer-not-to-say">Preferisco non specificare</option>
+                  </select>
                 </div>
                 <div>
                   <label htmlFor="message" className="sr-only">Descrivi il tuo progetto</label>
@@ -160,8 +134,6 @@ const Contact = () => {
                     id="message"
                     name="message" 
                     placeholder="Descrivi il tuo progetto o le tue esigenze di automazione..." 
-                    value={formData.message} 
-                    onChange={handleChange} 
                     rows={6} 
                     required
                     disabled={state.submitting}
