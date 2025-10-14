@@ -92,7 +92,7 @@ const Hero = () => {
               </Button>
             </div>
             {/* LogoLoop under CTA */}
-            <div className={`absolute bottom-[15vh] left-0 right-0 animate-on-scroll fade-in-up ${heroVisible ? 'visible' : ''}`}>
+            <div className={`absolute bottom-[15vh] left-0 right-0 px-8 md:px-16 animate-on-scroll fade-in-up ${heroVisible ? 'visible' : ''}`}>
               <LogoLoop
                 logos={[
                   { src: 'https://cdn.simpleicons.org/github/ffffff', alt: 'GitHub', href: 'https://github.com' },
@@ -103,6 +103,8 @@ const Hero = () => {
                   { src: 'https://cdn.simpleicons.org/notion/ffffff', alt: 'Notion', href: 'https://notion.so' },
                   { src: 'https://cdn.simpleicons.org/mailchimp/ffffff', alt: 'Mailchimp', href: 'https://mailchimp.com' },
                   { src: 'https://cdn.simpleicons.org/typeform/ffffff', alt: 'Typeform', href: 'https://typeform.com' },
+                  { src: 'https://cdn.simpleicons.org/clickup/ffffff', alt: 'ClickUp', href: 'https://clickup.com' },
+                  { src: 'https://cdn.simpleicons.org/apify/ffffff', alt: 'Apify', href: 'https://apify.com' },
                   { src: 'https://cdn.simpleicons.org/docker/ffffff', alt: 'Docker', href: 'https://www.docker.com' },
                   { src: 'https://cdn.simpleicons.org/stripe/ffffff', alt: 'Stripe', href: 'https://stripe.com' }
                 ]}
