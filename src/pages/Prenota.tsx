@@ -162,7 +162,7 @@ const Prenota = () => {
 
                   <div>
                     <label htmlFor="phone" className="block text-sm font-medium mb-2">
-                      Numero di telefono
+                      Numero di telefono *
                     </label>
                     <Input
                       id="phone"
@@ -171,13 +171,14 @@ const Prenota = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="+39 333 123 4567"
+                      required
                       disabled={state.submitting}
                     />
                   </div>
 
                   <div>
                     <label htmlFor="company" className="block text-sm font-medium mb-2">
-                      Azienda
+                      Azienda *
                     </label>
                     <Input
                       id="company"
@@ -186,6 +187,7 @@ const Prenota = () => {
                       value={formData.company}
                       onChange={handleChange}
                       placeholder="Nome azienda"
+                      required
                       disabled={state.submitting}
                     />
                   </div>
