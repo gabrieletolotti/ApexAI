@@ -1,6 +1,7 @@
 import { useState, ChangeEvent, FormEvent } from 'react';
+import { useForm, ValidationError } from '@formspree/react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
-import { Mail, Phone, MapPin, Clock, Shield, CheckCircle2 } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, Shield, CheckCircle2, Send } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -16,6 +17,7 @@ import { useNavigate } from 'react-router-dom';
  * Prenota Page - Pagina per richiedere una consulenza AI gratuita
  */
 const Prenota = () => {
+  const [state, handleFormspreeSubmit] = useForm("xanpdqlz");
   const { ref: titleRef, isIntersecting: titleVisible } = useIntersectionObserver({ threshold: 0.2 });
   const { ref: contentRef, isIntersecting: contentVisible } = useIntersectionObserver({ threshold: 0.1 });
   const { toast } = useToast();
@@ -45,56 +47,35 @@ const Prenota = () => {
     }));
   };
 
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-
-    // Validation
-    if (!formData.name || !formData.email || !formData.message) {
-      toast({
-        title: "Errore",
-        description: "Compila tutti i campi obbligatori",
-        variant: "destructive"
-      });
-      return;
-    }
-
-    if (!isValidEmail(formData.email)) {
-      toast({
-        title: "Errore",
-        description: "Inserisci un indirizzo email valido",
-        variant: "destructive"
-      });
-      return;
-    }
-
-    // Create mailto link
-    const subject = encodeURIComponent('Richiesta Consulenza AI - ApexAI');
-    const body = encodeURIComponent(
-      `Nome: ${formData.name}\n` +
-      `Email: ${formData.email}\n` +
-      `Telefono: ${formData.phone || 'Non fornito'}\n` +
-      `Azienda: ${formData.company || 'Non fornita'}\n` +
-      `Fatturato annuo: ${formData.revenue || 'Non specificato'}\n\n` +
-      `Messaggio:\n${formData.message}`
+  if (state.succeeded) {
+    return (
+      <div className="min-h-screen relative">
+        <Header />
+        <main className="pt-24 pb-20">
+          <div className="container mx-auto px-4">
+            <Card className="max-w-2xl mx-auto text-center p-12 border-0 ring-1 ring-white/80 dark:ring-slate-700 shadow-xl bg-white/70 dark:bg-slate-900/50 backdrop-blur-xl">
+              <CardContent className="space-y-4">
+                <div className="mx-auto w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mb-4">
+                  <Send className="text-green-600 dark:text-green-400" size={32} />
+                </div>
+                <h3 className="text-2xl font-bold">Grazie per averci contattato!</h3>
+                <p className="text-muted-foreground">
+                  Abbiamo ricevuto la tua richiesta di consulenza e ti risponderemo entro 24 ore.
+                </p>
+                <Button 
+                  onClick={() => navigate('/')}
+                  className="mt-6 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+                >
+                  Torna alla Home
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </main>
+        <Footer />
+      </div>
     );
-
-    window.location.href = `mailto:info@apexai.it?subject=${subject}&body=${body}`;
-
-    toast({
-      title: "Messaggio inviato!",
-      description: "Ti risponderemo entro 24 ore",
-    });
-
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      company: '',
-      revenue: '',
-      message: ''
-    });
-  };
+  }
 
   return (
     <div className="min-h-screen relative">
@@ -144,7 +125,7 @@ const Prenota = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleFormspreeSubmit} className="space-y-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium mb-2">
                       Nome e Cognome *
@@ -157,7 +138,9 @@ const Prenota = () => {
                       onChange={handleChange}
                       placeholder="Mario Rossi"
                       required
+                      disabled={state.submitting}
                     />
+                    <ValidationError prefix="Name" field="name" errors={state.errors} />
                   </div>
 
                   <div>
@@ -172,7 +155,9 @@ const Prenota = () => {
                       onChange={handleChange}
                       placeholder="mario.rossi@azienda.it"
                       required
+                      disabled={state.submitting}
                     />
+                    <ValidationError prefix="Email" field="email" errors={state.errors} />
                   </div>
 
                   <div>
@@ -186,6 +171,7 @@ const Prenota = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="+39 333 123 4567"
+                      disabled={state.submitting}
                     />
                   </div>
 
@@ -200,6 +186,7 @@ const Prenota = () => {
                       value={formData.company}
                       onChange={handleChange}
                       placeholder="Nome azienda"
+                      disabled={state.submitting}
                     />
                   </div>
 
@@ -207,7 +194,8 @@ const Prenota = () => {
                     <label htmlFor="revenue" className="block text-sm font-medium mb-2">
                       Fatturato annuo (opzionale)
                     </label>
-                    <Select value={formData.revenue} onValueChange={handleSelectChange}>
+                    <input type="hidden" name="revenue" value={formData.revenue} />
+                    <Select value={formData.revenue} onValueChange={handleSelectChange} disabled={state.submitting}>
                       <SelectTrigger id="revenue">
                         <SelectValue placeholder="Seleziona un range" />
                       </SelectTrigger>
@@ -233,15 +221,18 @@ const Prenota = () => {
                       placeholder="Descrivi brevemente le tue esigenze e gli obiettivi che vuoi raggiungere con l'automazione AI..."
                       rows={5}
                       required
+                      disabled={state.submitting}
                     />
+                    <ValidationError prefix="Message" field="message" errors={state.errors} />
                   </div>
 
                   <Button 
                     type="submit" 
                     className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
                     size="lg"
+                    disabled={state.submitting}
                   >
-                    Invia Messaggio
+                    {state.submitting ? 'Invio in corso...' : 'Invia Messaggio'}
                   </Button>
                 </form>
               </CardContent>

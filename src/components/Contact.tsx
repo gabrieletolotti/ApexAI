@@ -1,5 +1,6 @@
 
 import { useState } from 'react';
+import { useForm, ValidationError } from '@formspree/react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -15,6 +16,7 @@ import { sanitizeInput, isValidEmail, rateLimiter } from '@/lib/security';
  * Include rate limiting e sanitizzazione input per sicurezza
  */
 const Contact = () => {
+  const [state, handleSubmit] = useForm("xanpdqlz");
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -26,69 +28,31 @@ const Contact = () => {
   const { ref: titleRef, isIntersecting: isTitleVisible } = useIntersectionObserver({ threshold: 0.3 });
   const { ref: contentRef, isIntersecting: isContentVisible } = useIntersectionObserver({ threshold: 0.2 });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Rate limiting check
-    if (!rateLimiter.canSubmit('contact-form')) {
-      toast({
-        title: "Troppi tentativi",
-        description: "Riprova tra qualche minuto.",
-        variant: "destructive"
-      });
-      return;
-    }
-    
-    // Validate required fields
-    if (!formData.name || !formData.email || !formData.message) {
-      toast({
-        title: "Campi obbligatori mancanti",
-        description: "Per favore, compila tutti i campi obbligatori.",
-        variant: "destructive"
-      });
-      return;
-    }
-    
-    // Validate email format
-    if (!isValidEmail(formData.email)) {
-      toast({
-        title: "Email non valida",
-        description: "Per favore, inserisci un indirizzo email valido.",
-        variant: "destructive"
-      });
-      return;
-    }
-    
-    const { name, email, company, annualRevenue, message } = formData;
-
-    const subject = `Richiesta consulenza da ${name} - ${company || 'N/A'}`;
-    const body = `Ciao,
-    
-Vorrei richiedere una consulenza gratuita.
-
-Dettagli:
-Nome: ${name}
-Email: ${email}
-Azienda: ${company || 'N/A'}
-Fatturato Annuale: ${annualRevenue || 'Non specificato'}
-
-Messaggio:
-${message}
-
-Grazie,
-${name}`;
-
-    const mailtoLink = `mailto:info@apexai.it?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-    window.location.href = mailtoLink;
-
-    toast({
-      title: "Apriamo il tuo client di posta!",
-      description: "Completa l'invio dell'email per contattarci. Ti risponderemo presto."
-    });
-
-    setFormData({ name: '', email: '', company: '', annualRevenue: '', message: '' });
-  };
+  if (state.succeeded) {
+    return (
+      <section id="contact" className="py-20 bg-gradient-to-br from-slate-100 via-slate-50 to-blue-50 dark:from-background dark:via-slate-900/70 dark:to-blue-900/20 relative">
+        <div className="container mx-auto px-4 relative z-10">
+          <Card className="max-w-2xl mx-auto text-center p-12 border-0 ring-1 ring-white/80 dark:ring-slate-700 shadow-xl bg-white/70 dark:bg-slate-900/50 backdrop-blur-xl">
+            <CardContent className="space-y-4">
+              <div className="mx-auto w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mb-4">
+                <Send className="text-green-600 dark:text-green-400" size={32} />
+              </div>
+              <h3 className="text-2xl font-bold">Grazie per averci contattato!</h3>
+              <p className="text-muted-foreground">
+                Abbiamo ricevuto il tuo messaggio e ti risponderemo entro 24 ore.
+              </p>
+              <Button 
+                onClick={() => window.location.reload()}
+                className="mt-6 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+              >
+                Invia un altro messaggio
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+    );
+  }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -135,10 +99,12 @@ ${name}`;
                       value={formData.name} 
                       onChange={handleChange} 
                       required
+                      disabled={state.submitting}
                       aria-label="Nome completo"
                       aria-required="true"
                       className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-400 duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400"
                     />
+                    <ValidationError prefix="Name" field="name" errors={state.errors} />
                   </div>
                   <div>
                     <label htmlFor="email" className="sr-only">Email</label>
@@ -150,10 +116,12 @@ ${name}`;
                       value={formData.email} 
                       onChange={handleChange} 
                       required
+                      disabled={state.submitting}
                       aria-label="Indirizzo email"
                       aria-required="true"
                       className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-400 duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400"
                     />
+                    <ValidationError prefix="Email" field="email" errors={state.errors} />
                   </div>
                 </div>
                 <div>
@@ -164,12 +132,14 @@ ${name}`;
                     placeholder="Azienda (opzionale)" 
                     value={formData.company} 
                     onChange={handleChange}
+                    disabled={state.submitting}
                     aria-label="Nome azienda"
                     className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-400 duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400"
                   />
                 </div>
                 <div>
-                  <Select value={formData.annualRevenue} onValueChange={(value) => handleSelectChange('annualRevenue', value)}>
+                  <input type="hidden" name="annualRevenue" value={formData.annualRevenue} />
+                  <Select value={formData.annualRevenue} onValueChange={(value) => handleSelectChange('annualRevenue', value)} disabled={state.submitting}>
                     <SelectTrigger className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 duration-300 text-slate-900 dark:text-slate-100 [&[data-placeholder]]:text-slate-500 dark:[&[data-placeholder]]:text-slate-400">
                       <SelectValue placeholder="Fatturato Annuale (opzionale)" />
                     </SelectTrigger>
@@ -194,13 +164,15 @@ ${name}`;
                     onChange={handleChange} 
                     rows={6} 
                     required
+                    disabled={state.submitting}
                     aria-label="Messaggio"
                     aria-required="true"
                     className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-400 duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400"
                   />
+                  <ValidationError prefix="Message" field="message" errors={state.errors} />
                 </div>
-                <Button type="submit" size="lg" className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 duration-300 text-white font-semibold">
-                  Invia Messaggio
+                <Button type="submit" size="lg" disabled={state.submitting} className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 duration-300 text-white font-semibold">
+                  {state.submitting ? 'Invio in corso...' : 'Invia Messaggio'}
                   <Send className="ml-2 text-white" size={20} />
                 </Button>
               </form>
