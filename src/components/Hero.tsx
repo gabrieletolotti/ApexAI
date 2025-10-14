@@ -104,9 +104,13 @@ const Hero = () => {
                   { src: 'https://cdn.simpleicons.org/mailchimp/ffffff', alt: 'Mailchimp', href: 'https://mailchimp.com' },
                   { src: 'https://cdn.simpleicons.org/typeform/ffffff', alt: 'Typeform', href: 'https://typeform.com' },
                   { src: 'https://cdn.simpleicons.org/clickup/ffffff', alt: 'ClickUp', href: 'https://clickup.com' },
-                  { src: 'https://cdn.simpleicons.org/apify/ffffff', alt: 'Apify', href: 'https://apify.com' },
+                  { src: 'https://cdn.simpleicons.org/openai/ffffff', alt: 'OpenAI', href: 'https://openai.com' },
                   { src: 'https://cdn.simpleicons.org/docker/ffffff', alt: 'Docker', href: 'https://www.docker.com' },
-                  { src: 'https://cdn.simpleicons.org/stripe/ffffff', alt: 'Stripe', href: 'https://stripe.com' }
+                  { src: 'https://cdn.simpleicons.org/stripe/ffffff', alt: 'Stripe', href: 'https://stripe.com' },
+                  { src: 'https://cdn.simpleicons.org/airtable/ffffff', alt: 'Airtable', href: 'https://airtable.com' },
+                  { src: 'https://cdn.simpleicons.org/googlegemini/ffffff', alt: 'Google Gemini', href: 'https://cloud.google.com/gemini' },
+                  { src: 'https://cdn.simpleicons.org/ollama/ffffff', alt: 'Ollama', href: 'https://ollama.com' },
+                  { src: 'https://cdn.simpleicons.org/metamind/ffffff', alt: 'MetaMind', href: 'https://apify.com' }
                 ]}
                 speed={50}
                 direction="left"
