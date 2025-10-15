@@ -6,13 +6,25 @@
  * Basic input sanitization to prevent XSS attacks
  * Removes potentially dangerous characters and HTML tags
  */
+
+// Helper: Remove 'on*=' event handler attributes robustly
+function removeEventHandlers(str: string): string {
+  let prev: string;
+  do {
+    prev = str;
+    str = str.replace(/on\w+=/gi, '');
+  } while (str !== prev);
+  return str;
+}
+
 export function sanitizeInput(input: string): string {
   if (!input) return '';
   
-  return input
-    .replace(/[<>]/g, '') // Remove angle brackets
-    .replace(/(?:javascript:|data:|vbscript:)/gi, '') // Remove dangerous protocols
-    .replace(/on\w+=/gi, '') // Remove event handlers
+  return removeEventHandlers(
+    input
+      .replace(/[<>]/g, '') // Remove angle brackets
+      .replace(/(?:javascript:|data:|vbscript:)/gi, '') // Remove dangerous protocols
+  )
     .slice(0, 1000); // Limit length
 }
 
