@@ -47,7 +47,7 @@ const Index = () => {
       {showScrollTop && (
         <Button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-40 rounded-full w-12 h-12 p-0 shadow-2xl hover:scale-110 transition-all duration-300 bg-blue-600 hover:bg-blue-700 opacity-0 animate-fade-in-out"
+          className={`fixed bottom-8 right-8 z-40 rounded-full w-12 h-12 p-0 shadow-2xl hover:scale-110 transition-all duration-300 bg-blue-600 hover:bg-blue-700 ${showScrollTop ? 'opacity-100' : 'opacity-0'}`}
           aria-label="Torna su"
         >
           <ArrowUp size={24} />
