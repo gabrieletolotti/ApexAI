@@ -44,9 +44,9 @@ export function isValidEmail(email: string): boolean {
  * Validates phone number format
  */
 export function isValidPhone(phone: string): boolean {
-  const phoneRegex = /^[\+]?[0-9\s\-\(\)]{10,20}$/;
+  // Accept optional leading + and digits, spaces, dashes, and parentheses
+  const phoneRegex = /^\+?[0-9\s\-()]{10,20}$/;
   const sanitized = sanitizeInput(phone);
-  
   return phoneRegex.test(sanitized);
 }
 

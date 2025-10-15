@@ -8,7 +8,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
-import { sanitizeInput, isValidEmail } from '@/lib/security';
+import { sanitizeInput, isValidEmail, isValidPhone, rateLimiter } from '@/lib/security';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { useNavigate } from 'react-router-dom';
@@ -29,7 +29,8 @@ const Prenota = () => {
     phone: '',
     company: '',
     revenue: '',
-    message: ''
+    message: '',
+    website: '' // honeypot: should remain empty
   });
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -47,8 +48,25 @@ const Prenota = () => {
     }));
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    // Honeypot trap: bots often fill hidden fields
+    if (formData.website) {
+      // Silently succeed to avoid tipping off bots
+      return;
+    }
+
+    // Simple rate limiter to avoid abuse
+    const rateKey = `prenota:${formData.email || 'anon'}`;
+    if (!rateLimiter.canSubmit(rateKey, 3, 5 * 60 * 1000)) {
+      toast({
+        title: 'Troppi tentativi',
+        description: 'Attendi qualche minuto prima di riprovare.',
+        variant: 'destructive',
+      });
+      return;
+    }
+
     if (!isValidEmail(formData.email)) {
       toast({
         title: "Errore di convalida",
@@ -57,7 +75,29 @@ const Prenota = () => {
       });
       return;
     }
-    handleFormspreeSubmit(e);
+    if (!isValidPhone(formData.phone)) {
+      toast({
+        title: 'Errore di convalida',
+        description: 'Inserisci un numero di telefono valido.',
+        variant: 'destructive',
+      });
+      return;
+    }
+    try {
+      await handleFormspreeSubmit(e);
+      // Il componente mostra automaticamente lo stato di successo via state.succeeded
+    } catch (err) {
+      // Fallback via mailto se l'invio a Formspree fallisce
+      const subject = 'Richiesta Consulenza AI - ApexAI';
+      const body = `Nome: ${formData.name}\nEmail: ${formData.email}\nTelefono: ${formData.phone || 'Non fornito'}\nAzienda: ${formData.company || 'Non fornita'}\nFatturato annuo: ${formData.revenue || 'Non specificato'}\n\nMessaggio:\n${formData.message}`;
+      const mailto = `mailto:info@apexai.it?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      toast({
+        title: "Invio alternativo",
+        description: "Stiamo aprendo il client di posta come alternativa.",
+      });
+      window.location.href = mailto;
+    }
   };
 
   if (state.succeeded) {
@@ -138,7 +178,23 @@ const Prenota = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} noValidate className="space-y-6">
+                  {/* Campi nascosti utili per Formspree */}
+                  <input type="hidden" name="_subject" value="Richiesta Consulenza AI - ApexAI" />
+                  <input type="hidden" name="_replyto" value={formData.email} />
+                  {/* Honeypot field (do NOT remove). Keep visually hidden but accessible to bots */}
+                  <div className="sr-only" aria-hidden="true">
+                    <label htmlFor="website">Website</label>
+                    <input
+                      id="website"
+                      name="website"
+                      type="text"
+                      autoComplete="off"
+                      tabIndex={-1}
+                      value={formData.website}
+                      onChange={handleChange}
+                    />
+                  </div>
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium mb-2">
                       Nome e Cognome *

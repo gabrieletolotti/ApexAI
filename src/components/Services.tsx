@@ -98,45 +98,9 @@ const Services = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => {
-            const { ref: cardRef, isIntersecting: isCardVisible } = useIntersectionObserver({ threshold: 0.13 });
-            const animationClass = "slide-in-up";
-            return (
-              <div
-                ref={cardRef}
-                key={index}
-                className={`
-                  animate-on-scroll ${animationClass} stagger-${Math.min(6, index + 1)}
-                  ${isCardVisible ? "visible" : ""}
-                  h-full
-                `}
-                style={{
-                  transitionDelay: isCardVisible ? `${0.08 * index + 0.12}s` : '0s'
-                }}
-              >
-                <Card
-                  className={`
-                    h-full flex flex-col
-                    hover:shadow-2xl transition-all duration-500 hover:scale-105
-                    border border-white/30 dark:border-slate-700/30 bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl
-                    group shadow-lg shadow-black/5
-                  `}
-                >
-                  <CardHeader>
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-blue-100/80 to-purple-100/80 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 dark:from-blue-900/20 dark:to-purple-900/10 shadow-md shadow-blue-100/10">
-                      <service.icon className={`${service.color} group-hover:scale-110 transition-transform duration-300`} size={28} />
-                    </div>
-                    <CardTitle className="text-xl font-semibold group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors duration-300">{service.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent className="flex-grow">
-                    <CardDescription className="text-base leading-relaxed">
-                      {service.description}
-                    </CardDescription>
-                  </CardContent>
-                </Card>
-              </div>
-            );
-          })}
+          {services.map((service, index) => (
+            <ServiceCard key={index} service={service} index={index} />
+          ))}
         </div>
       </div>
     </section>
@@ -144,3 +108,51 @@ const Services = () => {
 };
 
 export default Services;
+
+// Child component to respect Rules of Hooks for per-card animations
+function ServiceCard({
+  service,
+  index,
+}: {
+  service: {
+    icon: React.ComponentType<{ className?: string; size?: number }>;
+    title: string;
+    description: string;
+    color: string;
+  };
+  index: number;
+}) {
+  const { ref: cardRef, isIntersecting: isCardVisible } = useIntersectionObserver({ threshold: 0.13 });
+  const animationClass = 'slide-in-up';
+  const Icon = service.icon;
+  return (
+    <div
+      ref={cardRef}
+      className={`
+        animate-on-scroll ${animationClass} stagger-${Math.min(6, index + 1)}
+        ${isCardVisible ? 'visible' : ''}
+        h-full
+      `}
+      style={{ transitionDelay: isCardVisible ? `${0.08 * index + 0.12}s` : '0s' }}
+    >
+      <Card
+        className={`
+          h-full flex flex-col
+          hover:shadow-2xl transition-all duration-500 hover:scale-105
+          border border-white/30 dark:border-slate-700/30 bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl
+          group shadow-lg shadow-black/5
+        `}
+      >
+        <CardHeader>
+          <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-blue-100/80 to-purple-100/80 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 dark:from-blue-900/20 dark:to-purple-900/10 shadow-md shadow-blue-100/10">
+            <Icon className={`${service.color} group-hover:scale-110 transition-transform duration-300`} size={28} />
+          </div>
+          <CardTitle className="text-xl font-semibold group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors duration-300">{service.title}</CardTitle>
+        </CardHeader>
+        <CardContent className="flex-grow">
+          <CardDescription className="text-base leading-relaxed">{service.description}</CardDescription>
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
