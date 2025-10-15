@@ -1,6 +1,10 @@
 
 import { Users, MapPin, Award, Clock } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+/**
+ * About Component - Chi siamo con value proposition chiara
+ * Focus su credibilità, risultati e supporto locale
+ */
 const About = () => {
   const {
     ref: contentRef,
@@ -26,14 +30,14 @@ const About = () => {
                 Chi Siamo <span className="bg-gradient-to-r from-blue-600 via-blue-400 to-purple-600 bg-clip-text text-transparent">ApexAI</span>
               </h2>
               <p className={`text-lg text-muted-foreground leading-relaxed mb-6 animate-on-scroll fade-in-left stagger-2 ${isContentVisible ? 'visible' : ''}`}>
-                ApexAI è un'agenzia italiana specializzata in automazione e intelligenza artificiale. 
-                Fondata da un team di esperti con sede nel cuore dell'innovazione tecnologica italiana, 
-                aiutiamo le aziende a trasformare i loro processi attraverso soluzioni AI all'avanguardia.
+                ApexAI è l'agenzia italiana di riferimento per l'automazione intelligente e l'AI applicata al business. 
+                Fondata da data scientists ed esperti di automazione, aiutiamo aziende italiane ed europee a 
+                trasformare processi complessi in sistemi automatizzati che generano risultati misurabili.
               </p>
               <p className={`text-lg text-muted-foreground leading-relaxed animate-on-scroll fade-in-left stagger-3 ${isContentVisible ? 'visible' : ''}`}>
-                La nostra missione è democratizzare l'accesso all'intelligenza artificiale, 
-                rendendo queste tecnologie avanzate accessibili e utili per aziende di ogni dimensione. 
-                Combiniamo l'eccellenza italiana nel design e nell'innovazione con le più moderne tecnologie AI.
+                Crediamo che ogni azienda, indipendentemente dalle dimensioni, debba poter accedere a tecnologie 
+                AI avanzate. Per questo creiamo soluzioni personalizzate e scalabili che si adattano alle tue 
+                esigenze specifiche, garantendo ROI tangibile e supporto continuo.
               </p>
             </div>
           </div>
@@ -48,8 +52,8 @@ const About = () => {
                     <MapPin className="text-blue-600" size={20} />
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1">Presenza Italiana</h4>
-                    <p className="text-sm text-muted-foreground">Team locale con deep understanding del mercato italiano e europeo</p>
+                    <h4 className="font-semibold mb-1">100% Made in Italy</h4>
+                    <p className="text-sm text-muted-foreground">Team locale con conoscenza approfondita del mercato italiano ed europeo. Supporto in lingua italiana.</p>
                   </div>
                 </div>
 
@@ -59,7 +63,7 @@ const About = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold mb-1">Esperti Certificati</h4>
-                    <p className="text-sm text-muted-foreground">Team di data scientists e ingegneri AI con certificazioni internazionali</p>
+                    <p className="text-sm text-muted-foreground">Data scientists e ingegneri AI con certificazioni internazionali e comprovata esperienza.</p>
                   </div>
                 </div>
 
@@ -68,8 +72,8 @@ const About = () => {
                     <Award className="text-green-600" size={20} />
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1">Soluzioni Personalizzate</h4>
-                    <p className="text-sm text-muted-foreground">Ogni progetto è sviluppato su misura per le specifiche esigenze aziendali</p>
+                    <h4 className="font-semibold mb-1">ROI Garantito</h4>
+                    <p className="text-sm text-muted-foreground">Soluzioni progettate per generare risultati misurabili e ritorno sull'investimento tangibile.</p>
                   </div>
                 </div>
 
@@ -78,8 +82,8 @@ const About = () => {
                     <Clock className="text-orange-600" size={20} />
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1">Supporto Continuo</h4>
-                    <p className="text-sm text-muted-foreground">Assistenza 24/7 e aggiornamenti costanti delle soluzioni implementate</p>
+                    <h4 className="font-semibold mb-1">Supporto H24</h4>
+                    <p className="text-sm text-muted-foreground">Assistenza tecnica continua e manutenzione proattiva per garantire performance ottimali.</p>
                   </div>
                 </div>
               </div>

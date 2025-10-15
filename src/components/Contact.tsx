@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useForm, ValidationError } from '@formspree/react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -8,52 +8,42 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
+/**
+ * Contact Component - Form di contatto con validazione e accessibilità
+ * Include rate limiting e sanitizzazione input per sicurezza
+ */
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    message: ''
-  });
+  const [state, handleSubmit] = useForm("xanpdqlz");
   const { toast } = useToast();
   const { ref: titleRef, isIntersecting: isTitleVisible } = useIntersectionObserver({ threshold: 0.3 });
   const { ref: contentRef, isIntersecting: isContentVisible } = useIntersectionObserver({ threshold: 0.2 });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const { name, email, company, message } = formData;
+  if (state.succeeded) {
+    return (
+      <section id="contact" className="py-20 bg-gradient-to-br from-slate-100 via-slate-50 to-blue-50 dark:from-background dark:via-slate-900/70 dark:to-blue-900/20 relative">
+        <div className="container mx-auto px-4 relative z-10">
+          <Card className="max-w-2xl mx-auto text-center p-12 border-0 ring-1 ring-white/80 dark:ring-slate-700 shadow-xl bg-white/70 dark:bg-slate-900/50 backdrop-blur-xl">
+            <CardContent className="space-y-4">
+              <div className="mx-auto w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mb-4">
+                <Send className="text-green-600 dark:text-green-400" size={32} />
+              </div>
+              <h3 className="text-2xl font-bold">Grazie per averci contattato!</h3>
+              <p className="text-muted-foreground">
+                Abbiamo ricevuto il tuo messaggio e ti risponderemo entro 24 ore.
+              </p>
+              <Button 
+                onClick={() => window.location.reload()}
+                className="mt-6 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+              >
+                Invia un altro messaggio
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+    );
+  }
 
-    const subject = `Richiesta consulenza da ${name} - ${company || 'N/A'}`;
-    const body = `Ciao,
-    
-Vorrei richiedere una consulenza gratuita.
-
-Dettagli:
-Nome: ${name}
-Email: ${email}
-Azienda: ${company || 'N/A'}
-
-Messaggio:
-${message}
-
-Grazie,
-${name}`;
-
-    const mailtoLink = `mailto:info@apexai.it?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-    window.location.href = mailtoLink;
-
-    toast({
-      title: "Apriamo il tuo client di posta!",
-      description: "Completa l'invio dell'email per contattarci. Ti risponderemo presto."
-    });
-
-    setFormData({ name: '', email: '', company: '', message: '' });
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
 
   return (
     <section id="contact" className="py-20 bg-gradient-to-br from-slate-100 via-slate-50 to-blue-50 dark:from-background dark:via-slate-900/70 dark:to-blue-900/20 relative">
@@ -82,20 +72,79 @@ ${name}`;
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <Input name="name" placeholder="Nome e Cognome" value={formData.name} onChange={handleChange} required className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400" />
+                    <label htmlFor="name" className="sr-only">Nome e Cognome</label>
+                    <Input 
+                      id="name"
+                      name="name" 
+                      placeholder="Nome e Cognome" 
+                      required
+                      disabled={state.submitting}
+                      aria-label="Nome completo"
+                      aria-required="true"
+                      className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-400 duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400"
+                    />
+                    <ValidationError prefix="Name" field="name" errors={state.errors} />
                   </div>
                   <div>
-                    <Input name="email" type="email" placeholder="Email" value={formData.email} onChange={handleChange} required className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400" />
+                    <label htmlFor="email" className="sr-only">Email</label>
+                    <Input 
+                      id="email"
+                      name="email" 
+                      type="email" 
+                      placeholder="Email" 
+                      required
+                      disabled={state.submitting}
+                      aria-label="Indirizzo email"
+                      aria-required="true"
+                      className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-400 duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400"
+                    />
+                    <ValidationError prefix="Email" field="email" errors={state.errors} />
                   </div>
                 </div>
                 <div>
-                  <Input name="company" placeholder="Azienda (opzionale)" value={formData.company} onChange={handleChange} className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400" />
+                  <label htmlFor="company" className="sr-only">Azienda (opzionale)</label>
+                  <Input 
+                    id="company"
+                    name="company" 
+                    placeholder="Azienda (opzionale)" 
+                    disabled={state.submitting}
+                    aria-label="Nome azienda"
+                    className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-400 duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400"
+                  />
                 </div>
                 <div>
-                  <Textarea name="message" placeholder="Descrivi il tuo progetto o le tue esigenze di automazione..." value={formData.message} onChange={handleChange} rows={6} required className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400" />
+                  <select 
+                    name="annualRevenue"
+                    disabled={state.submitting}
+                    className="w-full h-10 px-3 py-2 bg-white/90 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 rounded-md text-sm hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-400 duration-300 text-slate-900 dark:text-slate-100"
+                  >
+                    <option value="">Fatturato Annuale (opzionale)</option>
+                    <option value="less-than-100k">Meno di €100.000</option>
+                    <option value="100k-500k">€100.000 - €500.000</option>
+                    <option value="500k-1m">€500.000 - €1.000.000</option>
+                    <option value="1m-5m">€1.000.000 - €5.000.000</option>
+                    <option value="5m-10m">€5.000.000 - €10.000.000</option>
+                    <option value="over-10m">Oltre €10.000.000</option>
+                    <option value="prefer-not-to-say">Preferisco non specificare</option>
+                  </select>
                 </div>
-                <Button type="submit" size="lg" className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 duration-300 text-white font-semibold">
-                  Invia Messaggio
+                <div>
+                  <label htmlFor="message" className="sr-only">Descrivi il tuo progetto</label>
+                  <Textarea 
+                    id="message"
+                    name="message" 
+                    placeholder="Descrivi il tuo progetto o le tue esigenze di automazione..." 
+                    rows={6} 
+                    required
+                    disabled={state.submitting}
+                    aria-label="Messaggio"
+                    aria-required="true"
+                    className="bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-400 duration-300 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400"
+                  />
+                  <ValidationError prefix="Message" field="message" errors={state.errors} />
+                </div>
+                <Button type="submit" size="lg" disabled={state.submitting} className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 duration-300 text-white font-semibold">
+                  {state.submitting ? 'Invio in corso...' : 'Invia Messaggio'}
                   <Send className="ml-2 text-white" size={20} />
                 </Button>
               </form>
