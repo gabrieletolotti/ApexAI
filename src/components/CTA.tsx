@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Calendar } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
