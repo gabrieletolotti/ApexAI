@@ -9,9 +9,6 @@ import NotFound from "./pages/NotFound";
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import CookiePolicy from './pages/CookiePolicy';
 import Prenota from './pages/Prenota';
-import ScrollToTopButton from '@/components/ScrollToTopButton';
-
-console.log('App.tsx loaded');
 
 const queryClient = new QueryClient();
 
@@ -33,7 +30,6 @@ const App = () => {
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Router>
-          <ScrollToTopButton />
         </TooltipProvider>
       </ThemeProvider>
     </QueryClientProvider>

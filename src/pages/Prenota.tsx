@@ -47,6 +47,19 @@ const Prenota = () => {
     }));
   };
 
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!isValidEmail(formData.email)) {
+      toast({
+        title: "Errore di convalida",
+        description: "L'indirizzo email inserito non è valido.",
+        variant: "destructive",
+      });
+      return;
+    }
+    handleFormspreeSubmit(e);
+  };
+
   if (state.succeeded) {
     return (
       <div className="min-h-screen relative">
@@ -125,7 +138,7 @@ const Prenota = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleFormspreeSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium mb-2">
                       Nome e Cognome *
