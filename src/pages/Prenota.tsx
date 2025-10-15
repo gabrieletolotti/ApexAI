@@ -50,9 +50,12 @@ const Prenota = () => {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (import.meta.env.DEV) console.debug('[Prenota] Form submit clicked', { formData, submitting: state.submitting });
+    
     // Simple rate limiter to avoid abuse
     const rateKey = `prenota:${formData.email || 'anon'}`;
     if (!rateLimiter.canSubmit(rateKey, 3, 5 * 60 * 1000)) {
+      if (import.meta.env.DEV) console.debug('[Prenota] Rate limited');
       toast({
         title: 'Troppi tentativi',
         description: 'Attendi qualche minuto prima di riprovare.',
@@ -62,6 +65,7 @@ const Prenota = () => {
     }
 
     if (!isValidEmail(formData.email)) {
+      if (import.meta.env.DEV) console.debug('[Prenota] Invalid email');
       toast({
         title: "Errore di convalida",
         description: "L'indirizzo email inserito non è valido.",
@@ -70,6 +74,7 @@ const Prenota = () => {
       return;
     }
     if (!isValidPhone(formData.phone)) {
+      if (import.meta.env.DEV) console.debug('[Prenota] Invalid phone');
       toast({
         title: 'Errore di convalida',
         description: 'Inserisci un numero di telefono valido.',
@@ -78,9 +83,12 @@ const Prenota = () => {
       return;
     }
     try {
+      if (import.meta.env.DEV) console.debug('[Prenota] Submitting to Formspree...');
       await handleFormspreeSubmit(e);
+      if (import.meta.env.DEV) console.debug('[Prenota] Formspree submit resolved', { succeeded: state.succeeded, submitting: state.submitting });
       // Il componente mostra automaticamente lo stato di successo via state.succeeded
     } catch (err) {
+      if (import.meta.env.DEV) console.error('[Prenota] Formspree submit failed', err);
       // Fallback via mailto se l'invio a Formspree fallisce
       const subject = 'Richiesta Consulenza AI - ApexAI';
       const body = `Nome: ${formData.name}\nEmail: ${formData.email}\nTelefono: ${formData.phone || 'Non fornito'}\nAzienda: ${formData.company || 'Non fornita'}\nFatturato annuo: ${formData.revenue || 'Non specificato'}\n\nMessaggio:\n${formData.message}`;
@@ -95,6 +103,7 @@ const Prenota = () => {
   };
 
   if (state.succeeded) {
+    if (import.meta.env.DEV) console.debug('[Prenota] Success state detected, showing thank you screen');
     return (
       <div className="min-h-screen relative">
         <Header />
