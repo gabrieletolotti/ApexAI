@@ -30,7 +30,7 @@ const Prenota = () => {
     company: '',
     revenue: '',
     message: '',
-    website: '' // honeypot: should remain empty
+    _gotcha: '' // honeypot per Formspree
   });
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -50,12 +50,6 @@ const Prenota = () => {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Honeypot trap: bots often fill hidden fields
-    if (formData.website) {
-      // Silently succeed to avoid tipping off bots
-      return;
-    }
-
     // Simple rate limiter to avoid abuse
     const rateKey = `prenota:${formData.email || 'anon'}`;
     if (!rateLimiter.canSubmit(rateKey, 3, 5 * 60 * 1000)) {
@@ -182,16 +176,16 @@ const Prenota = () => {
                   {/* Campi nascosti utili per Formspree */}
                   <input type="hidden" name="_subject" value="Richiesta Consulenza AI - ApexAI" />
                   <input type="hidden" name="_replyto" value={formData.email} />
-                  {/* Honeypot field (do NOT remove). Keep visually hidden but accessible to bots */}
-                  <div className="sr-only" aria-hidden="true">
-                    <label htmlFor="website">Website</label>
+                  {/* Honeypot field for Formspree: bots may fill this; humans won't see it */}
+                  <div className="hidden" aria-hidden="true">
+                    <label htmlFor="_gotcha">Leave this field empty</label>
                     <input
-                      id="website"
-                      name="website"
+                      id="_gotcha"
+                      name="_gotcha"
                       type="text"
                       autoComplete="off"
                       tabIndex={-1}
-                      value={formData.website}
+                      value={formData._gotcha}
                       onChange={handleChange}
                     />
                   </div>
