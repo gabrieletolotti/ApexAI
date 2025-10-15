@@ -19,6 +19,10 @@ const Footer = () => {
     }
   };
 
+  const goHomeAndScroll = (sectionId: string) => {
+    navigate('/#' + sectionId);
+  };
+
   return (
     <footer ref={ref} className="bg-slate-900/70 backdrop-blur-xl text-white py-16">
       <div className="container mx-auto px-4">
@@ -51,41 +55,19 @@ const Footer = () => {
                 Home
               </button>
               <button 
-                onClick={() => {
-                  window.scrollTo({ top: 0, behavior: 'instant' });
-                  const heroSection = document.getElementById('services');
-                  if (heroSection) {
-                    setTimeout(() => {
-                      heroSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }, 100);
-                  }
-                }}
+                onClick={() => goHomeAndScroll('services')}
                 className="block text-left hover:text-blue-400 transition-colors duration-300"
               >
                 Servizi
               </button>
               <button 
-                onClick={() => {
-                  window.scrollTo({ top: 0, behavior: 'instant' });
-                  const aboutSection = document.getElementById('about');
-                  if (aboutSection) {
-                    setTimeout(() => {
-                      aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }, 100);
-                  }
-                }}
+                onClick={() => goHomeAndScroll('about')}
                 className="block text-left hover:text-blue-400 transition-colors duration-300"
               >
                 Chi Siamo
               </button>
-              {/* Updated Contatti button in Footer to scroll to CTA */}
               <button 
-                onClick={() => {
-                  const ctaSection = document.getElementById('cta');
-                  if (ctaSection) {
-                    ctaSection.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
+                onClick={() => goHomeAndScroll('cta')}
                 className="block hover:text-blue-400 transition-colors duration-300"
               >
                 Contatti
