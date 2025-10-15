@@ -124,7 +124,6 @@ const Header = () => {
                   onClick={() => scrollToSection('cta')} 
                   className={`text-foreground hover:text-primary hover:scale-105 transition-all duration-300 relative after:content-[''] after:absolute after:h-0.5 after:bottom-0 after:left-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full ${activeSection === 'cta' ? 'text-primary font-semibold after:w-full' : 'after:w-0'}`}
                 >
-                  {/* CTA Button - Scroll to Contact section */}
                   Contatti
                 </button>
               </>
@@ -142,7 +141,7 @@ const Header = () => {
                 <Link to="/" className="text-foreground hover:text-primary hover:scale-105 transition-all duration-300">
                   Chi Siamo
                 </Link>
-                <Link to="/" className="text-foreground hover:text-primary hover:scale-105 transition-all duration-300">
+                <Link to="/#cta" className="text-foreground hover:text-primary hover:scale-105 transition-all duration-300">
                   Contatti 
                 </Link>
               </>
