@@ -47,10 +47,18 @@ const Hero = () => {
   return (
     <>
       {/* Prima sezione - Hero che occupa tutto lo schermo */}
-      <section id="home" className="h-screen flex items-start md:items-center justify-center relative z-0 px-4 pt-32 md:pt-0 bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-black dark:via-slate-950 dark:to-black">
+      <section id="home" className="h-screen flex items-start md:items-center justify-center relative z-0 px-4 pt-32 md:pt-0 bg-black dark:bg-black">
         {/* DarkVeil WebGL background - dominante in dark mode */}
-        <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden opacity-30 dark:opacity-100">
-          <DarkVeil />
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <DarkVeil 
+            hueShift={280}
+            noiseIntensity={0}
+            scanlineIntensity={0}
+            speed={1.5}
+            scanlineFrequency={0}
+            warpAmount={0.15}
+            resolutionScale={1}
+          />
         </div>
 
         <div className="container mx-auto px-4 max-w-6xl">
