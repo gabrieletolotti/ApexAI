@@ -2,7 +2,6 @@ import { ArrowRight, Bot, Zap, TrendingUp } from 'lucide-react';
 import LogoLoop from '@/components/LogoLoop';
 import { Button } from '@/components/ui/button';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
-import DarkVeil from '@/components/ui/DarkVeil';
 
 /**
  * Hero Component - Sezione principale con titolo impattante e CTA
@@ -47,13 +46,20 @@ const Hero = () => {
   return (
     <>
       {/* Prima sezione - Hero che occupa tutto lo schermo */}
-      <section id="home" className="h-screen flex items-start md:items-center justify-center relative z-0 px-4 pt-32 md:pt-0 bg-gradient-to-br from-blue-900 via-purple-900 to-black dark:bg-gradient-to-br dark:from-blue-900 dark:via-purple-900 dark:to-black">
-        {/* Animated blobs or gradient background restored */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {/* Example: animated gradient blobs (replace with your previous JSX if needed) */}
-          <div className="absolute left-1/4 top-1/4 w-[600px] h-[400px] bg-purple-700 opacity-40 rounded-full blur-3xl animate-blob" style={{animationDelay: '0s'}} />
-          <div className="absolute right-1/4 top-1/3 w-[500px] h-[300px] bg-blue-700 opacity-30 rounded-full blur-2xl animate-blob" style={{animationDelay: '2s'}} />
-          <div className="absolute left-1/2 bottom-0 w-[700px] h-[400px] bg-purple-900 opacity-20 rounded-full blur-3xl animate-blob" style={{animationDelay: '4s'}} />
+      <section id="home" className="h-screen flex items-start md:items-center justify-center relative z-0 px-4 pt-32 md:pt-0 bg-gradient-to-br from-slate-100 via-slate-50 to-blue-50 dark:from-background dark:via-slate-900/60 dark:to-blue-500/5">
+        {/* Dynamic animated background elements */}
+        <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
+          {/* Elementi animati per desktop */}
+          <div className="hero-bg-element-1 absolute w-[30vw] h-[20vh] md:w-[25vw] md:h-[20vh] rounded-full bg-blue-200/30 blur-3xl dark:bg-blue-800/40" style={{left: '5%', top: '15%'}} />
+          <div className="hero-bg-element-2 absolute w-[35vw] h-[25vh] md:w-[30vw] md:h-[25vh] rounded-full bg-purple-200/25 blur-3xl dark:bg-purple-800/35" style={{right: '10%', bottom: '25%'}} />
+          <div className="hero-bg-element-3 absolute w-[25vw] h-[15vh] md:w-[20vw] md:h-[15vh] rounded-full bg-blue-100/35 blur-2xl dark:bg-blue-900/45" style={{left: '25%', top: '55%'}} />
+          <div className="hero-bg-element-4 absolute w-[40vw] h-[30vh] md:w-[35vw] md:h-[30vh] rounded-full bg-purple-100/20 blur-3xl dark:bg-purple-900/30" style={{right: '15%', top: '5%'}} />
+          <div className="hero-bg-element-5 absolute w-[20vw] h-[12vh] md:w-[15vw] md:h-[12vh] rounded-full bg-blue-300/40 blur-2xl dark:bg-blue-700/50" style={{left: '55%', bottom: '35%'}} />
+          
+          {/* Elementi più piccoli per mobile */}
+          <div className="hero-bg-element-1 absolute w-[15vw] h-[8vh] md:w-[10vw] md:h-[8vh] rounded-full bg-indigo-200/30 blur-xl dark:bg-indigo-800/40" style={{left: '3%', bottom: '15%', animationDelay: '-8s'}} />
+          <div className="hero-bg-element-3 absolute w-[18vw] h-[10vh] md:w-[12vw] md:h-[10vh] rounded-full bg-cyan-200/25 blur-xl dark:bg-cyan-800/35" style={{right: '5%', top: '35%', animationDelay: '-12s'}} />
+          <div className="hero-bg-element-5 absolute w-[12vw] h-[7vh] md:w-[8vw] md:h-[6vh] rounded-full bg-pink-200/35 blur-lg dark:bg-pink-800/45" style={{left: '65%', top: '20%', animationDelay: '-18s'}} />
         </div>
 
         <div className="container mx-auto px-4 max-w-6xl">
@@ -71,7 +77,7 @@ const Hero = () => {
               <Button 
                 size="lg" 
                 onClick={() => scrollToSection('cta')}
-                className="w-full sm:w-auto"
+                className="bg-gradient-to-r from-blue-700 via-blue-500 to-purple-700 hover:from-blue-800 hover:to-purple-800 shadow-xl shadow-blue-200/30 dark:shadow-none text-lg font-bold rounded-xl backdrop-blur-sm w-full sm:w-auto px-8 py-4"
               >
                 Inizia Ora
                 <ArrowRight className="ml-2" size={24} />
@@ -80,7 +86,7 @@ const Hero = () => {
                 variant="outline" 
                 size="lg" 
                 onClick={() => scrollToSection('services')}
-                className="w-full sm:w-auto"
+                className="hover:bg-blue-50 dark:hover:bg-slate-800/70 text-lg font-semibold rounded-xl border-2 border-blue-600/20 dark:border-blue-300/20 backdrop-blur-sm w-full sm:w-auto px-8 py-4"
               >
                 Servizi
               </Button>
