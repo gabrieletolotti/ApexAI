@@ -135,17 +135,17 @@ const Hero = () => {
             </h3>
 
             {/* Sistema AI predittivo */}
-            <div className="bg-gradient-to-br from-white/80 to-slate-100/70 dark:from-slate-800/90 dark:to-slate-900/80 rounded-2xl p-6 lg:p-8 backdrop-blur-2xl border-2 border-slate-200/60 dark:border-slate-600/50 shadow-xl shadow-slate-400/20 dark:shadow-slate-900/40 max-w-4xl mx-auto transform transition-all duration-700 delay-200">
+            <div className="bg-white/10 dark:bg-slate-800/20 rounded-[2rem] p-6 lg:p-8 backdrop-blur-xl border border-white/20 dark:border-slate-600/20 shadow-2xl shadow-slate-400/10 dark:shadow-slate-900/20 max-w-4xl mx-auto transform transition-all duration-700 delay-200 hover:scale-105">
               <div className="grid md:grid-cols-3 gap-4">
-                <div className="text-center p-4 bg-white/60 dark:bg-slate-700/50 rounded-lg border border-slate-200/40 dark:border-slate-600/30">
+                <div className="text-center p-5 bg-white/20 dark:bg-slate-700/20 backdrop-blur-md rounded-3xl border border-white/30 dark:border-slate-600/20 shadow-lg">
                   <div className="text-lg font-bold text-green-500">+89%</div>
                   <div className="text-sm text-slate-600 dark:text-slate-400">Aumenta l'efficienza</div>
                 </div>
-                <div className="text-center p-4 bg-white/60 dark:bg-slate-700/50 rounded-lg border border-slate-200/40 dark:border-slate-600/30">
+                <div className="text-center p-5 bg-white/20 dark:bg-slate-700/20 backdrop-blur-md rounded-3xl border border-white/30 dark:border-slate-600/20 shadow-lg">
                   <div className="text-lg font-bold text-blue-500">-67%</div>
                   <div className="text-sm text-slate-600 dark:text-slate-400">Riduci i costi operativi</div>
                 </div>
-                <div className="text-center p-4 bg-white/60 dark:bg-slate-700/50 rounded-lg border border-slate-200/40 dark:border-slate-600/30">
+                <div className="text-center p-5 bg-white/20 dark:bg-slate-700/20 backdrop-blur-md rounded-3xl border border-white/30 dark:border-slate-600/20 shadow-lg">
                   <div className="text-lg font-bold text-purple-500">Real-time</div>
                   <div className="text-sm text-slate-600 dark:text-slate-400">Adattamento continuo</div>
                 </div>
@@ -153,10 +153,10 @@ const Hero = () => {
             </div>
 
             {/* 3 Pilastri strategici */}
-            <div className="bg-gradient-to-br from-white/80 to-slate-100/70 dark:from-slate-800/90 dark:to-slate-900/80 rounded-2xl p-6 lg:p-8 backdrop-blur-2xl border-2 border-slate-200/60 dark:border-slate-600/50 shadow-xl shadow-slate-400/20 dark:shadow-slate-900/40 max-w-4xl mx-auto transform transition-all duration-700 delay-400">
+            <div className="bg-white/10 dark:bg-slate-800/20 rounded-[2rem] p-6 lg:p-8 backdrop-blur-xl border border-white/20 dark:border-slate-600/20 shadow-2xl shadow-slate-400/10 dark:shadow-slate-900/20 max-w-4xl mx-auto transform transition-all duration-700 delay-400 hover:scale-105">
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="text-center space-y-4">
-                  <div className="bg-blue-100 dark:bg-blue-900/30 w-16 h-16 rounded-xl flex items-center justify-center mx-auto">
+                  <div className="bg-blue-100/80 dark:bg-blue-900/30 backdrop-blur-sm w-16 h-16 rounded-3xl flex items-center justify-center mx-auto shadow-lg">
                     <Bot className="text-blue-600 dark:text-blue-300" size={32} />
                   </div>
                   <h5 className="text-lg font-bold text-slate-800 dark:text-slate-200">AI Su Misura</h5>
@@ -166,7 +166,7 @@ const Hero = () => {
                 </div>
                 
                 <div className="text-center space-y-4">
-                  <div className="bg-purple-100 dark:bg-purple-900/30 w-16 h-16 rounded-xl flex items-center justify-center mx-auto">
+                  <div className="bg-purple-100/80 dark:bg-purple-900/30 backdrop-blur-sm w-16 h-16 rounded-3xl flex items-center justify-center mx-auto shadow-lg">
                     <Zap className="text-purple-600 dark:text-purple-300" size={32} />
                   </div>
                   <h5 className="text-lg font-bold text-slate-800 dark:text-slate-200">Automazione Continua</h5>
@@ -176,7 +176,7 @@ const Hero = () => {
                 </div>
                 
                 <div className="text-center space-y-4">
-                  <div className="bg-green-100 dark:bg-green-900/20 w-16 h-16 rounded-xl flex items-center justify-center mx-auto">
+                  <div className="bg-green-100/80 dark:bg-green-900/20 backdrop-blur-sm w-16 h-16 rounded-3xl flex items-center justify-center mx-auto shadow-lg">
                     <TrendingUp className="text-green-600 dark:text-green-300" size={32} />
                   </div>
                   <h5 className="text-lg font-bold text-slate-800 dark:text-slate-200">Crescita Guidata</h5>
