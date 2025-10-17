@@ -105,28 +105,28 @@ const Header = () => {
           <nav className="flex items-center justify-center space-x-8">
             {isHomePage ? (
               <>
-                {/* Updated Home button behavior */}
+                {/* All nav buttons: pill-shaped, glassy, perfectly aligned */}
                 <button 
                   onClick={goHome}
-                  className="text-foreground hover:text-primary hover:scale-105 transition-all duration-300 relative after:content-[''] after:absolute after:h-0.5 after:bottom-0 after:left-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full"
+                  className="px-6 py-2 rounded-full bg-white/10 backdrop-blur-md text-white font-semibold shadow-md border border-white/20 transition-all duration-300 hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
                   Home
                 </button>
                 <button 
                   onClick={() => scrollToSection('services')} 
-                  className={`text-foreground hover:text-primary hover:scale-105 transition-all duration-300 relative after:content-[''] after:absolute after:h-0.5 after:bottom-0 after:left-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full ${activeSection === 'services' ? 'text-primary font-semibold after:w-full' : 'after:w-0'}`}
+                  className={`px-6 py-2 rounded-full bg-white/10 backdrop-blur-md text-white font-semibold shadow-md border border-white/20 transition-all duration-300 hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-blue-500 ${activeSection === 'services' ? 'ring-2 ring-blue-500' : ''}`}
                 >
                   Servizi
                 </button>
                 <button 
                   onClick={() => scrollToSection('about')} 
-                  className={`text-foreground hover:text-primary hover:scale-105 transition-all duration-300 relative after:content-[''] after:absolute after:h-0.5 after:bottom-0 after:left-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full ${activeSection === 'about' ? 'text-primary font-semibold after:w-full' : 'after:w-0'}`}
+                  className={`px-6 py-2 rounded-full bg-white/10 backdrop-blur-md text-white font-semibold shadow-md border border-white/20 transition-all duration-300 hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-blue-500 ${activeSection === 'about' ? 'ring-2 ring-blue-500' : ''}`}
                 >
                   Chi Siamo
                 </button>
                 <button 
                   onClick={() => scrollToSection('cta')} 
-                  className={`text-foreground hover:text-primary hover:scale-105 transition-all duration-300 relative after:content-[''] after:absolute after:h-0.5 after:bottom-0 after:left-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full ${activeSection === 'cta' ? 'text-primary font-semibold after:w-full' : 'after:w-0'}`}
+                  className={`px-6 py-2 rounded-full bg-white/10 backdrop-blur-md text-white font-semibold shadow-md border border-white/20 transition-all duration-300 hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-blue-500 ${activeSection === 'cta' ? 'ring-2 ring-blue-500' : ''}`}
                 >
                   Contatti
                 </button>

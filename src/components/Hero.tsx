@@ -76,7 +76,7 @@ const Hero = () => {
               <Button 
                 size="lg" 
                 onClick={() => scrollToSection('cta')}
-                className="bg-gradient-to-r from-blue-700 via-blue-500 to-purple-700 hover:from-blue-800 hover:to-purple-800 shadow-xl shadow-blue-200/30 dark:shadow-none text-lg font-bold rounded-xl backdrop-blur-sm w-full sm:w-auto px-8 py-4"
+                className="w-full sm:w-auto"
               >
                 Inizia Ora
                 <ArrowRight className="ml-2" size={24} />
@@ -85,7 +85,7 @@ const Hero = () => {
                 variant="outline" 
                 size="lg" 
                 onClick={() => scrollToSection('services')}
-                className="hover:bg-blue-50 dark:hover:bg-slate-800/70 text-lg font-semibold rounded-xl border-2 border-blue-600/20 dark:border-blue-300/20 backdrop-blur-sm w-full sm:w-auto px-8 py-4"
+                className="w-full sm:w-auto"
               >
                 Servizi
               </Button>
