@@ -47,24 +47,10 @@ const Hero = () => {
   return (
     <>
       {/* Prima sezione - Hero che occupa tutto lo schermo */}
-      <section id="home" className="h-screen flex items-start md:items-center justify-center relative z-0 px-4 pt-32 md:pt-0 bg-gradient-to-br from-slate-100 via-slate-50 to-blue-50 dark:from-background dark:via-slate-900/60 dark:to-blue-500/5">
-        {/* DarkVeil WebGL background */}
-        <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden opacity-60 dark:opacity-100">
+      <section id="home" className="h-screen flex items-start md:items-center justify-center relative z-0 px-4 pt-32 md:pt-0 bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-black dark:via-slate-950 dark:to-black">
+        {/* DarkVeil WebGL background - dominante in dark mode */}
+        <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden opacity-30 dark:opacity-100">
           <DarkVeil />
-        </div>
-        {/* Dynamic animated background elements */}
-        <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
-          {/* Elementi animati per desktop */}
-          <div className="hero-bg-element-1 absolute w-[30vw] h-[20vh] md:w-[25vw] md:h-[20vh] rounded-full bg-blue-200/30 blur-3xl dark:bg-blue-800/40" style={{left: '5%', top: '15%'}} />
-          <div className="hero-bg-element-2 absolute w-[35vw] h-[25vh] md:w-[30vw] md:h-[25vh] rounded-full bg-purple-200/25 blur-3xl dark:bg-purple-800/35" style={{right: '10%', bottom: '25%'}} />
-          <div className="hero-bg-element-3 absolute w-[25vw] h-[15vh] md:w-[20vw] md:h-[15vh] rounded-full bg-blue-100/35 blur-2xl dark:bg-blue-900/45" style={{left: '25%', top: '55%'}} />
-          <div className="hero-bg-element-4 absolute w-[40vw] h-[30vh] md:w-[35vw] md:h-[30vh] rounded-full bg-purple-100/20 blur-3xl dark:bg-purple-900/30" style={{right: '15%', top: '5%'}} />
-          <div className="hero-bg-element-5 absolute w-[20vw] h-[12vh] md:w-[15vw] md:h-[12vh] rounded-full bg-blue-300/40 blur-2xl dark:bg-blue-700/50" style={{left: '55%', bottom: '35%'}} />
-          
-          {/* Elementi più piccoli per mobile */}
-          <div className="hero-bg-element-1 absolute w-[15vw] h-[8vh] md:w-[10vw] md:h-[8vh] rounded-full bg-indigo-200/30 blur-xl dark:bg-indigo-800/40" style={{left: '3%', bottom: '15%', animationDelay: '-8s'}} />
-          <div className="hero-bg-element-3 absolute w-[18vw] h-[10vh] md:w-[12vw] md:h-[10vh] rounded-full bg-cyan-200/25 blur-xl dark:bg-cyan-800/35" style={{right: '5%', top: '35%', animationDelay: '-12s'}} />
-          <div className="hero-bg-element-5 absolute w-[12vw] h-[7vh] md:w-[8vw] md:h-[6vh] rounded-full bg-pink-200/35 blur-lg dark:bg-pink-800/45" style={{left: '65%', top: '20%', animationDelay: '-18s'}} />
         </div>
 
         <div className="container mx-auto px-4 max-w-6xl">
