@@ -47,18 +47,13 @@ const Hero = () => {
   return (
     <>
       {/* Prima sezione - Hero che occupa tutto lo schermo */}
-      <section id="home" className="h-screen flex items-start md:items-center justify-center relative z-0 px-4 pt-32 md:pt-0 bg-black dark:bg-black">
-        {/* DarkVeil WebGL background - dominante in dark mode */}
+      <section id="home" className="h-screen flex items-start md:items-center justify-center relative z-0 px-4 pt-32 md:pt-0 bg-gradient-to-br from-blue-900 via-purple-900 to-black dark:bg-gradient-to-br dark:from-blue-900 dark:via-purple-900 dark:to-black">
+        {/* Animated blobs or gradient background restored */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <DarkVeil 
-            hueShift={0}
-            noiseIntensity={0}
-            scanlineIntensity={0}
-            speed={1.5}
-            scanlineFrequency={0}
-            warpAmount={0.15}
-            resolutionScale={1}
-          />
+          {/* Example: animated gradient blobs (replace with your previous JSX if needed) */}
+          <div className="absolute left-1/4 top-1/4 w-[600px] h-[400px] bg-purple-700 opacity-40 rounded-full blur-3xl animate-blob" style={{animationDelay: '0s'}} />
+          <div className="absolute right-1/4 top-1/3 w-[500px] h-[300px] bg-blue-700 opacity-30 rounded-full blur-2xl animate-blob" style={{animationDelay: '2s'}} />
+          <div className="absolute left-1/2 bottom-0 w-[700px] h-[400px] bg-purple-900 opacity-20 rounded-full blur-3xl animate-blob" style={{animationDelay: '4s'}} />
         </div>
 
         <div className="container mx-auto px-4 max-w-6xl">
