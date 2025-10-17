@@ -51,7 +51,7 @@ const Hero = () => {
         {/* DarkVeil WebGL background - dominante in dark mode */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <DarkVeil 
-            hueShift={280}
+            hueShift={0}
             noiseIntensity={0}
             scanlineIntensity={0}
             speed={1.5}
