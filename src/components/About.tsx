@@ -43,12 +43,12 @@ const About = () => {
           </div>
 
           <div ref={featuresRef} className="space-y-6">
-            <div className={`bg-white/10 dark:bg-slate-900/20 backdrop-blur-xl p-8 rounded-[2rem] shadow-2xl shadow-black/10 hover:shadow-3xl hover:scale-105 transition-all duration-500 animate-on-scroll fade-in-right ${areFeaturesVisible ? 'visible' : ''} border border-white/20 dark:border-slate-700/20`}>
+            <div className={`bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl p-8 rounded-3xl shadow-lg shadow-black/5 hover:shadow-2xl hover:scale-105 transition-all duration-500 animate-on-scroll fade-in-right ${areFeaturesVisible ? 'visible' : ''} border border-white/30 dark:border-slate-700/30`}>
               <h3 className="text-2xl font-bold mb-6 text-center">Perché Scegliere ApexAI</h3>
               
               <div className="space-y-6">
                 <div className={`flex items-start space-x-4 animate-on-scroll fade-in-right stagger-2 ${areFeaturesVisible ? 'visible' : ''} hover:transform hover:translate-x-2 transition-transform duration-300`}>
-                  <div className="bg-blue-100/80 backdrop-blur-sm p-3 rounded-2xl hover:bg-blue-200/80 transition-colors duration-300 shadow-md">
+                  <div className="bg-blue-100 p-2 rounded-lg hover:bg-blue-200 transition-colors duration-300">
                     <MapPin className="text-blue-600" size={20} />
                   </div>
                   <div>
@@ -58,7 +58,7 @@ const About = () => {
                 </div>
 
                 <div className={`flex items-start space-x-4 animate-on-scroll fade-in-right stagger-3 ${areFeaturesVisible ? 'visible' : ''} hover:transform hover:translate-x-2 transition-transform duration-300`}>
-                  <div className="bg-purple-100/80 backdrop-blur-sm p-3 rounded-2xl hover:bg-purple-200/80 transition-colors duration-300 shadow-md">
+                  <div className="bg-purple-100 p-2 rounded-lg hover:bg-purple-200 transition-colors duration-300">
                     <Users className="text-purple-600" size={20} />
                   </div>
                   <div>
@@ -68,7 +68,7 @@ const About = () => {
                 </div>
 
                 <div className={`flex items-start space-x-4 animate-on-scroll fade-in-right stagger-4 ${areFeaturesVisible ? 'visible' : ''} hover:transform hover:translate-x-2 transition-transform duration-300`}>
-                  <div className="bg-green-100/80 backdrop-blur-sm p-3 rounded-2xl hover:bg-green-200/80 transition-colors duration-300 shadow-md">
+                  <div className="bg-green-100 p-2 rounded-lg hover:bg-green-200 transition-colors duration-300">
                     <Award className="text-green-600" size={20} />
                   </div>
                   <div>
@@ -78,7 +78,7 @@ const About = () => {
                 </div>
 
                 <div className={`flex items-start space-x-4 animate-on-scroll fade-in-right stagger-5 ${areFeaturesVisible ? 'visible' : ''} hover:transform hover:translate-x-2 transition-transform duration-300`}>
-                  <div className="bg-orange-100/80 backdrop-blur-sm p-3 rounded-2xl hover:bg-orange-200/80 transition-colors duration-300 shadow-md">
+                  <div className="bg-orange-100 p-2 rounded-lg hover:bg-orange-200 transition-colors duration-300">
                     <Clock className="text-orange-600" size={20} />
                   </div>
                   <div>
