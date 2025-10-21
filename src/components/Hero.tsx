@@ -54,9 +54,9 @@ const Hero = () => {
             hueShift={0}
             noiseIntensity={0}
             scanlineIntensity={0}
-            speed={1.5}
+            speed={2.5}
             scanlineFrequency={0}
-            warpAmount={0.15}
+            warpAmount={0.35}
             resolutionScale={1}
           />
         </div>
