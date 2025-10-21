@@ -60,6 +60,9 @@ const Hero = () => {
             resolutionScale={1}
           />
         </div>
+        
+        {/* Overlay scuro gradiente per rendere leggibile il testo */}
+        <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-black/60 via-black/40 to-black/70"></div>
 
         <div className="container mx-auto px-4 max-w-6xl">
           <div ref={heroRef} className="text-center space-y-6">
