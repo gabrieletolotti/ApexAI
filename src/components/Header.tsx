@@ -159,44 +159,44 @@ const Header = () => {
         </div>
 
         {/* Mobile Layout */}
-        <div className="flex md:hidden items-center justify-between w-full">
-          <button 
-            onClick={goHome}
-            className="hover:scale-105 transition-transform duration-300 cursor-pointer"
-          >
-            <img src="./lovable-uploads/aa430766-16dd-4783-bc9f-f9980ee34dea.png" alt="ApexAI Logo" className="h-10" />
-          </button>
+        <div className={`flex md:hidden items-center w-full transition-all duration-500 ease-in-out ${isMenuOpen ? 'justify-center' : 'justify-between'}`}>
+          {!isMenuOpen && (
+            <button 
+              onClick={goHome}
+              className="hover:scale-105 transition-transform duration-300 cursor-pointer"
+            >
+              <img src="./lovable-uploads/aa430766-16dd-4783-bc9f-f9980ee34dea.png" alt="ApexAI Logo" className="h-10" />
+            </button>
+          )}
+          
+          {/* Mobile Navigation - Expanded horizontal menu */}
+          {isMenuOpen && (
+            <nav className="flex items-center gap-6 px-2 animate-in fade-in-0 slide-in-from-top-2 duration-500">
+              {isHomePage ? (
+                <>
+                  <button onClick={() => scrollToSection('home')} className="text-foreground hover:text-primary hover:scale-110 transition-all duration-300 text-sm font-medium whitespace-nowrap">Home</button>
+                  <button onClick={() => scrollToSection('services')} className="text-foreground hover:text-primary hover:scale-110 transition-all duration-300 text-sm font-medium whitespace-nowrap">Servizi</button>
+                  <button onClick={() => scrollToSection('about')} className="text-foreground hover:text-primary hover:scale-110 transition-all duration-300 text-sm font-medium whitespace-nowrap">Chi Siamo</button>
+                  <button onClick={() => scrollToSection('cta')} className="text-foreground hover:text-primary hover:scale-110 transition-all duration-300 text-sm font-medium whitespace-nowrap">Contatti</button>
+                </>
+              ) : (
+                <>
+                  <Link to="/" onClick={() => setIsMenuOpen(false)} className="text-foreground hover:text-primary hover:scale-110 transition-all duration-300 text-sm font-medium whitespace-nowrap">Home</Link>
+                  <Link to="/" onClick={() => setIsMenuOpen(false)} className="text-foreground hover:text-primary hover:scale-110 transition-all duration-300 text-sm font-medium whitespace-nowrap">Servizi</Link>
+                  <Link to="/" onClick={() => setIsMenuOpen(false)} className="text-foreground hover:text-primary hover:scale-110 transition-all duration-300 text-sm font-medium whitespace-nowrap">Chi Siamo</Link>
+                  <Link to="/" onClick={() => setIsMenuOpen(false)} className="text-foreground hover:text-primary hover:scale-110 transition-all duration-300 text-sm font-medium whitespace-nowrap">Contatti</Link>
+                </>
+              )}
+            </nav>
+          )}
           
           <button 
-            className="hover:scale-110 transition-transform duration-300"
+            className={`hover:scale-110 transition-transform duration-300 ${isMenuOpen ? 'absolute right-6' : ''}`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
-
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <nav className="md:hidden mt-4 pb-4 border-t border-border/50 animate-on-scroll fade-in-up visible">
-            <div className="flex flex-col space-y-4 pt-4">
-              {isHomePage ? (
-                <>
-                  <button onClick={() => scrollToSection('home')} className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 text-left">Home</button>
-                  <button onClick={() => scrollToSection('services')} className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 text-left">Servizi</button>
-                  <button onClick={() => scrollToSection('about')} className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 text-left">Chi Siamo</button>
-                  <button onClick={() => scrollToSection('cta')} className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 text-left">Contatti</button>
-                </>
-              ) : (
-                <>
-                  <Link to="/" onClick={() => setIsMenuOpen(false)} className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 text-left">Home</Link>
-                  <Link to="/" onClick={() => setIsMenuOpen(false)} className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 text-left">Servizi</Link>
-                  <Link to="/" onClick={() => setIsMenuOpen(false)} className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 text-left">Chi Siamo</Link>
-                  <Link to="/" onClick={() => setIsMenuOpen(false)} className="text-foreground hover:text-primary hover:translate-x-2 transition-all duration-300 text-left">Contatti</Link>
-                </>
-              )}
-            </div>
-          </nav>
-        )}
       </div>
     </header>
   );
