@@ -84,10 +84,10 @@ const Header = () => {
   return (
     <header
       ref={ref}
-      className={`fixed left-1/2 -translate-x-1/2 mt-6 w-[95vw] max-w-4xl bg-white/10 backdrop-blur-xl z-50 border border-white/20 shadow-lg flex items-center transition-all duration-300 ${isIntersecting ? 'translate-y-0 opacity-100' : 'translate-y-0 opacity-100'} ${isMenuOpen ? 'menu-opening' : 'menu-closed'}`}
+      className={`fixed left-1/2 -translate-x-1/2 mt-6 w-[95vw] max-w-4xl bg-white/10 backdrop-blur-xl z-50 border border-white/20 shadow-lg transition-all duration-300 ${isIntersecting ? 'translate-y-0 opacity-100' : 'translate-y-0 opacity-100'} ${isMenuOpen ? 'rounded-3xl' : 'rounded-full'}`}
       style={{ top: undefined }}
     >
-      <div className="w-full flex items-center px-6 py-3">
+      <div className="w-full flex flex-col px-6 py-3">
         <div className="hidden md:grid md:grid-cols-3 md:items-center">
           {/* Left Section - Logo */}
           <div className="flex justify-start">
@@ -168,45 +168,39 @@ const Header = () => {
           </button>
           
           <button 
-            className="hover:scale-110 transition-transform duration-300 relative z-[60]"
+            className="hover:scale-110 transition-transform duration-300"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {isMenuOpen ? <X size={24} className="text-white" /> : <Menu size={24} />}
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
-      </div>
-      
-      {/* Mobile Full Screen Menu */}
-      {isMenuOpen && (
-        <div className="md:hidden fixed inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 z-50 flex items-center justify-center">
-          <nav className="flex flex-col items-center gap-12 px-8">
+
+        {/* Mobile Navigation Dropdown */}
+        {isMenuOpen && (
+          <nav className="md:hidden flex flex-col items-center gap-6 pt-6 pb-4 animate-in fade-in-0 slide-in-from-top-2 duration-300">
             {isHomePage ? (
               <>
                 <button 
                   onClick={() => scrollToSection('home')} 
-                  className="text-white text-3xl font-semibold hover:text-blue-400 transition-colors duration-300 animate-in fade-in-0 slide-in-from-bottom-4"
-                  style={{ animationDelay: '100ms', animationFillMode: 'backwards' }}
+                  className="text-foreground hover:text-primary text-lg font-medium transition-colors duration-300"
                 >
                   Home
                 </button>
                 <button 
                   onClick={() => scrollToSection('services')} 
-                  className="text-white text-3xl font-semibold hover:text-blue-400 transition-colors duration-300 animate-in fade-in-0 slide-in-from-bottom-4"
-                  style={{ animationDelay: '200ms', animationFillMode: 'backwards' }}
+                  className="text-foreground hover:text-primary text-lg font-medium transition-colors duration-300"
                 >
                   Servizi
                 </button>
                 <button 
                   onClick={() => scrollToSection('about')} 
-                  className="text-white text-3xl font-semibold hover:text-blue-400 transition-colors duration-300 animate-in fade-in-0 slide-in-from-bottom-4"
-                  style={{ animationDelay: '300ms', animationFillMode: 'backwards' }}
+                  className="text-foreground hover:text-primary text-lg font-medium transition-colors duration-300"
                 >
                   Chi Siamo
                 </button>
                 <button 
                   onClick={() => scrollToSection('cta')} 
-                  className="text-white text-3xl font-semibold hover:text-blue-400 transition-colors duration-300 animate-in fade-in-0 slide-in-from-bottom-4"
-                  style={{ animationDelay: '400ms', animationFillMode: 'backwards' }}
+                  className="text-foreground hover:text-primary text-lg font-medium transition-colors duration-300"
                 >
                   Contatti
                 </button>
@@ -216,40 +210,36 @@ const Header = () => {
                 <Link 
                   to="/" 
                   onClick={() => setIsMenuOpen(false)} 
-                  className="text-white text-3xl font-semibold hover:text-blue-400 transition-colors duration-300 animate-in fade-in-0 slide-in-from-bottom-4"
-                  style={{ animationDelay: '100ms', animationFillMode: 'backwards' }}
+                  className="text-foreground hover:text-primary text-lg font-medium transition-colors duration-300"
                 >
                   Home
                 </Link>
                 <Link 
                   to="/" 
                   onClick={() => setIsMenuOpen(false)} 
-                  className="text-white text-3xl font-semibold hover:text-blue-400 transition-colors duration-300 animate-in fade-in-0 slide-in-from-bottom-4"
-                  style={{ animationDelay: '200ms', animationFillMode: 'backwards' }}
+                  className="text-foreground hover:text-primary text-lg font-medium transition-colors duration-300"
                 >
                   Servizi
                 </Link>
                 <Link 
                   to="/" 
                   onClick={() => setIsMenuOpen(false)} 
-                  className="text-white text-3xl font-semibold hover:text-blue-400 transition-colors duration-300 animate-in fade-in-0 slide-in-from-bottom-4"
-                  style={{ animationDelay: '300ms', animationFillMode: 'backwards' }}
+                  className="text-foreground hover:text-primary text-lg font-medium transition-colors duration-300"
                 >
                   Chi Siamo
                 </Link>
                 <Link 
                   to="/" 
                   onClick={() => setIsMenuOpen(false)} 
-                  className="text-white text-3xl font-semibold hover:text-blue-400 transition-colors duration-300 animate-in fade-in-0 slide-in-from-bottom-4"
-                  style={{ animationDelay: '400ms', animationFillMode: 'backwards' }}
+                  className="text-foreground hover:text-primary text-lg font-medium transition-colors duration-300"
                 >
                   Contatti
                 </Link>
               </>
             )}
           </nav>
-        </div>
-      )}
+        )}
+      </div>
     </header>
   );
 };
