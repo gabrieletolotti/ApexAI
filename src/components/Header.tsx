@@ -10,6 +10,9 @@ import { ThemeToggle } from '@/components/theme-toggle';
  */
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // Controls the panel max-height animation (open/close of the container)
+  const [isPanelOpen, setIsPanelOpen] = useState(false);
+  // Controls the fade/slide animation of the individual links
   const [isMenuVisible, setIsMenuVisible] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const { ref, isIntersecting } = useIntersectionObserver({ threshold: 1, triggerOnce: false });
@@ -26,14 +29,19 @@ const Header = () => {
     }
   };
   
-  // Handle menu open/close with animation delay
+  // Handle menu open/close with staggered animations
   const toggleMenu = () => {
     if (!isMenuOpen) {
+      // Open sequence: mount -> expand panel -> reveal links
       setIsMenuOpen(true);
+      setIsPanelOpen(true);
+      // Small delay to allow DOM paint before starting link animations
       setTimeout(() => setIsMenuVisible(true), 10);
     } else {
+      // Close sequence: hide links -> shrink panel -> unmount
       setIsMenuVisible(false);
-      setTimeout(() => setIsMenuOpen(false), 400);
+      setIsPanelOpen(false); // start container collapse immediately
+      setTimeout(() => setIsMenuOpen(false), 600); // keep mounted until panel animation ends
     }
   };
 
@@ -90,15 +98,16 @@ const Header = () => {
         behavior: 'smooth',
       });
     }
-    // Close menu with animation
+    // Close menu with animation (links fade-out while panel collapses)
     setIsMenuVisible(false);
-    setTimeout(() => setIsMenuOpen(false), 400);
+    setIsPanelOpen(false);
+    setTimeout(() => setIsMenuOpen(false), 600);
   };
 
   return (
     <header
       ref={ref}
-      className={`mobile-header fixed left-1/2 -translate-x-1/2 mt-6 w-[95vw] max-w-4xl bg-white/10 backdrop-blur-xl z-50 border border-white/20 shadow-lg ${isIntersecting ? 'translate-y-0 opacity-100' : 'translate-y-0 opacity-100'} ${isMenuOpen ? 'menu-open' : 'menu-closed'}`}
+      className={`mobile-header fixed left-1/2 -translate-x-1/2 mt-6 w-[95vw] max-w-4xl bg-white/10 backdrop-blur-xl z-50 border border-white/20 shadow-lg ${isIntersecting ? 'translate-y-0 opacity-100' : 'translate-y-0 opacity-100'} ${isPanelOpen ? 'menu-open' : 'menu-closed'}`}
       style={{ top: undefined }}
     >
       <div className="w-full flex flex-col px-6 py-3">
@@ -227,7 +236,7 @@ const Header = () => {
               <>
                 <Link 
                   to="/" 
-                  onClick={() => { setIsMenuVisible(false); setTimeout(() => setIsMenuOpen(false), 400); }} 
+                  onClick={() => { setIsMenuVisible(false); setIsPanelOpen(false); setTimeout(() => setIsMenuOpen(false), 600); }} 
                   className={`text-foreground hover:text-primary text-lg font-medium transition-all duration-300 ${isMenuVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'}`}
                   style={{ transitionDelay: isMenuVisible ? '0.1s' : '0s' }}
                 >
@@ -235,7 +244,7 @@ const Header = () => {
                 </Link>
                 <Link 
                   to="/" 
-                  onClick={() => { setIsMenuVisible(false); setTimeout(() => setIsMenuOpen(false), 400); }} 
+                  onClick={() => { setIsMenuVisible(false); setIsPanelOpen(false); setTimeout(() => setIsMenuOpen(false), 600); }} 
                   className={`text-foreground hover:text-primary text-lg font-medium transition-all duration-300 ${isMenuVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'}`}
                   style={{ transitionDelay: isMenuVisible ? '0.2s' : '0s' }}
                 >
@@ -243,7 +252,7 @@ const Header = () => {
                 </Link>
                 <Link 
                   to="/" 
-                  onClick={() => { setIsMenuVisible(false); setTimeout(() => setIsMenuOpen(false), 400); }} 
+                  onClick={() => { setIsMenuVisible(false); setIsPanelOpen(false); setTimeout(() => setIsMenuOpen(false), 600); }} 
                   className={`text-foreground hover:text-primary text-lg font-medium transition-all duration-300 ${isMenuVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'}`}
                   style={{ transitionDelay: isMenuVisible ? '0.3s' : '0s' }}
                 >
@@ -251,7 +260,7 @@ const Header = () => {
                 </Link>
                 <Link 
                   to="/" 
-                  onClick={() => { setIsMenuVisible(false); setTimeout(() => setIsMenuOpen(false), 400); }} 
+                  onClick={() => { setIsMenuVisible(false); setIsPanelOpen(false); setTimeout(() => setIsMenuOpen(false), 600); }} 
                   className={`text-foreground hover:text-primary text-lg font-medium transition-all duration-300 ${isMenuVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'}`}
                   style={{ transitionDelay: isMenuVisible ? '0.4s' : '0s' }}
                 >
