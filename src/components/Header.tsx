@@ -177,30 +177,34 @@ const Header = () => {
 
         {/* Mobile Navigation Dropdown */}
         {isMenuOpen && (
-          <nav className="md:hidden flex flex-col items-center gap-6 pt-6 pb-4 animate-in fade-in-0 slide-in-from-top-2 duration-300">
+          <nav className="md:hidden flex flex-col items-center gap-6 pt-6 pb-4">
             {isHomePage ? (
               <>
                 <button 
                   onClick={() => scrollToSection('home')} 
-                  className="text-foreground hover:text-primary text-lg font-medium transition-colors duration-300"
+                  className="text-foreground hover:text-primary text-lg font-medium transition-colors duration-300 animate-in fade-in-0 slide-in-from-top-2"
+                  style={{ animationDuration: '0.3s', animationDelay: '0.1s', animationFillMode: 'backwards' }}
                 >
                   Home
                 </button>
                 <button 
                   onClick={() => scrollToSection('services')} 
-                  className="text-foreground hover:text-primary text-lg font-medium transition-colors duration-300"
+                  className="text-foreground hover:text-primary text-lg font-medium transition-colors duration-300 animate-in fade-in-0 slide-in-from-top-2"
+                  style={{ animationDuration: '0.3s', animationDelay: '0.2s', animationFillMode: 'backwards' }}
                 >
                   Servizi
                 </button>
                 <button 
                   onClick={() => scrollToSection('about')} 
-                  className="text-foreground hover:text-primary text-lg font-medium transition-colors duration-300"
+                  className="text-foreground hover:text-primary text-lg font-medium transition-colors duration-300 animate-in fade-in-0 slide-in-from-top-2"
+                  style={{ animationDuration: '0.3s', animationDelay: '0.3s', animationFillMode: 'backwards' }}
                 >
                   Chi Siamo
                 </button>
                 <button 
                   onClick={() => scrollToSection('cta')} 
-                  className="text-foreground hover:text-primary text-lg font-medium transition-colors duration-300"
+                  className="text-foreground hover:text-primary text-lg font-medium transition-colors duration-300 animate-in fade-in-0 slide-in-from-top-2"
+                  style={{ animationDuration: '0.3s', animationDelay: '0.4s', animationFillMode: 'backwards' }}
                 >
                   Contatti
                 </button>
@@ -210,28 +214,32 @@ const Header = () => {
                 <Link 
                   to="/" 
                   onClick={() => setIsMenuOpen(false)} 
-                  className="text-foreground hover:text-primary text-lg font-medium transition-colors duration-300"
+                  className="text-foreground hover:text-primary text-lg font-medium transition-colors duration-300 animate-in fade-in-0 slide-in-from-top-2"
+                  style={{ animationDuration: '0.3s', animationDelay: '0.1s', animationFillMode: 'backwards' }}
                 >
                   Home
                 </Link>
                 <Link 
                   to="/" 
                   onClick={() => setIsMenuOpen(false)} 
-                  className="text-foreground hover:text-primary text-lg font-medium transition-colors duration-300"
+                  className="text-foreground hover:text-primary text-lg font-medium transition-colors duration-300 animate-in fade-in-0 slide-in-from-top-2"
+                  style={{ animationDuration: '0.3s', animationDelay: '0.2s', animationFillMode: 'backwards' }}
                 >
                   Servizi
                 </Link>
                 <Link 
                   to="/" 
                   onClick={() => setIsMenuOpen(false)} 
-                  className="text-foreground hover:text-primary text-lg font-medium transition-colors duration-300"
+                  className="text-foreground hover:text-primary text-lg font-medium transition-colors duration-300 animate-in fade-in-0 slide-in-from-top-2"
+                  style={{ animationDuration: '0.3s', animationDelay: '0.3s', animationFillMode: 'backwards' }}
                 >
                   Chi Siamo
                 </Link>
                 <Link 
                   to="/" 
                   onClick={() => setIsMenuOpen(false)} 
-                  className="text-foreground hover:text-primary text-lg font-medium transition-colors duration-300"
+                  className="text-foreground hover:text-primary text-lg font-medium transition-colors duration-300 animate-in fade-in-0 slide-in-from-top-2"
+                  style={{ animationDuration: '0.3s', animationDelay: '0.4s', animationFillMode: 'backwards' }}
                 >
                   Contatti
                 </Link>
