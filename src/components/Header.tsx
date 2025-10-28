@@ -159,7 +159,7 @@ const Header = () => {
         </div>
 
         {/* Mobile Layout */}
-        <div className="flex md:hidden items-center justify-between">
+        <div className="flex md:hidden items-center justify-between w-full">
           <button 
             onClick={goHome}
             className="hover:scale-105 transition-transform duration-300 cursor-pointer"
@@ -167,15 +167,12 @@ const Header = () => {
             <img src="./lovable-uploads/aa430766-16dd-4783-bc9f-f9980ee34dea.png" alt="ApexAI Logo" className="h-10" />
           </button>
           
-          <div className="flex items-center space-x-4">
-            <ThemeToggle />
-            <button 
-              className="hover:scale-110 transition-transform duration-300"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
+          <button 
+            className="hover:scale-110 transition-transform duration-300"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
 
         {/* Mobile Navigation */}
