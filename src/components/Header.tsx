@@ -10,6 +10,7 @@ import { ThemeToggle } from '@/components/theme-toggle';
  */
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuVisible, setIsMenuVisible] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const { ref, isIntersecting } = useIntersectionObserver({ threshold: 1, triggerOnce: false });
   const location = useLocation();
@@ -22,6 +23,17 @@ const Header = () => {
       navigate('/');
     } else {
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+  
+  // Handle menu open/close with animation delay
+  const toggleMenu = () => {
+    if (!isMenuOpen) {
+      setIsMenuOpen(true);
+      setTimeout(() => setIsMenuVisible(true), 10);
+    } else {
+      setIsMenuVisible(false);
+      setTimeout(() => setIsMenuOpen(false), 400);
     }
   };
 
@@ -78,7 +90,9 @@ const Header = () => {
         behavior: 'smooth',
       });
     }
-    setIsMenuOpen(false);
+    // Close menu with animation
+    setIsMenuVisible(false);
+    setTimeout(() => setIsMenuOpen(false), 400);
   };
 
   return (
@@ -169,7 +183,7 @@ const Header = () => {
           
           <button 
             className="hover:scale-110 transition-transform duration-300"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            onClick={toggleMenu}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -182,29 +196,29 @@ const Header = () => {
               <>
                 <button 
                   onClick={() => scrollToSection('home')} 
-                  className="text-foreground hover:text-primary text-lg font-medium transition-colors duration-300 animate-in fade-in-0 slide-in-from-top-2"
-                  style={{ animationDuration: '0.3s', animationDelay: '0.1s', animationFillMode: 'backwards' }}
+                  className={`text-foreground hover:text-primary text-lg font-medium transition-all duration-300 ${isMenuVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'}`}
+                  style={{ transitionDelay: isMenuVisible ? '0.1s' : '0s' }}
                 >
                   Home
                 </button>
                 <button 
                   onClick={() => scrollToSection('services')} 
-                  className="text-foreground hover:text-primary text-lg font-medium transition-colors duration-300 animate-in fade-in-0 slide-in-from-top-2"
-                  style={{ animationDuration: '0.3s', animationDelay: '0.2s', animationFillMode: 'backwards' }}
+                  className={`text-foreground hover:text-primary text-lg font-medium transition-all duration-300 ${isMenuVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'}`}
+                  style={{ transitionDelay: isMenuVisible ? '0.2s' : '0s' }}
                 >
                   Servizi
                 </button>
                 <button 
                   onClick={() => scrollToSection('about')} 
-                  className="text-foreground hover:text-primary text-lg font-medium transition-colors duration-300 animate-in fade-in-0 slide-in-from-top-2"
-                  style={{ animationDuration: '0.3s', animationDelay: '0.3s', animationFillMode: 'backwards' }}
+                  className={`text-foreground hover:text-primary text-lg font-medium transition-all duration-300 ${isMenuVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'}`}
+                  style={{ transitionDelay: isMenuVisible ? '0.3s' : '0s' }}
                 >
                   Chi Siamo
                 </button>
                 <button 
                   onClick={() => scrollToSection('cta')} 
-                  className="text-foreground hover:text-primary text-lg font-medium transition-colors duration-300 animate-in fade-in-0 slide-in-from-top-2"
-                  style={{ animationDuration: '0.3s', animationDelay: '0.4s', animationFillMode: 'backwards' }}
+                  className={`text-foreground hover:text-primary text-lg font-medium transition-all duration-300 ${isMenuVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'}`}
+                  style={{ transitionDelay: isMenuVisible ? '0.4s' : '0s' }}
                 >
                   Contatti
                 </button>
@@ -213,33 +227,33 @@ const Header = () => {
               <>
                 <Link 
                   to="/" 
-                  onClick={() => setIsMenuOpen(false)} 
-                  className="text-foreground hover:text-primary text-lg font-medium transition-colors duration-300 animate-in fade-in-0 slide-in-from-top-2"
-                  style={{ animationDuration: '0.3s', animationDelay: '0.1s', animationFillMode: 'backwards' }}
+                  onClick={() => { setIsMenuVisible(false); setTimeout(() => setIsMenuOpen(false), 400); }} 
+                  className={`text-foreground hover:text-primary text-lg font-medium transition-all duration-300 ${isMenuVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'}`}
+                  style={{ transitionDelay: isMenuVisible ? '0.1s' : '0s' }}
                 >
                   Home
                 </Link>
                 <Link 
                   to="/" 
-                  onClick={() => setIsMenuOpen(false)} 
-                  className="text-foreground hover:text-primary text-lg font-medium transition-colors duration-300 animate-in fade-in-0 slide-in-from-top-2"
-                  style={{ animationDuration: '0.3s', animationDelay: '0.2s', animationFillMode: 'backwards' }}
+                  onClick={() => { setIsMenuVisible(false); setTimeout(() => setIsMenuOpen(false), 400); }} 
+                  className={`text-foreground hover:text-primary text-lg font-medium transition-all duration-300 ${isMenuVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'}`}
+                  style={{ transitionDelay: isMenuVisible ? '0.2s' : '0s' }}
                 >
                   Servizi
                 </Link>
                 <Link 
                   to="/" 
-                  onClick={() => setIsMenuOpen(false)} 
-                  className="text-foreground hover:text-primary text-lg font-medium transition-colors duration-300 animate-in fade-in-0 slide-in-from-top-2"
-                  style={{ animationDuration: '0.3s', animationDelay: '0.3s', animationFillMode: 'backwards' }}
+                  onClick={() => { setIsMenuVisible(false); setTimeout(() => setIsMenuOpen(false), 400); }} 
+                  className={`text-foreground hover:text-primary text-lg font-medium transition-all duration-300 ${isMenuVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'}`}
+                  style={{ transitionDelay: isMenuVisible ? '0.3s' : '0s' }}
                 >
                   Chi Siamo
                 </Link>
                 <Link 
                   to="/" 
-                  onClick={() => setIsMenuOpen(false)} 
-                  className="text-foreground hover:text-primary text-lg font-medium transition-colors duration-300 animate-in fade-in-0 slide-in-from-top-2"
-                  style={{ animationDuration: '0.3s', animationDelay: '0.4s', animationFillMode: 'backwards' }}
+                  onClick={() => { setIsMenuVisible(false); setTimeout(() => setIsMenuOpen(false), 400); }} 
+                  className={`text-foreground hover:text-primary text-lg font-medium transition-all duration-300 ${isMenuVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'}`}
+                  style={{ transitionDelay: isMenuVisible ? '0.4s' : '0s' }}
                 >
                   Contatti
                 </Link>
