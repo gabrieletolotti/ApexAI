@@ -2,6 +2,7 @@ import { ArrowRight, Bot, Zap, TrendingUp } from 'lucide-react';
 import LogoLoop from '@/components/LogoLoop';
 import { Button } from '@/components/ui/button';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import { useTheme } from '@/components/theme-provider';
 
 /**
  * Hero Component - Sezione principale con titolo impattante e CTA
@@ -9,6 +10,9 @@ import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
  */
 const Hero = () => {
   const { ref, isIntersecting } = useIntersectionObserver({ threshold: 0.2 });
+  const { theme } = useTheme();
+  const isDark = theme === 'dark';
+  const logoColor = isDark ? 'ffffff' : '1e293b'; // bianco per dark, slate-800 per light
 
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
@@ -68,7 +72,7 @@ const Hero = () => {
               <Button 
                 size="lg" 
                 onClick={() => scrollToSection('cta')}
-                className="w-full sm:w-auto"
+                className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
               >
                 Inizia Ora
                 <ArrowRight className="ml-2" size={24} />
@@ -77,7 +81,7 @@ const Hero = () => {
                 variant="outline" 
                 size="lg" 
                 onClick={() => scrollToSection('services')}
-                className="w-full sm:w-auto"
+                className="w-full sm:w-auto bg-white/90 dark:bg-slate-800/50 text-slate-900 dark:text-slate-100 border-slate-300 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-700/70"
               >
                 Servizi
               </Button>
@@ -86,22 +90,22 @@ const Hero = () => {
             <div className={`absolute bottom-[15vh] left-0 right-0 px-8 md:px-16 animate-on-scroll fade-in-up ${heroVisible ? 'visible' : ''}`}>
               <LogoLoop
                 logos={[
-                  { src: 'https://cdn.simpleicons.org/meta/ffffff', alt: 'Meta', href: 'https://meta.com' },
-                  { src: 'https://cdn.simpleicons.org/github/ffffff', alt: 'GitHub', href: 'https://github.com' },
-                  { src: 'https://cdn.simpleicons.org/zapier/ffffff', alt: 'Zapier', href: 'https://zapier.com' },
-                  { src: 'https://cdn.simpleicons.org/google/ffffff', alt: 'Google', href: 'https://cloud.google.com' },
-                  { src: 'https://cdn.simpleicons.org/ollama/ffffff', alt: 'Ollama', href: 'https://ollama.com' },
-                  { src: 'https://cdn.simpleicons.org/n8n/ffffff', alt: 'n8n', href: 'https://n8n.io' },
-                  { src: 'https://cdn.simpleicons.org/notion/ffffff', alt: 'Notion', href: 'https://notion.so' },
-                  { src: 'https://cdn.simpleicons.org/mailchimp/ffffff', alt: 'Mailchimp', href: 'https://mailchimp.com' },
-                  { src: 'https://cdn.simpleicons.org/typeform/ffffff', alt: 'Typeform', href: 'https://typeform.com' },
-                  { src: 'https://cdn.simpleicons.org/make/ffffff', alt: 'Make', href: 'https://www.make.com' },
-                  { src: 'https://cdn.simpleicons.org/clickup/ffffff', alt: 'ClickUp', href: 'https://clickup.com' },
-                  { src: 'https://cdn.simpleicons.org/openai/ffffff', alt: 'OpenAI', href: 'https://openai.com' },
-                  { src: 'https://cdn.simpleicons.org/docker/ffffff', alt: 'Docker', href: 'https://www.docker.com' },
-                  { src: 'https://cdn.simpleicons.org/stripe/ffffff', alt: 'Stripe', href: 'https://stripe.com' },
-                  { src: 'https://cdn.simpleicons.org/airtable/ffffff', alt: 'Airtable', href: 'https://airtable.com' },
-                  { src: 'https://cdn.simpleicons.org/googlegemini/ffffff', alt: 'Google Gemini', href: 'https://cloud.google.com/gemini' }
+                  { src: `https://cdn.simpleicons.org/meta/${logoColor}`, alt: 'Meta', href: 'https://meta.com' },
+                  { src: `https://cdn.simpleicons.org/github/${logoColor}`, alt: 'GitHub', href: 'https://github.com' },
+                  { src: `https://cdn.simpleicons.org/zapier/${logoColor}`, alt: 'Zapier', href: 'https://zapier.com' },
+                  { src: `https://cdn.simpleicons.org/google/${logoColor}`, alt: 'Google', href: 'https://cloud.google.com' },
+                  { src: `https://cdn.simpleicons.org/ollama/${logoColor}`, alt: 'Ollama', href: 'https://ollama.com' },
+                  { src: `https://cdn.simpleicons.org/n8n/${logoColor}`, alt: 'n8n', href: 'https://n8n.io' },
+                  { src: `https://cdn.simpleicons.org/notion/${logoColor}`, alt: 'Notion', href: 'https://notion.so' },
+                  { src: `https://cdn.simpleicons.org/mailchimp/${logoColor}`, alt: 'Mailchimp', href: 'https://mailchimp.com' },
+                  { src: `https://cdn.simpleicons.org/typeform/${logoColor}`, alt: 'Typeform', href: 'https://typeform.com' },
+                  { src: `https://cdn.simpleicons.org/make/${logoColor}`, alt: 'Make', href: 'https://www.make.com' },
+                  { src: `https://cdn.simpleicons.org/clickup/${logoColor}`, alt: 'ClickUp', href: 'https://clickup.com' },
+                  { src: `https://cdn.simpleicons.org/openai/${logoColor}`, alt: 'OpenAI', href: 'https://openai.com' },
+                  { src: `https://cdn.simpleicons.org/docker/${logoColor}`, alt: 'Docker', href: 'https://www.docker.com' },
+                  { src: `https://cdn.simpleicons.org/stripe/${logoColor}`, alt: 'Stripe', href: 'https://stripe.com' },
+                  { src: `https://cdn.simpleicons.org/airtable/${logoColor}`, alt: 'Airtable', href: 'https://airtable.com' },
+                  { src: `https://cdn.simpleicons.org/googlegemini/${logoColor}`, alt: 'Google Gemini', href: 'https://cloud.google.com/gemini' }
                 ]}
                 speed={50}
                 direction="left"
