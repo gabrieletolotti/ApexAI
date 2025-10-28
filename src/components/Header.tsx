@@ -84,7 +84,7 @@ const Header = () => {
   return (
     <header
       ref={ref}
-      className={`fixed left-1/2 -translate-x-1/2 mt-6 w-[95vw] max-w-4xl bg-white/10 backdrop-blur-xl z-50 border border-white/20 shadow-lg transition-all duration-500 flex items-center ${isIntersecting ? 'translate-y-0 opacity-100' : 'translate-y-0 opacity-100'} ${isMenuOpen ? 'rounded-3xl' : 'rounded-full'}`}
+      className={`fixed left-1/2 -translate-x-1/2 mt-6 w-[95vw] max-w-4xl bg-white/10 backdrop-blur-xl z-50 border border-white/20 shadow-lg transition-all duration-700 ease-out flex items-center ${isIntersecting ? 'translate-y-0 opacity-100' : 'translate-y-0 opacity-100'} ${isMenuOpen ? 'rounded-3xl' : 'rounded-full'}`}
       style={{ top: undefined }}
     >
       <div className="w-full flex items-center px-6 py-3">
@@ -178,20 +178,72 @@ const Header = () => {
 
           {/* Mobile Navigation - Horizontal menu below logo */}
           {isMenuOpen && (
-            <nav className="flex items-center gap-4 mt-4 pb-2 animate-in fade-in-0 slide-in-from-top-2 duration-500">
+            <nav className="flex items-center justify-center gap-3 mt-4 pb-2 w-full overflow-hidden">
               {isHomePage ? (
                 <>
-                  <button onClick={() => scrollToSection('home')} className="text-foreground hover:text-primary hover:scale-110 transition-all duration-300 text-sm font-medium whitespace-nowrap">Home</button>
-                  <button onClick={() => scrollToSection('services')} className="text-foreground hover:text-primary hover:scale-110 transition-all duration-300 text-sm font-medium whitespace-nowrap">Servizi</button>
-                  <button onClick={() => scrollToSection('about')} className="text-foreground hover:text-primary hover:scale-110 transition-all duration-300 text-sm font-medium whitespace-nowrap">Chi Siamo</button>
-                  <button onClick={() => scrollToSection('cta')} className="text-foreground hover:text-primary hover:scale-110 transition-all duration-300 text-sm font-medium whitespace-nowrap">Contatti</button>
+                  <button 
+                    onClick={() => scrollToSection('home')} 
+                    className="text-foreground hover:text-primary hover:scale-110 transition-all duration-300 text-xs font-medium whitespace-nowrap animate-in fade-in-0 slide-in-from-top-4 duration-500"
+                    style={{ animationDelay: '0ms' }}
+                  >
+                    Home
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection('services')} 
+                    className="text-foreground hover:text-primary hover:scale-110 transition-all duration-300 text-xs font-medium whitespace-nowrap animate-in fade-in-0 slide-in-from-top-4 duration-500"
+                    style={{ animationDelay: '100ms' }}
+                  >
+                    Servizi
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection('about')} 
+                    className="text-foreground hover:text-primary hover:scale-110 transition-all duration-300 text-xs font-medium whitespace-nowrap animate-in fade-in-0 slide-in-from-top-4 duration-500"
+                    style={{ animationDelay: '200ms' }}
+                  >
+                    Chi Siamo
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection('cta')} 
+                    className="text-foreground hover:text-primary hover:scale-110 transition-all duration-300 text-xs font-medium whitespace-nowrap animate-in fade-in-0 slide-in-from-top-4 duration-500"
+                    style={{ animationDelay: '300ms' }}
+                  >
+                    Contatti
+                  </button>
                 </>
               ) : (
                 <>
-                  <Link to="/" onClick={() => setIsMenuOpen(false)} className="text-foreground hover:text-primary hover:scale-110 transition-all duration-300 text-sm font-medium whitespace-nowrap">Home</Link>
-                  <Link to="/" onClick={() => setIsMenuOpen(false)} className="text-foreground hover:text-primary hover:scale-110 transition-all duration-300 text-sm font-medium whitespace-nowrap">Servizi</Link>
-                  <Link to="/" onClick={() => setIsMenuOpen(false)} className="text-foreground hover:text-primary hover:scale-110 transition-all duration-300 text-sm font-medium whitespace-nowrap">Chi Siamo</Link>
-                  <Link to="/" onClick={() => setIsMenuOpen(false)} className="text-foreground hover:text-primary hover:scale-110 transition-all duration-300 text-sm font-medium whitespace-nowrap">Contatti</Link>
+                  <Link 
+                    to="/" 
+                    onClick={() => setIsMenuOpen(false)} 
+                    className="text-foreground hover:text-primary hover:scale-110 transition-all duration-300 text-xs font-medium whitespace-nowrap animate-in fade-in-0 slide-in-from-top-4 duration-500"
+                    style={{ animationDelay: '0ms' }}
+                  >
+                    Home
+                  </Link>
+                  <Link 
+                    to="/" 
+                    onClick={() => setIsMenuOpen(false)} 
+                    className="text-foreground hover:text-primary hover:scale-110 transition-all duration-300 text-xs font-medium whitespace-nowrap animate-in fade-in-0 slide-in-from-top-4 duration-500"
+                    style={{ animationDelay: '100ms' }}
+                  >
+                    Servizi
+                  </Link>
+                  <Link 
+                    to="/" 
+                    onClick={() => setIsMenuOpen(false)} 
+                    className="text-foreground hover:text-primary hover:scale-110 transition-all duration-300 text-xs font-medium whitespace-nowrap animate-in fade-in-0 slide-in-from-top-4 duration-500"
+                    style={{ animationDelay: '200ms' }}
+                  >
+                    Chi Siamo
+                  </Link>
+                  <Link 
+                    to="/" 
+                    onClick={() => setIsMenuOpen(false)} 
+                    className="text-foreground hover:text-primary hover:scale-110 transition-all duration-300 text-xs font-medium whitespace-nowrap animate-in fade-in-0 slide-in-from-top-4 duration-500"
+                    style={{ animationDelay: '300ms' }}
+                  >
+                    Contatti
+                  </Link>
                 </>
               )}
             </nav>
