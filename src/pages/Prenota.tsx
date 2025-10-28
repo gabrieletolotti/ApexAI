@@ -135,7 +135,18 @@ const Prenota = () => {
 
   return (
     <div className="min-h-screen relative">
-       <main className="pt-32 pb-20">
+      <Header />
+      
+      <div className="container mx-auto px-4 mt-4">
+        {/* <button
+          onClick={() => navigate('/')}
+          className="text-blue-600 hover:text-blue-800 transition-colors duration-300"
+        >
+          ← Torna indietro
+        </button> */}
+      </div>
+
+      <main className="pt-32 pb-20">
         <div className="container mx-auto px-4">
           {/* Title Section */}
           <div 
