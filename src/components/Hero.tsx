@@ -46,12 +46,12 @@ const Hero = () => {
   return (
     <>
       {/* Prima sezione - Hero che occupa tutto lo schermo */}
-      <section id="home" className="h-screen flex items-start md:items-center justify-center relative z-0 px-4 pt-32 md:pt-0 bg-black dark:bg-black overflow-hidden">
+      <section id="home" className="h-screen flex items-start md:items-center justify-center relative z-0 px-4 pt-32 md:pt-0 bg-slate-50 dark:bg-black overflow-hidden">
         {/* Animated gradient background - CSS puro */}
         <div className="absolute inset-0 pointer-events-none hero-animated-bg"></div>
         
         {/* Overlay scuro gradiente per rendere leggibile il testo */}
-        <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-black/50 via-black/30 to-black/85"></div>
+        <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-transparent via-white/20 to-slate-100/40 dark:from-black/50 dark:via-black/30 dark:to-black/85"></div>
 
         <div className="container mx-auto px-4 max-w-6xl">
           <div ref={heroRef} className="text-center space-y-6">
