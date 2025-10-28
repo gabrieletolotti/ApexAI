@@ -115,7 +115,7 @@ function ServiceCard({
   index,
 }: {
   service: {
-    icon: any;
+    icon: React.ComponentType<{ className?: string; size?: number }>;
     title: string;
     description: string;
     color: string;
