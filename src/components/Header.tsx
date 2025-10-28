@@ -159,19 +159,26 @@ const Header = () => {
         </div>
 
         {/* Mobile Layout */}
-        <div className={`flex md:hidden items-center w-full transition-all duration-500 ease-in-out ${isMenuOpen ? 'justify-center' : 'justify-between'}`}>
-          {!isMenuOpen && (
+        <div className="flex md:hidden flex-col items-center w-full">
+          <div className="flex items-center justify-between w-full">
             <button 
               onClick={goHome}
               className="hover:scale-105 transition-transform duration-300 cursor-pointer"
             >
               <img src="./lovable-uploads/aa430766-16dd-4783-bc9f-f9980ee34dea.png" alt="ApexAI Logo" className="h-10" />
             </button>
-          )}
-          
-          {/* Mobile Navigation - Expanded horizontal menu */}
+            
+            <button 
+              className="hover:scale-110 transition-transform duration-300"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+
+          {/* Mobile Navigation - Horizontal menu below logo */}
           {isMenuOpen && (
-            <nav className="flex items-center gap-6 px-2 animate-in fade-in-0 slide-in-from-top-2 duration-500">
+            <nav className="flex items-center gap-4 mt-4 pb-2 animate-in fade-in-0 slide-in-from-top-2 duration-500">
               {isHomePage ? (
                 <>
                   <button onClick={() => scrollToSection('home')} className="text-foreground hover:text-primary hover:scale-110 transition-all duration-300 text-sm font-medium whitespace-nowrap">Home</button>
@@ -189,13 +196,6 @@ const Header = () => {
               )}
             </nav>
           )}
-          
-          <button 
-            className={`hover:scale-110 transition-transform duration-300 ${isMenuOpen ? 'absolute right-6' : ''}`}
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
         </div>
       </div>
     </header>
