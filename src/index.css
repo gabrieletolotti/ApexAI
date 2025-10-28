@@ -512,7 +512,16 @@ html {
 /* Header mobile menu - smooth expansion with consistent border radius */
 header.mobile-header {
   border-radius: 1.5rem;
-  transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+header.mobile-header.menu-closed {
+  max-height: 76px;
+}
+
+header.mobile-header.menu-open {
+  max-height: 400px;
 }
 
 /* Mobile optimization */
