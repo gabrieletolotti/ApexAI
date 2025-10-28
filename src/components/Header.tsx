@@ -84,7 +84,7 @@ const Header = () => {
   return (
     <header
       ref={ref}
-      className={`fixed left-1/2 -translate-x-1/2 mt-6 w-[95vw] max-w-4xl bg-white/10 backdrop-blur-xl z-50 border border-white/20 shadow-lg transition-all duration-500 ease-in-out flex items-center ${isIntersecting ? 'translate-y-0 opacity-100' : 'translate-y-0 opacity-100'} ${isMenuOpen ? 'rounded-3xl' : 'rounded-full'}`}
+      className={`fixed left-1/2 -translate-x-1/2 mt-6 w-[95vw] max-w-4xl bg-white/10 backdrop-blur-xl z-50 border border-white/20 shadow-lg flex items-center ${isIntersecting ? 'translate-y-0 opacity-100' : 'translate-y-0 opacity-100'} ${isMenuOpen ? 'header-expanded' : 'header-pill'}`}
       style={{ top: undefined }}
     >
       <div className="w-full flex items-center px-6 py-3">
