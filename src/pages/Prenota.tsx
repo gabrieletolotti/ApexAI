@@ -137,7 +137,7 @@ const Prenota = () => {
     <div className="min-h-screen relative">
       <button
         onClick={() => navigate('/')}
-        className="fixed top-10 left-10 w-12 h-12 bg-white/10 hover:bg-white/20 dark:bg-slate-800/50 dark:hover:bg-slate-700/50 backdrop-blur-md border border-white/20 dark:border-slate-700/50 rounded-full flex items-center justify-center transition-all duration-300 z-50 shadow-lg hover:scale-110"
+        className="fixed top-12 left-20 w-20 h-20 bg-white/10 hover:bg-white/20 dark:bg-slate-800/50 dark:hover:bg-slate-700/50 backdrop-blur-md border border-white/20 dark:border-slate-700/50 rounded-full flex items-center justify-center transition-all duration-300 z-50 shadow-lg hover:scale-110"
         aria-label="Torna alla home"
       >
         <svg 
