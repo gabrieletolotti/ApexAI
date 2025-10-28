@@ -509,9 +509,13 @@ html {
   animation: pulse-custom 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-/* Header mobile menu - separate transitions for border-radius and height */
-.header-mobile {
-  transition: height 0.4s ease-out, border-radius 0.15s ease-out;
+/* Header mobile menu - instant border-radius change */
+header.menu-opening {
+  border-radius: 1.5rem !important;
+}
+
+header.menu-closed {
+  border-radius: 9999px !important;
 }
 
 /* Mobile optimization */
