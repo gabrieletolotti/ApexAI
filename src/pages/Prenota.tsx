@@ -137,9 +137,23 @@ const Prenota = () => {
     <div className="min-h-screen relative">
       <button
         onClick={() => navigate('/')}
-        className="fixed top-4 left-4 text-blue-600 hover:text-blue-800 transition-colors duration-300 z-50"
+        className="fixed top-24 left-6 w-12 h-12 bg-white/10 hover:bg-white/20 dark:bg-slate-800/50 dark:hover:bg-slate-700/50 backdrop-blur-md border border-white/20 dark:border-slate-700/50 rounded-full flex items-center justify-center transition-all duration-300 z-50 shadow-lg hover:scale-110"
+        aria-label="Torna alla home"
       >
-        ← Torna indietro
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          width="20" 
+          height="20" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          strokeWidth="2" 
+          strokeLinecap="round" 
+          strokeLinejoin="round"
+          className="text-slate-700 dark:text-slate-300"
+        >
+          <path d="m15 18-6-6 6-6"/>
+        </svg>
       </button>
       <Header />
       
