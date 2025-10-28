@@ -130,7 +130,7 @@ const Hero = () => {
       </section>
 
       {/* Seconda sezione - Features che appare dal basso */}
-      <section className="min-h-screen flex items-center px-4 py-20 bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-900 dark:via-background dark:to-slate-800">
+  <section className="min-h-screen flex items-center px-4 py-20 dv-surface-soft">
         <div className="container mx-auto max-w-6xl">
           <div ref={featuresRef} className={`space-y-12 transform transition-all duration-1000 ${featuresVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
             <h3 className="text-3xl lg:text-4xl font-bold text-center text-slate-800 dark:text-slate-200 mb-16">
@@ -138,17 +138,17 @@ const Hero = () => {
             </h3>
 
             {/* Sistema AI predittivo */}
-            <div className="bg-gradient-to-br from-white/80 to-slate-100/70 dark:from-slate-800/90 dark:to-slate-900/80 rounded-2xl p-6 lg:p-8 backdrop-blur-2xl border-2 border-slate-200/60 dark:border-slate-600/50 shadow-xl shadow-slate-400/20 dark:shadow-slate-900/40 max-w-4xl mx-auto transform transition-all duration-700 delay-200">
+            <div className="dv-panel rounded-2xl p-6 lg:p-8 shadow-xl shadow-slate-400/20 dark:shadow-slate-900/40 max-w-4xl mx-auto transform transition-all duration-700 delay-200">
               <div className="grid md:grid-cols-3 gap-4">
-                <div className="text-center p-4 bg-white/60 dark:bg-slate-700/50 rounded-lg border border-slate-200/40 dark:border-slate-600/30">
+                <div className="text-center p-4 dv-panel rounded-lg">
                   <div className="text-lg font-bold text-green-500">+89%</div>
                   <div className="text-sm text-slate-600 dark:text-slate-400">Aumenta l'efficienza</div>
                 </div>
-                <div className="text-center p-4 bg-white/60 dark:bg-slate-700/50 rounded-lg border border-slate-200/40 dark:border-slate-600/30">
+                <div className="text-center p-4 dv-panel rounded-lg">
                   <div className="text-lg font-bold text-blue-500">-67%</div>
                   <div className="text-sm text-slate-600 dark:text-slate-400">Riduci i costi operativi</div>
                 </div>
-                <div className="text-center p-4 bg-white/60 dark:bg-slate-700/50 rounded-lg border border-slate-200/40 dark:border-slate-600/30">
+                <div className="text-center p-4 dv-panel rounded-lg">
                   <div className="text-lg font-bold text-purple-500">Real-time</div>
                   <div className="text-sm text-slate-600 dark:text-slate-400">Adattamento continuo</div>
                 </div>
@@ -156,7 +156,7 @@ const Hero = () => {
             </div>
 
             {/* 3 Pilastri strategici */}
-            <div className="bg-gradient-to-br from-white/80 to-slate-100/70 dark:from-slate-800/90 dark:to-slate-900/80 rounded-2xl p-6 lg:p-8 backdrop-blur-2xl border-2 border-slate-200/60 dark:border-slate-600/50 shadow-xl shadow-slate-400/20 dark:shadow-slate-900/40 max-w-4xl mx-auto transform transition-all duration-700 delay-400">
+            <div className="dv-panel rounded-2xl p-6 lg:p-8 shadow-xl shadow-slate-400/20 dark:shadow-slate-900/40 max-w-4xl mx-auto transform transition-all duration-700 delay-400">
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="text-center space-y-4">
                   <div className="bg-blue-100 dark:bg-blue-900/30 w-16 h-16 rounded-xl flex items-center justify-center mx-auto">

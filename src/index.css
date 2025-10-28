@@ -300,6 +300,41 @@
   }
 }
 
+/* DarkVeil-inspired background surfaces */
+/* These classes harmonize other pages with the Hero's DarkVeil look in dark mode. */
+.dv-surface { background: transparent; /* Light mode keeps existing backgrounds */ }
+.dv-surface-soft { background: transparent; }
+
+.dv-panel {
+  /* Light mode glass panel */
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: saturate(120%) blur(16px);
+  -webkit-backdrop-filter: saturate(120%) blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.dark .dv-panel {
+  /* Dark glass panel aligned to DarkVeil aesthetics */
+  background: rgba(2, 6, 23, 0.64); /* slate-950/65 */
+  border: 1px solid rgba(100, 116, 139, 0.28); /* slate-500/30 */
+  box-shadow: 0 12px 40px rgba(2, 6, 23, 0.7);
+  backdrop-filter: blur(18px) saturate(120%);
+  -webkit-backdrop-filter: blur(18px) saturate(120%);
+}
+
+.dark .dv-surface,
+.dark .dv-surface-soft {
+  background: radial-gradient(120% 140% at 20% -10%, rgba(88, 28, 135, 0.24) 0%, rgba(30, 64, 175, 0.16) 35%, rgba(0,0,0,0) 65%),
+              linear-gradient(180deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,1) 100%);
+}
+
+.dark .dv-surface-soft {
+  /* Softer, less saturated variant for content sections */
+  background: radial-gradient(110% 130% at 10% -15%, rgba(88, 28, 135, 0.18) 0%, rgba(30, 64, 175, 0.12) 40%, rgba(0,0,0,0) 65%),
+              linear-gradient(180deg, rgba(2, 6, 23, 0.92) 0%, rgba(2, 6, 23, 1) 100%);
+}
+
 @keyframes fade-in-right {
   from {
     opacity: 0;

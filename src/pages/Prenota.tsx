@@ -109,7 +109,7 @@ const Prenota = () => {
         <Header />
         <main className="pt-24 pb-20">
           <div className="container mx-auto px-4">
-            <Card className="max-w-2xl mx-auto text-center p-12 border-0 ring-1 ring-white/80 dark:ring-slate-700 shadow-xl bg-white/70 dark:bg-slate-900/50 backdrop-blur-xl">
+            <Card className="max-w-2xl mx-auto text-center p-12 ring-1 ring-white/80 dark:ring-slate-700 shadow-xl dv-panel">
               <CardContent className="space-y-4">
                 <div className="mx-auto w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mb-4">
                   <Send className="text-green-600 dark:text-green-400" size={32} />
@@ -182,7 +182,7 @@ const Prenota = () => {
             className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto"
           >
             {/* Left Column - Form */}
-            <Card className={`animate-on-scroll fade-in-left ${contentVisible ? 'visible' : ''}`}>
+            <Card className={`animate-on-scroll fade-in-left dv-panel ${contentVisible ? 'visible' : ''}`}>
               <CardHeader>
                 <CardTitle>Invia la tua richiesta</CardTitle>
                 <CardDescription>
@@ -324,7 +324,7 @@ const Prenota = () => {
             {/* Right Column - Contact Info & Trust Badges */}
             <div className="space-y-6">
               {/* Contact Information */}
-              <Card className={`animate-on-scroll fade-in-right ${contentVisible ? 'visible' : ''}`}>
+              <Card className={`animate-on-scroll fade-in-right dv-panel ${contentVisible ? 'visible' : ''}`}>
                 <CardHeader>
                   <CardTitle>Informazioni di contatto</CardTitle>
                   <CardDescription>
@@ -371,7 +371,7 @@ const Prenota = () => {
               </Card>
 
               {/* Trust Badges */}
-              <Card className={`animate-on-scroll fade-in-right stagger-2 ${contentVisible ? 'visible' : ''}`}>
+              <Card className={`animate-on-scroll fade-in-right stagger-2 dv-panel ${contentVisible ? 'visible' : ''}`}>
                 <CardHeader>
                   <CardTitle>Perché scegliere ApexAI</CardTitle>
                 </CardHeader>
