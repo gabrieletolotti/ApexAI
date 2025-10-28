@@ -509,19 +509,10 @@ html {
   animation: pulse-custom 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-/* Header mobile menu - instant border-radius, slow height */
+/* Header mobile menu - smooth expansion with consistent border radius */
 header.mobile-header {
-  transition: height 0.3s ease-out;
-}
-
-header.mobile-header.menu-open {
-  border-radius: 1.5rem !important;
-  transition: height 0.3s ease-out, border-radius 0s !important;
-}
-
-header.mobile-header.menu-closed {
-  border-radius: 9999px !important;
-  transition: height 0.3s ease-out, border-radius 0s 0.3s !important;
+  border-radius: 1.5rem;
+  transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Mobile optimization */
