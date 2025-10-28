@@ -369,11 +369,37 @@
 }
 
 @keyframes gradient-shift {
-  0% {
-    background-position: 200% 50%;
+  0%, 100% { 
+    background-position: 0% 50%; 
   }
-  100% {
-    background-position: 0% 50%;
+  50% { 
+    background-position: 100% 50%; 
+  }
+}
+
+/* Animated Hero Background - CSS gradient alternative to WebGL */
+.hero-animated-bg {
+  background: 
+    radial-gradient(ellipse 140% 100% at 30% 20%, rgba(124, 58, 237, 0.35) 0%, transparent 55%),
+    radial-gradient(ellipse 120% 90% at 70% 80%, rgba(59, 130, 246, 0.3) 0%, transparent 50%),
+    radial-gradient(ellipse 100% 80% at 50% 50%, rgba(139, 92, 246, 0.25) 0%, transparent 60%),
+    linear-gradient(180deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.95) 100%);
+  background-size: 400% 400%, 400% 400%, 300% 300%, 100% 100%;
+  animation: heroGradientFlow 20s ease-in-out infinite;
+}
+
+@keyframes heroGradientFlow {
+  0%, 100% {
+    background-position: 0% 0%, 100% 100%, 50% 50%, 0% 0%;
+  }
+  25% {
+    background-position: 50% 25%, 75% 80%, 30% 70%, 0% 0%;
+  }
+  50% {
+    background-position: 100% 50%, 20% 50%, 80% 30%, 0% 0%;
+  }
+  75% {
+    background-position: 25% 75%, 90% 20%, 60% 80%, 0% 0%;
   }
 }
 

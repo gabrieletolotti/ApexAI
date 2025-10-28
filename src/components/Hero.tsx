@@ -2,7 +2,6 @@ import { ArrowRight, Bot, Zap, TrendingUp } from 'lucide-react';
 import LogoLoop from '@/components/LogoLoop';
 import { Button } from '@/components/ui/button';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
-import DarkVeil from '@/components/ui/DarkVeil';
 
 /**
  * Hero Component - Sezione principale con titolo impattante e CTA
@@ -47,20 +46,9 @@ const Hero = () => {
   return (
     <>
       {/* Prima sezione - Hero che occupa tutto lo schermo */}
-      <section id="home" className="h-screen flex items-start md:items-center justify-center relative z-0 px-4 pt-32 md:pt-0 bg-black dark:bg-black">
-        {/* DarkVeil WebGL background - dominante in dark mode */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <DarkVeil 
-            hueShift={0}
-            noiseIntensity={0}
-            scanlineIntensity={0}
-            speed={2.5}
-            scanlineFrequency={0}
-            warpAmount={0.35}
-            resolutionScale={1}
-            brightness={0.5}
-          />
-        </div>
+      <section id="home" className="h-screen flex items-start md:items-center justify-center relative z-0 px-4 pt-32 md:pt-0 bg-black dark:bg-black overflow-hidden">
+        {/* Animated gradient background - CSS puro */}
+        <div className="absolute inset-0 pointer-events-none hero-animated-bg"></div>
         
         {/* Overlay scuro gradiente per rendere leggibile il testo */}
         <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-black/50 via-black/30 to-black/85"></div>
