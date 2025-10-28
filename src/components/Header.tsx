@@ -159,97 +159,97 @@ const Header = () => {
         </div>
 
         {/* Mobile Layout */}
-        <div className="flex md:hidden flex-col items-center w-full">
-          <div className="flex items-center justify-between w-full">
-            <button 
-              onClick={goHome}
-              className="hover:scale-105 transition-transform duration-300 cursor-pointer"
-            >
-              <img src="./lovable-uploads/aa430766-16dd-4783-bc9f-f9980ee34dea.png" alt="ApexAI Logo" className="h-10" />
-            </button>
-            
-            <button 
-              className="hover:scale-110 transition-transform duration-300 z-50"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
+        <div className="flex md:hidden items-center justify-between w-full">
+          <button 
+            onClick={goHome}
+            className="hover:scale-105 transition-transform duration-300 cursor-pointer"
+          >
+            <img src="./lovable-uploads/aa430766-16dd-4783-bc9f-f9980ee34dea.png" alt="ApexAI Logo" className="h-10" />
+          </button>
+          
+          <button 
+            className="hover:scale-110 transition-transform duration-300 relative z-[60]"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <X size={24} className="text-white" /> : <Menu size={24} />}
+          </button>
         </div>
       </div>
       
-      {/* Mobile Full Screen Overlay Menu */}
-      <div className={`md:hidden fixed inset-0 bg-slate-950/95 dark:bg-slate-950/98 backdrop-blur-xl z-40 transition-all duration-500 ${isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
-        <nav className="flex flex-col items-center justify-center h-full gap-8">
-          {isHomePage ? (
-            <>
-              <button 
-                onClick={() => scrollToSection('home')} 
-                className={`text-foreground hover:text-primary text-2xl font-medium transition-all duration-300 ${isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
-                style={{ transitionDelay: isMenuOpen ? '100ms' : '0ms' }}
-              >
-                Home
-              </button>
-              <button 
-                onClick={() => scrollToSection('services')} 
-                className={`text-foreground hover:text-primary text-2xl font-medium transition-all duration-300 ${isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
-                style={{ transitionDelay: isMenuOpen ? '200ms' : '0ms' }}
-              >
-                Servizi
-              </button>
-              <button 
-                onClick={() => scrollToSection('about')} 
-                className={`text-foreground hover:text-primary text-2xl font-medium transition-all duration-300 ${isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
-                style={{ transitionDelay: isMenuOpen ? '300ms' : '0ms' }}
-              >
-                Chi Siamo
-              </button>
-              <button 
-                onClick={() => scrollToSection('cta')} 
-                className={`text-foreground hover:text-primary text-2xl font-medium transition-all duration-300 ${isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
-                style={{ transitionDelay: isMenuOpen ? '400ms' : '0ms' }}
-              >
-                Contatti
-              </button>
-            </>
-          ) : (
-            <>
-              <Link 
-                to="/" 
-                onClick={() => setIsMenuOpen(false)} 
-                className={`text-foreground hover:text-primary text-2xl font-medium transition-all duration-300 ${isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
-                style={{ transitionDelay: isMenuOpen ? '100ms' : '0ms' }}
-              >
-                Home
-              </Link>
-              <Link 
-                to="/" 
-                onClick={() => setIsMenuOpen(false)} 
-                className={`text-foreground hover:text-primary text-2xl font-medium transition-all duration-300 ${isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
-                style={{ transitionDelay: isMenuOpen ? '200ms' : '0ms' }}
-              >
-                Servizi
-              </Link>
-              <Link 
-                to="/" 
-                onClick={() => setIsMenuOpen(false)} 
-                className={`text-foreground hover:text-primary text-2xl font-medium transition-all duration-300 ${isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
-                style={{ transitionDelay: isMenuOpen ? '300ms' : '0ms' }}
-              >
-                Chi Siamo
-              </Link>
-              <Link 
-                to="/" 
-                onClick={() => setIsMenuOpen(false)} 
-                className={`text-foreground hover:text-primary text-2xl font-medium transition-all duration-300 ${isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
-                style={{ transitionDelay: isMenuOpen ? '400ms' : '0ms' }}
-              >
-                Contatti
-              </Link>
-            </>
-          )}
-        </nav>
-      </div>
+      {/* Mobile Full Screen Menu */}
+      {isMenuOpen && (
+        <div className="md:hidden fixed inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 z-50 flex items-center justify-center">
+          <nav className="flex flex-col items-center gap-12 px-8">
+            {isHomePage ? (
+              <>
+                <button 
+                  onClick={() => scrollToSection('home')} 
+                  className="text-white text-3xl font-semibold hover:text-blue-400 transition-colors duration-300 animate-in fade-in-0 slide-in-from-bottom-4"
+                  style={{ animationDelay: '100ms', animationFillMode: 'backwards' }}
+                >
+                  Home
+                </button>
+                <button 
+                  onClick={() => scrollToSection('services')} 
+                  className="text-white text-3xl font-semibold hover:text-blue-400 transition-colors duration-300 animate-in fade-in-0 slide-in-from-bottom-4"
+                  style={{ animationDelay: '200ms', animationFillMode: 'backwards' }}
+                >
+                  Servizi
+                </button>
+                <button 
+                  onClick={() => scrollToSection('about')} 
+                  className="text-white text-3xl font-semibold hover:text-blue-400 transition-colors duration-300 animate-in fade-in-0 slide-in-from-bottom-4"
+                  style={{ animationDelay: '300ms', animationFillMode: 'backwards' }}
+                >
+                  Chi Siamo
+                </button>
+                <button 
+                  onClick={() => scrollToSection('cta')} 
+                  className="text-white text-3xl font-semibold hover:text-blue-400 transition-colors duration-300 animate-in fade-in-0 slide-in-from-bottom-4"
+                  style={{ animationDelay: '400ms', animationFillMode: 'backwards' }}
+                >
+                  Contatti
+                </button>
+              </>
+            ) : (
+              <>
+                <Link 
+                  to="/" 
+                  onClick={() => setIsMenuOpen(false)} 
+                  className="text-white text-3xl font-semibold hover:text-blue-400 transition-colors duration-300 animate-in fade-in-0 slide-in-from-bottom-4"
+                  style={{ animationDelay: '100ms', animationFillMode: 'backwards' }}
+                >
+                  Home
+                </Link>
+                <Link 
+                  to="/" 
+                  onClick={() => setIsMenuOpen(false)} 
+                  className="text-white text-3xl font-semibold hover:text-blue-400 transition-colors duration-300 animate-in fade-in-0 slide-in-from-bottom-4"
+                  style={{ animationDelay: '200ms', animationFillMode: 'backwards' }}
+                >
+                  Servizi
+                </Link>
+                <Link 
+                  to="/" 
+                  onClick={() => setIsMenuOpen(false)} 
+                  className="text-white text-3xl font-semibold hover:text-blue-400 transition-colors duration-300 animate-in fade-in-0 slide-in-from-bottom-4"
+                  style={{ animationDelay: '300ms', animationFillMode: 'backwards' }}
+                >
+                  Chi Siamo
+                </Link>
+                <Link 
+                  to="/" 
+                  onClick={() => setIsMenuOpen(false)} 
+                  className="text-white text-3xl font-semibold hover:text-blue-400 transition-colors duration-300 animate-in fade-in-0 slide-in-from-bottom-4"
+                  style={{ animationDelay: '400ms', animationFillMode: 'backwards' }}
+                >
+                  Contatti
+                </Link>
+              </>
+            )}
+          </nav>
+        </div>
+      )}
     </header>
   );
 };
