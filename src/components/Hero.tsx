@@ -87,7 +87,7 @@ const Hero = () => {
               </Button>
             </div>
             {/* LogoLoop under CTA */}
-            <div className={`absolute bottom-[15vh] left-0 right-0 px-8 md:px-16 animate-on-scroll fade-in-up ${heroVisible ? 'visible' : ''}`}>
+            <div className={`absolute bottom-[10vh] left-0 right-0 px-8 md:px-16 animate-on-scroll fade-in-up ${heroVisible ? 'visible' : ''}`}>
               <LogoLoop
                 logos={[
                   { src: `https://cdn.simpleicons.org/meta/${logoColor}`, alt: 'Meta', href: 'https://meta.com' },
