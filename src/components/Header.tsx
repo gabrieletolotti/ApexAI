@@ -169,78 +169,86 @@ const Header = () => {
             </button>
             
             <button 
-              className="hover:scale-110 transition-transform duration-300"
+              className="hover:scale-110 transition-transform duration-300 z-50"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
-
-          {/* Mobile Navigation - Horizontal menu below logo */}
-          {isMenuOpen && (
-            <nav className="flex items-center justify-center gap-3 mt-4 pb-2 w-full">
-              {isHomePage ? (
-                <>
-                  <button 
-                    onClick={() => scrollToSection('home')} 
-                    className="text-foreground hover:text-primary hover:scale-110 transition-all text-xs font-medium whitespace-nowrap"
-                  >
-                    Home
-                  </button>
-                  <button 
-                    onClick={() => scrollToSection('services')} 
-                    className="text-foreground hover:text-primary hover:scale-110 transition-all text-xs font-medium whitespace-nowrap"
-                  >
-                    Servizi
-                  </button>
-                  <button 
-                    onClick={() => scrollToSection('about')} 
-                    className="text-foreground hover:text-primary hover:scale-110 transition-all text-xs font-medium whitespace-nowrap"
-                  >
-                    Chi Siamo
-                  </button>
-                  <button 
-                    onClick={() => scrollToSection('cta')} 
-                    className="text-foreground hover:text-primary hover:scale-110 transition-all text-xs font-medium whitespace-nowrap"
-                  >
-                    Contatti
-                  </button>
-                </>
-              ) : (
-                <>
-                  <Link 
-                    to="/" 
-                    onClick={() => setIsMenuOpen(false)} 
-                    className="text-foreground hover:text-primary hover:scale-110 transition-all text-xs font-medium whitespace-nowrap"
-                  >
-                    Home
-                  </Link>
-                  <Link 
-                    to="/" 
-                    onClick={() => setIsMenuOpen(false)} 
-                    className="text-foreground hover:text-primary hover:scale-110 transition-all text-xs font-medium whitespace-nowrap"
-                  >
-                    Servizi
-                  </Link>
-                  <Link 
-                    to="/" 
-                    onClick={() => setIsMenuOpen(false)} 
-                    className="text-foreground hover:text-primary hover:scale-110 transition-all text-xs font-medium whitespace-nowrap"
-                  >
-                    Chi Siamo
-                  </Link>
-                  <Link 
-                    to="/" 
-                    onClick={() => setIsMenuOpen(false)} 
-                    className="text-foreground hover:text-primary hover:scale-110 transition-all text-xs font-medium whitespace-nowrap"
-                  >
-                    Contatti
-                  </Link>
-                </>
-              )}
-            </nav>
-          )}
         </div>
+      </div>
+      
+      {/* Mobile Full Screen Overlay Menu */}
+      <div className={`md:hidden fixed inset-0 bg-slate-950/95 dark:bg-slate-950/98 backdrop-blur-xl z-40 transition-all duration-500 ${isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
+        <nav className="flex flex-col items-center justify-center h-full gap-8">
+          {isHomePage ? (
+            <>
+              <button 
+                onClick={() => scrollToSection('home')} 
+                className={`text-foreground hover:text-primary text-2xl font-medium transition-all duration-300 ${isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+                style={{ transitionDelay: isMenuOpen ? '100ms' : '0ms' }}
+              >
+                Home
+              </button>
+              <button 
+                onClick={() => scrollToSection('services')} 
+                className={`text-foreground hover:text-primary text-2xl font-medium transition-all duration-300 ${isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+                style={{ transitionDelay: isMenuOpen ? '200ms' : '0ms' }}
+              >
+                Servizi
+              </button>
+              <button 
+                onClick={() => scrollToSection('about')} 
+                className={`text-foreground hover:text-primary text-2xl font-medium transition-all duration-300 ${isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+                style={{ transitionDelay: isMenuOpen ? '300ms' : '0ms' }}
+              >
+                Chi Siamo
+              </button>
+              <button 
+                onClick={() => scrollToSection('cta')} 
+                className={`text-foreground hover:text-primary text-2xl font-medium transition-all duration-300 ${isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+                style={{ transitionDelay: isMenuOpen ? '400ms' : '0ms' }}
+              >
+                Contatti
+              </button>
+            </>
+          ) : (
+            <>
+              <Link 
+                to="/" 
+                onClick={() => setIsMenuOpen(false)} 
+                className={`text-foreground hover:text-primary text-2xl font-medium transition-all duration-300 ${isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+                style={{ transitionDelay: isMenuOpen ? '100ms' : '0ms' }}
+              >
+                Home
+              </Link>
+              <Link 
+                to="/" 
+                onClick={() => setIsMenuOpen(false)} 
+                className={`text-foreground hover:text-primary text-2xl font-medium transition-all duration-300 ${isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+                style={{ transitionDelay: isMenuOpen ? '200ms' : '0ms' }}
+              >
+                Servizi
+              </Link>
+              <Link 
+                to="/" 
+                onClick={() => setIsMenuOpen(false)} 
+                className={`text-foreground hover:text-primary text-2xl font-medium transition-all duration-300 ${isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+                style={{ transitionDelay: isMenuOpen ? '300ms' : '0ms' }}
+              >
+                Chi Siamo
+              </Link>
+              <Link 
+                to="/" 
+                onClick={() => setIsMenuOpen(false)} 
+                className={`text-foreground hover:text-primary text-2xl font-medium transition-all duration-300 ${isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+                style={{ transitionDelay: isMenuOpen ? '400ms' : '0ms' }}
+              >
+                Contatti
+              </Link>
+            </>
+          )}
+        </nav>
       </div>
     </header>
   );
