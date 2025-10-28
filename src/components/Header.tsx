@@ -107,7 +107,7 @@ const Header = () => {
   return (
     <header
       ref={ref}
-      className={`mobile-header fixed left-1/2 -translate-x-1/2 mt-6 w-[95vw] max-w-4xl bg-white/10 backdrop-blur-xl z-50 border border-white/20 shadow-lg ${isIntersecting ? 'translate-y-0 opacity-100' : 'translate-y-0 opacity-100'} ${isPanelOpen ? 'menu-open' : 'menu-closed'}`}
+      className={`mobile-header fixed left-4 right-4 md:left-1/2 md:right-auto md:-translate-x-1/2 mt-6 md:w-[95vw] md:max-w-4xl bg-white/10 backdrop-blur-xl z-50 border border-white/20 shadow-lg ${isIntersecting ? 'translate-y-0 opacity-100' : 'translate-y-0 opacity-100'} ${isPanelOpen ? 'menu-open' : 'menu-closed'}`}
       style={{ top: undefined }}
     >
       <div className="w-full flex flex-col px-6 py-3">
