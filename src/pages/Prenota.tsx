@@ -138,29 +138,6 @@ const Prenota = () => {
       <Header />
 
       <main className="pt-32 pb-20">
-        <div className="container mx-auto px-4 mb-8">
-          <button
-            onClick={() => navigate('/')}
-            className="group inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/10 dark:bg-slate-800/50 backdrop-blur-sm border border-white/20 dark:border-slate-700 hover:bg-white/20 dark:hover:bg-slate-700/70 transition-all duration-300 hover:scale-105 active:scale-95 touch-manipulation"
-            aria-label="Torna alla Home"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="transition-transform group-hover:-translate-x-1"
-            >
-              <path d="M15 18l-6-6 6-6" />
-            </svg>
-            <span className="font-medium">Torna alla Home</span>
-          </button>
-        </div>
         <div className="container mx-auto px-4">
           {/* Title Section */}
           <div 
